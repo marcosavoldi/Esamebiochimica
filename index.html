@@ -83,26 +83,7 @@
 <body>
     <div class="container">
         <h1>Esame biochimica clinica</h1>
-        <form id="quizForm">
-            <div class="question">
-                <h3>1. Che colore è il sole?</h3>
-                <label><input type="radio" name="q1" value="a"> Giallo</label>
-                <label><input type="radio" name="q1" value="b"> Verde</label>
-                <label><input type="radio" name="q1" value="c"> Blu</label>
-                <label><input type="radio" name="q1" value="d"> Viola</label>
-            </div>
-
-            <div class="question">
-                <h3>2. Che colore è la vegetazione?</h3>
-                <label><input type="radio" name="q2" value="a"> Rosa</label>
-                <label><input type="radio" name="q2" value="b"> Blu</label>
-                <label><input type="radio" name="q2" value="c"> Rossa</label>
-                <label><input type="radio" name="q2" value="d"> Verde</label>
-            </div>
-
-            <button type="button" onclick="calculateScore()">Invia Risposte</button>
-            <button type="button" onclick="resetTest()">Ricomincia Test</button>
-        </form>
+        <form id="quizForm"></form>
 
         <div class="result" id="result"></div>
         
@@ -111,96 +92,102 @@
     </div>
 
     <script>
-        function calculateScore() {
-            var score = 0;
-            var correctAnswers = {
-                q1: 'a', // Giallo
-                q2: 'd'  // Verde
-            };
-
-            // Mappatura delle domande con il testo reale
-            var questionTexts = {
-                q1: 'Che colore è il sole?',
-                q2: 'Che colore è la vegetazione?'
-            };
-
-            var form = document.getElementById('quizForm');
-            var resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = ''; // Reset the result content
-
-            // Recupera i dati dal Local Storage
-            var attempts = localStorage.getItem('attempts') || 0;
-            var totalErrors = localStorage.getItem('totalErrors') || 0;
-            var wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
-
-            // Incrementa il numero di tentativi
-            attempts++;
-            localStorage.setItem('attempts', attempts);
-
-            var errors = 0;
-
-            // Controllo della prima domanda
-            var q1Answer = form.q1.value;
-            if (q1Answer === correctAnswers.q1) {
-                score++;
-                resultDiv.innerHTML += "<p>Domanda 1 corretta!</p>";
-            } else {
-                resultDiv.innerHTML += `<p>Domanda 1 errata. La risposta corretta era: Giallo.</p>`;
-                errors++;
-                wrongAnswers.q1 = (wrongAnswers.q1 || 0) + 1;
+        // Set di domande (esempio con alcune domande)
+        const questions = [
+            {
+                text: "L'appropriatezza nella medicina di laboratorio riguarda soprattutto:",
+                options: ["Appropriatezza organizzativa", "Appropriatezza formativa", "Appropriatezza prescrittiva", "Appropriatezza terapeutica"],
+                correct: 2
+            },
+            {
+                text: "Nei laboratori di analisi non vengono generalmente impiegati:",
+                options: ["Biotecnologi", "Tecnici specializzati", "Nessuna delle risposte", "Medici"],
+                correct: 3
+            },
+            {
+                text: "La metrologia è la scienza che studia:",
+                options: ["Le unità di misura", "Nessuna delle risposte precedenti", "Tutti i processi di misurazione", "Le variazioni delle misurazioni"],
+                correct: 2
+            },
+            {
+                text: "Il misurando è:",
+                options: ["L'unità di misura della misurazione", "Tutte le risposte precedenti", "Il risultato di una misurazione", "L'oggetto o il fenomeno da misurare"],
+                correct: 3
+            },
+            {
+                text: "Il livello di colesterolo:",
+                options: ["E' più alto negli uomini", "E' più alto nei bambini", "E' simile negli uomini e nelle donne", "E' più alto nelle donne"],
+                correct: 0
             }
+            // Puoi aggiungere qui tutte le altre domande dal set completo
+        ];
 
-            // Controllo della seconda domanda
-            var q2Answer = form.q2.value;
-            if (q2Answer === correctAnswers.q2) {
-                score++;
-                resultDiv.innerHTML += "<p>Domanda 2 corretta!</p>";
-            } else {
-                resultDiv.innerHTML += `<p>Domanda 2 errata. La risposta corretta era: Verde.</p>`;
-                errors++;
-                wrongAnswers.q2 = (wrongAnswers.q2 || 0) + 1;
-            }
+        // Funzione per selezionare 24 domande casuali
+        function getRandomQuestions(num) {
+            const shuffled = questions.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, num);
+        }
 
-            // Salva il numero totale di errori
-            totalErrors = Number(totalErrors) + errors;
-            localStorage.setItem('totalErrors', totalErrors);
-
-            // Salva le risposte sbagliate
-            localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
-
-            // Calcola la media degli errori
-            var averageErrors = (totalErrors / attempts).toFixed(2);
-
-            // Classifica delle 5 domande più sbagliate
-            var sortedWrongAnswers = Object.entries(wrongAnswers)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 5);
-
-            // Mostra il punteggio finale
-            resultDiv.innerHTML += `<p>Punteggio finale: ${score}/2</p>`;
-            resultDiv.innerHTML += `<p>Numero di tentativi: ${attempts}</p>`;
-            resultDiv.innerHTML += `<p>Media errori: ${averageErrors}</p>`;
-
-            // Mostra le domande più sbagliate con il testo reale della domanda
-            resultDiv.innerHTML += "<h3>Domande più sbagliate:</h3>";
-            sortedWrongAnswers.forEach((entry, index) => {
-                var questionKey = entry[0];
-                var correctAnswerText = correctAnswers[questionKey] === 'a' ? 'Giallo' : 'Verde'; // Puoi espandere qui per più risposte
-                resultDiv.innerHTML += `<p>${index + 1}. ${questionTexts[questionKey]}: Risposta corretta - ${correctAnswerText} (Sbagliata ${entry[1]} volte)</p>`;
+        // Mostra le domande nel quiz
+        function renderQuiz() {
+            const quizForm = document.getElementById('quizForm');
+            const randomQuestions = getRandomQuestions(24); // Ottieni 24 domande casuali
+            randomQuestions.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                questionDiv.innerHTML = `<h3>${index + 1}. ${question.text}</h3>`;
+                question.options.forEach((option, i) => {
+                    const label = document.createElement('label');
+                    label.innerHTML = `<input type="radio" name="q${index}" value="${i}"> ${option}`;
+                    questionDiv.appendChild(label);
+                });
+                quizForm.appendChild(questionDiv);
             });
+
+            const submitButton = document.createElement('button');
+            submitButton.textContent = "Invia Risposte";
+            submitButton.type = "button";
+            submitButton.onclick = () => calculateScore(randomQuestions);
+            quizForm.appendChild(submitButton);
         }
 
-        // Funzione per resettare il test senza cancellare i dati dal Local Storage
-        function resetTest() {
-            var form = document.getElementById('quizForm');
-            var resultDiv = document.getElementById('result');
+        // Calcola il punteggio e mostra il risultato
+        function calculateScore(questions) {
+            let score = 0;
+            let form = document.getElementById('quizForm');
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // Reset del risultato
 
-            // Resetta il modulo (deseleziona tutte le risposte)
-            form.reset();
+            questions.forEach((question, index) => {
+                let userAnswer = form[`q${index}`].value;
+                if (userAnswer == question.correct) {
+                    score++;
+                }
+            });
 
-            // Resetta il div del risultato
-            resultDiv.innerHTML = '';
+            // Determina se il test è superato
+            if (score >= 18) {
+                resultDiv.innerHTML = `<p>TEST SUPERATO! Punteggio: ${score}/24</p>`;
+            } else {
+                resultDiv.innerHTML = `<p>TEST NON SUPERATO. Punteggio: ${score}/24</p>`;
+            }
+
+            // Salva i dati nel local storage
+            saveResults(score);
         }
+
+        // Funzione per salvare i risultati nel local storage
+        function saveResults(score) {
+            let attempts = localStorage.getItem('attempts') || 0;
+            let totalErrors = localStorage.getItem('totalErrors') || 0;
+            attempts++;
+            totalErrors += (24 - score);
+            localStorage.setItem('attempts', attempts);
+            localStorage.setItem('totalErrors', totalErrors);
+        }
+
+        // Carica il quiz alla pagina
+        window.onload = renderQuiz;
     </script>
 </body>
 </html>
