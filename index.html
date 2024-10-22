@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esame biochimica clinica</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            padding: 8px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        label:hover {
+            background-color: #d1e7dd;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #003d80;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+        .result p {
+            margin: 10px 0;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Esame biochimica clinica</h1>
+        <form id="quizForm">
+            <div class="question">
+                <h3>1. Che colore è il sole?</h3>
+                <label><input type="radio" name="q1" value="a"> Giallo</label>
+                <label><input type="radio" name="q1" value="b"> Verde</label>
+                <label><input type="radio" name="q1" value="c"> Blu</label>
+                <label><input type="radio" name="q1" value="d"> Viola</label>
+            </div>
+
+            <div class="question">
+                <h3>2. Che colore è la vegetazione?</h3>
+                <label><input type="radio" name="q2" value="a"> Rosa</label>
+                <label><input type="radio" name="q2" value="b"> Blu</label>
+                <label><input type="radio" name="q2" value="c"> Rossa</label>
+                <label><input type="radio" name="q2" value="d"> Verde</label>
+            </div>
+
+            <button type="button" onclick="calculateScore()">Invia Risposte</button>
+            <button type="button" onclick="resetTest()">Ricomincia Test</button>
+        </form>
+
+        <div class="result" id="result"></div>
+        
+        <!-- Pulsante per andare al Pannello di Controllo -->
+        <button type="button" onclick="window.location.href='control_panel.html'">Vai al Pannello di Controllo</button>
+    </div>
+
+    <script>
+        function calculateScore() {
+            var score = 0;
+            var correctAnswers = {
+                q1: 'a', // Giallo
+                q2: 'd'  // Verde
+            };
+
+            // Mappatura delle domande con il testo reale
+            var questionTexts = {
+                q1: 'Che colore è il sole?',
+                q2: 'Che colore è la vegetazione?'
+            };
+
+            var form = document.getElementById('quizForm');
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // Reset the result content
+
+            // Recupera i dati dal Local Storage
+            var attempts = localStorage.getItem('attempts') || 0;
+            var totalErrors = localStorage.getItem('totalErrors') || 0;
+            var wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
+
+            // Incrementa il numero di tentativi
+            attempts++;
+            localStorage.setItem('attempts', attempts);
+
+            var errors = 0;
+
+            // Controllo della prima domanda
+            var q1Answer = form.q1.value;
+            if (q1Answer === correctAnswers.q1) {
+                score++;
+                resultDiv.innerHTML += "<p>Domanda 1 corretta!</p>";
+            } else {
+                resultDiv.innerHTML += `<p>Domanda 1 errata. La risposta corretta era: Giallo.</p>`;
+                errors++;
+                wrongAnswers.q1 = (wrongAnswers.q1 || 0) + 1;
+            }
+
+            // Controllo della seconda domanda
+            var q2Answer = form.q2.value;
+            if (q2Answer === correctAnswers.q2) {
+                score++;
+                resultDiv.innerHTML += "<p>Domanda 2 corretta!</p>";
+            } else {
+                resultDiv.innerHTML += `<p>Domanda 2 errata. La risposta corretta era: Verde.</p>`;
+                errors++;
+                wrongAnswers.q2 = (wrongAnswers.q2 || 0) + 1;
+            }
+
+            // Salva il numero totale di errori
+            totalErrors = Number(totalErrors) + errors;
+            localStorage.setItem('totalErrors', totalErrors);
+
+            // Salva le risposte sbagliate
+            localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
+
+            // Calcola la media degli errori
+            var averageErrors = (totalErrors / attempts).toFixed(2);
+
+            // Classifica delle 5 domande più sbagliate
+            var sortedWrongAnswers = Object.entries(wrongAnswers)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            // Mostra il punteggio finale
+            resultDiv.innerHTML += `<p>Punteggio finale: ${score}/2</p>`;
+            resultDiv.innerHTML += `<p>Numero di tentativi: ${attempts}</p>`;
+            resultDiv.innerHTML += `<p>Media errori: ${averageErrors}</p>`;
+
+            // Mostra le domande più sbagliate con il testo reale della domanda
+            resultDiv.innerHTML += "<h3>Domande più sbagliate:</h3>";
+            sortedWrongAnswers.forEach((entry, index) => {
+                var questionKey = entry[0];
+                var correctAnswerText = correctAnswers[questionKey] === 'a' ? 'Giallo' : 'Verde'; // Puoi espandere qui per più risposte
+                resultDiv.innerHTML += `<p>${index + 1}. ${questionTexts[questionKey]}: Risposta corretta - ${correctAnswerText} (Sbagliata ${entry[1]} volte)</p>`;
+            });
+        }
+
+        // Funzione per resettare il test senza cancellare i dati dal Local Storage
+        function resetTest() {
+            var form = document.getElementById('quizForm');
+            var resultDiv = document.getElementById('result');
+
+            // Resetta il modulo (deseleziona tutte le risposte)
+            form.reset();
+
+            // Resetta il div del risultato
+            resultDiv.innerHTML = '';
+        }
+    </script>
+</body>
+</html>

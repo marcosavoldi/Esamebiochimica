@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pannello di controllo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #003d80;
+        }
+        .stats {
+            margin-top: 20px;
+        }
+        .stats p {
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pannello di Controllo</h1>
+        <div class="stats" id="stats">
+            <!-- Dati caricati dal Local Storage -->
+        </div>
+        <button onclick="window.location.href='test.html'">Torna al Test</button>
+    </div>
+
+    <script>
+        function loadStats() {
+            var statsDiv = document.getElementById('stats');
+
+            // Recupera i dati dal Local Storage
+            var attempts = localStorage.getItem('attempts') || 0;
+            var totalErrors = localStorage.getItem('totalErrors') || 0;
+            var wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
+            var correctAnswers = {
+                q1: 'a', // Giallo
+                q2: 'd'  // Verde
+            };
+
+            // Mappatura delle domande con il testo reale
+            var questionTexts = {
+                q1: 'Che colore è il sole?',
+                q2: 'Che colore è la vegetazione?'
+            };
+
+            // Calcola la media degli errori
+            var averageErrors = attempts > 0 ? (totalErrors / attempts).toFixed(2) : 0;
+
+            // Classifica delle 5 domande più sbagliate
+            var sortedWrongAnswers = Object.entries(wrongAnswers)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            // Mostra le statistiche nel div
+            statsDiv.innerHTML = `<p>Tentativi effettuati: ${attempts}</p>`;
+            statsDiv.innerHTML += `<p>Media errori per tentativo: ${averageErrors}</p>`;
+
+            // Mostra le domande più sbagliate con il testo reale della domanda
+            statsDiv.innerHTML += "<h3>Domande più sbagliate:</h3>";
+            if (sortedWrongAnswers.length > 0) {
+                sortedWrongAnswers.forEach((entry, index) => {
+                    var questionKey = entry[0];
+                    var correctAnswerText = correctAnswers[questionKey] === 'a' ? 'Giallo' : 'Verde'; // Puoi espandere qui per più risposte
+                    statsDiv.innerHTML += `<p>${index + 1}. ${questionTexts[questionKey]}: Risposta corretta - ${correctAnswerText} (Sbagliata ${entry[1]} volte)</p>`;
+                });
+            } else {
+                statsDiv.innerHTML += "<p>Nessuna domanda è stata ancora sbagliata.</p>";
+            }
+        }
+
+        // Carica le statistiche al caricamento della pagina
+        window.onload = loadStats;
+    </script>
+</body>
+</html>
