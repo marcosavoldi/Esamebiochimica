@@ -92,12 +92,38 @@
                 font-size: 14px;
             }
         }
+
+        #timer {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #0056b3;
+            /* Sfondo blu */
+            color: white;
+            /* Testo bianco */
+            font-weight: bold;
+            /* Testo in grassetto */
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 16px;
+            z-index: 1000;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            width: 90px;
+            /* Aumenta leggermente la larghezza del box */
+            text-align: center;
+            /* Centra il testo all'interno del box */
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Esame biochimica clinica</h1>
+
+        <button id="startButton" onclick="startTest()">Inizia Test</button>
+        <div id="timer" style="display:none; text-align:center; font-size:20px; margin-top:10px;"><span
+                id="time"></span></div>
         <form id="quizForm"></form>
 
         <div class="result" id="result"></div>
@@ -356,8 +382,6 @@
             localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
         }
 
-        // Carica il quiz alla pagina
-        window.onload = renderQuiz;
 
         // Funzione per ricaricare la pagina e riavviare il test
         function restartTest() {
@@ -365,6 +389,90 @@
                 window.location.reload(); // Ricarica la pagina
             }
         }
+
+        let timer; // Variabile per il timer
+        let timeRemaining = 40 * 60; // 40 minuti in secondi
+
+        // Funzione per avviare il test
+        function startTest() {
+            document.getElementById('startButton').style.display = 'none'; // Nasconde il pulsante
+            document.getElementById('timer').style.display = 'block'; // Mostra il timer
+            renderQuiz(); // Mostra il quiz
+            startTimer(); // Avvia il timer
+        }
+
+        // Funzione per avviare il timer
+        function startTimer() {
+            updateTimerDisplay(); // Aggiorna la visualizzazione del tempo immediatamente
+            timer = setInterval(function () {
+                timeRemaining--;
+                updateTimerDisplay();
+                if (timeRemaining <= 0) {
+                    clearInterval(timer);
+                    calculateScore(getRandomQuestions(24)); // Invia automaticamente il test
+                }
+            }, 1000); // Ogni secondo
+        }
+
+        // Aggiorna la visualizzazione del tempo
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('time').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        // Bloccato quando il test viene inviato prima della scadenza
+        function calculateScore(questions) {
+            clearInterval(timer); // Ferma il timer
+            let score = 0;
+            let form = document.getElementById('quizForm');
+            let resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ''; // Reset del risultato
+            let errors = 0;
+            let wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
+            questions.forEach((question, index) => {
+                const radios = form[`q${index}`];
+                let userAnswer = null;
+                if (radios) {
+                    for (let i = 0; i < radios.length; i++) {
+                        if (radios[i].checked) {
+                            userAnswer = radios[i].value;
+                            break;
+                        }
+                    }
+                }
+                if (userAnswer !== null && userAnswer == question.correct) {
+                    score++;
+                } else {
+                    errors++;
+                    wrongAnswers[`q${index}`] = (wrongAnswers[`q${index}`] || 0) + 1;
+                }
+            });
+            let totalTime = 40 * 60 - timeRemaining; // Tempo totale impiegato
+            saveResults(score, errors, wrongAnswers, totalTime); // Salva anche il tempo impiegato
+            if (score >= 18) {
+                resultDiv.innerHTML = `<p>TEST SUPERATO! Punteggio: ${score}/24</p>`;
+            } else {
+                resultDiv.innerHTML = `<p>TEST NON SUPERATO. Punteggio: ${score}/24</p>`;
+            }
+        }
+
+        // Funzione per salvare i risultati nel local storage
+        function saveResults(score, errors, wrongAnswers, totalTime) {
+            let attempts = parseInt(localStorage.getItem('attempts')) || 0;
+            let totalErrors = parseInt(localStorage.getItem('totalErrors')) || 0;
+            let totalTimeSpent = parseInt(localStorage.getItem('totalTimeSpent')) || 0; // Tempo totale passato
+
+            attempts++;
+            totalErrors += errors;
+            totalTimeSpent += totalTime; // Aggiorna il tempo totale passato
+
+            localStorage.setItem('attempts', attempts);
+            localStorage.setItem('totalErrors', totalErrors);
+            localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
+            localStorage.setItem('totalTimeSpent', totalTimeSpent); // Salva il tempo totale impiegato
+        }
+
     </script>
 </body>
 
