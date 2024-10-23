@@ -16,7 +16,7 @@
 
         h1 {
             text-align: center;
-            color: #0056b3;
+            color: #333;
         }
 
         .container {
@@ -63,6 +63,18 @@
                 font-size: 14px;
             }
         }
+
+        .stats p strong {
+            color: #0056b3;
+            /* Blu per il testo base in grassetto */
+            font-weight: bold;
+        }
+
+        .stats p span {
+            color: #333;
+            /* Nero per il testo non in grassetto */
+            font-weight: normal;
+        }
     </style>
 </head>
 
@@ -83,14 +95,21 @@
             // Recupera i dati dal Local Storage
             var attempts = parseInt(localStorage.getItem('attempts')) || 0;
             var totalErrors = parseInt(localStorage.getItem('totalErrors')) || 0;
+            var totalTimeSpent = parseInt(localStorage.getItem('totalTimeSpent')) || 0; // Tempo totale passato
             var wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
 
             // Calcola la media degli errori
             var averageErrors = attempts > 0 ? (totalErrors / attempts).toFixed(2) : 0;
 
-            // Mappatura delle domande con il testo reale (sostituisci questo con le tue domande)
+            // Calcola il tempo medio (in secondi) e lo converte in formato minuti e secondi
+            var averageTime = attempts > 0 ? (totalTimeSpent / attempts) : 0;
+            var averageMinutes = Math.floor(averageTime / 60);
+            var averageSeconds = Math.floor(averageTime % 60);
+
+
+            // Mappatura delle domande con il testo reale (puoi sostituire queste domande con quelle del quiz completo)
             var questionTexts = {
-                q0: 'Quale tra i seguenti enzimi è più comunemente misurato per diagnosticare un danno epatico?',
+                q0q0: 'Quale tra i seguenti enzimi è più comunemente misurato per diagnosticare un danno epatico?',
                 q1: 'Quale parametro è un indicatore di funzione renale?',
                 q2: 'L\'aumento della bilirubina nel sangue è associato a quale condizione?',
                 q3: 'Qual è l\'enzima più comunemente associato all\'infarto miocardico?',
@@ -100,7 +119,26 @@
                 q7: 'L\'amilasi è un enzima utilizzato per diagnosticare problemi a quale organo?',
                 q8: 'La misurazione della glicemia viene utilizzata principalmente per diagnosticare quale patologia?',
                 q9: 'La clearance della creatinina misura la funzionalità di quale organo?',
-                // Continua con tutte le altre domande fino a q23 (per esempio)
+                q10: 'Quale lipoproteina è considerata "colesterolo buono"?',
+                q11: 'Quale sostanza viene misurata per valutare l\'acidosi metabolica?',
+                q12: 'Qual è il range normale del pH sanguigno?',
+                q13: 'Un aumento dell\'LDH (Lattato deidrogenasi) può essere indicativo di:',
+                q14: 'Il test del PSA è utilizzato per monitorare quale patologia?',
+                q15: 'Quale valore viene misurato per valutare lo stato di idratazione di un paziente?',
+                q16: 'Quale enzima è elevato nella pancreatite acuta?',
+                q17: 'Il livello di albumina nel sangue è utilizzato per valutare:',
+                q18: 'Quale delle seguenti non è una lipoproteina?',
+                q19: 'Il dosaggio dell\'HbA1c è importante nella gestione di:',
+                q20: 'Un aumento della fosfatasi alcalina è associato a malattie di:',
+                q21: 'La determinazione del tempo di protrombina valuta la funzionalità di:',
+                q22: 'L\'aumento della troponina indica solitamente:',
+                q23: 'L\'iperlipidemia può aumentare il rischio di:',
+                q24: 'L\'aumento dei livelli di lattato nel sangue può essere un segno di:',
+                q25: 'Quale tra questi è un indicatore di danno muscolare?',
+                q26: 'Il rapporto albumina/globulina è usato per valutare:',
+                q27: 'L\'aumento del livello di urea nel sangue può essere indicativo di:',
+                q28: 'Quale marcatore è utilizzato per il monitoraggio del carcinoma ovarico?',
+                q29: 'La concentrazione plasmatica di potassio è importante per la regolazione di:',
             };
 
             // Mappatura delle risposte corrette
@@ -115,12 +153,32 @@
                 q7: 'Pancreas',
                 q8: 'Diabete mellito',
                 q9: 'Reni',
-                // Continua con le risposte corrette per tutte le altre domande
+                q10: 'HDL',
+                q11: 'Bicarbonato',
+                q12: '7.35 - 7.45',
+                q13: 'Danno muscolare',
+                q14: 'Cancro alla prostata',
+                q15: 'Sodio',
+                q16: 'Amilasi',
+                q17: 'Funzione epatica',
+                q18: 'Troponina',
+                q19: 'Diabete',
+                q20: 'Ossa e fegato',
+                q21: 'Fegato',
+                q22: 'Infarto miocardico',
+                q23: 'Malattie cardiovascolari',
+                q24: 'Ipossiemia',
+                q25: 'CK (Creatina Chinasi)',
+                q26: 'Funzione epatica',
+                q27: 'Insufficienza renale',
+                q28: 'CA 125',
+                q29: 'Equilibrio idrosalino e attività elettrica del cuore',
             };
 
             // Mostra le statistiche nel div
-            statsDiv.innerHTML = `<p>Tentativi effettuati: ${attempts}</p>`;
-            statsDiv.innerHTML += `<p>Media errori per tentativo: ${averageErrors}</p>`;
+            statsDiv.innerHTML = `<p><strong>Tentativi effettuati:</strong> <span>${attempts}</span></p>`;
+            statsDiv.innerHTML += `<p><strong>Media errori per tentativo:</strong> <span>${averageErrors}</span></p>`;
+            statsDiv.innerHTML += `<p><strong>Tempo medio di completamento:</strong> <span>${averageMinutes} minuti e ${averageSeconds} secondi</span></p>`;
 
             // Mostra le domande più sbagliate con il testo reale della domanda e la risposta corretta
             statsDiv.innerHTML += "<h3>Domande più sbagliate:</h3>";
@@ -132,12 +190,15 @@
                         var questionKey = entry[0];
                         var questionText = questionTexts[questionKey] || 'Domanda non trovata'; // Recupera il testo della domanda
                         var correctAnswer = correctAnswers[questionKey] || 'Risposta corretta non trovata'; // Recupera la risposta corretta
-                        statsDiv.innerHTML += `<p>${index + 1}. ${questionText}: Risposta corretta - ${correctAnswer} (Sbagliata ${entry[1]} volte)</p>`;
+                        statsDiv.innerHTML += `<p><strong>${index + 1}. ${questionText}:</strong> <span>Risposta corretta - ${correctAnswer} (Sbagliata ${entry[1]} volte)</span></p>`;
                     });
             } else {
-                statsDiv.innerHTML += "<p>Nessuna domanda è stata ancora sbagliata.</p>";
+                statsDiv.innerHTML += "<p><strong>Nessuna domanda è stata ancora sbagliata.</strong></p>";
             }
         }
+
+        // Carica le statistiche al caricamento della pagina
+        window.onload = loadStats;
 
         // Carica le statistiche al caricamento della pagina
         window.onload = loadStats;
