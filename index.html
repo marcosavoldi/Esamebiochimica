@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +13,12 @@
             padding: 20px;
             color: #333;
         }
+
         h1 {
             text-align: center;
             color: #0056b3;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -24,13 +27,16 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
+
         .question {
             margin-bottom: 20px;
         }
+
         .question h3 {
             margin-bottom: 10px;
             color: #333;
         }
+
         label {
             display: block;
             margin-bottom: 8px;
@@ -40,12 +46,15 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         input[type="radio"] {
             margin-right: 10px;
         }
+
         label:hover {
             background-color: #d1e7dd;
         }
+
         button {
             display: block;
             width: 100%;
@@ -59,65 +68,199 @@
             transition: background-color 0.3s;
             margin-top: 10px;
         }
+
         button:hover {
             background-color: #003d80;
         }
+
         .result {
             font-weight: bold;
             margin-top: 20px;
             color: #333;
         }
+
         .result p {
             margin: 10px 0;
         }
+
         @media (max-width: 600px) {
             .container {
                 padding: 15px;
             }
+
             button {
                 font-size: 14px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Esame biochimica clinica</h1>
         <form id="quizForm"></form>
 
         <div class="result" id="result"></div>
-        
+
         <!-- Pulsante per andare al Pannello di Controllo -->
         <button type="button" onclick="window.location.href='control_panel.html'">Vai al Pannello di Controllo</button>
+
+        <!-- Pulsante per riavviare il test -->
+        <button type="button" onclick="restartTest()">Riavvia Test</button>
     </div>
 
     <script>
         // Set di domande (esempio con alcune domande)
         const questions = [
             {
-                text: "L'appropriatezza nella medicina di laboratorio riguarda soprattutto:",
-                options: ["Appropriatezza organizzativa", "Appropriatezza formativa", "Appropriatezza prescrittiva", "Appropriatezza terapeutica"],
+                text: "Quale tra i seguenti enzimi è più comunemente misurato per diagnosticare un danno epatico?",
+                options: ["Amilasi", "ALT (Alanina aminotransferasi)", "Lipasi", "Creatinfosfochinasi"],
+                correct: 1
+            },
+            {
+                text: "Quale parametro è un indicatore di funzione renale?",
+                options: ["Bilirubina", "Creatinina", "Troponina", "Transaminasi"],
+                correct: 1
+            },
+            {
+                text: "L'aumento della bilirubina nel sangue è associato a quale condizione?",
+                options: ["Diabete", "Anemia", "Iperbilirubinemia", "Iperuricemia"],
                 correct: 2
             },
             {
-                text: "Nei laboratori di analisi non vengono generalmente impiegati:",
-                options: ["Biotecnologi", "Tecnici specializzati", "Nessuna delle risposte", "Medici"],
-                correct: 3
+                text: "Qual è l'enzima più comunemente associato all'infarto miocardico?",
+                options: ["Lipasi", "Troponina", "Fosfatasi alcalina", "Gamma-glutamiltransferasi (GGT)"],
+                correct: 1
             },
             {
-                text: "La metrologia è la scienza che studia:",
-                options: ["Le unità di misura", "Nessuna delle risposte precedenti", "Tutti i processi di misurazione", "Le variazioni delle misurazioni"],
-                correct: 2
-            },
-            {
-                text: "Il misurando è:",
-                options: ["L'unità di misura della misurazione", "Tutte le risposte precedenti", "Il risultato di una misurazione", "L'oggetto o il fenomeno da misurare"],
-                correct: 3
-            },
-            {
-                text: "Il livello di colesterolo:",
-                options: ["E' più alto negli uomini", "E' più alto nei bambini", "E' simile negli uomini e nelle donne", "E' più alto nelle donne"],
+                text: "Il livello elevato di acido urico nel sangue può causare quale malattia?",
+                options: ["Gotta", "Emofilia", "Ipercolesterolemia", "Artrite reumatoide"],
                 correct: 0
+            },
+            {
+                text: "Quale proteina è comunemente utilizzata come marker di infiammazione?",
+                options: ["Albumina", "Proteina C-reattiva (PCR)", "Transferrina", "Ferritina"],
+                correct: 1
+            },
+            {
+                text: "Quale parametro è utilizzato per valutare la funzionalità epatica?",
+                options: ["Glicemia", "Aspartato aminotransferasi (AST)", "Urea", "Colesterolo"],
+                correct: 1
+            },
+            {
+                text: "L'amilasi è un enzima utilizzato per diagnosticare problemi a quale organo?",
+                options: ["Pancreas", "Fegato", "Cuore", "Reni"],
+                correct: 0
+            },
+            {
+                text: "La misurazione della glicemia viene utilizzata principalmente per diagnosticare quale patologia?",
+                options: ["Ipercolesterolemia", "Diabete mellito", "Insufficienza epatica", "Iperuricemia"],
+                correct: 1
+            },
+            {
+                text: "La clearance della creatinina misura la funzionalità di quale organo?",
+                options: ["Cuore", "Polmoni", "Reni", "Fegato"],
+                correct: 2
+            },
+            {
+                text: "Quale lipoproteina è considerata 'colesterolo buono'?",
+                options: ["LDL", "HDL", "VLDL", "IDL"],
+                correct: 1
+            },
+            {
+                text: "Quale sostanza viene misurata per valutare l'acidosi metabolica?",
+                options: ["Bicarbonato", "Urea", "Bilirubina", "Potassio"],
+                correct: 0
+            },
+            {
+                text: "Qual è il range normale del pH sanguigno?",
+                options: ["6.8 - 7.0", "7.35 - 7.45", "7.8 - 8.0", "6.5 - 6.9"],
+                correct: 1
+            },
+            {
+                text: "Un aumento dell'LDH (Lattato deidrogenasi) può essere indicativo di:",
+                options: ["Insufficienza renale", "Danno muscolare", "Ipoglicemia", "Ipotiroidismo"],
+                correct: 1
+            },
+            {
+                text: "Il test del PSA è utilizzato per monitorare quale patologia?",
+                options: ["Cancro al pancreas", "Cancro alla prostata", "Diabete", "Malattia epatica"],
+                correct: 1
+            },
+            {
+                text: "Quale valore viene misurato per valutare lo stato di idratazione di un paziente?",
+                options: ["Sodio", "Bilirubina", "Albumina", "Cloruro"],
+                correct: 0
+            },
+            {
+                text: "Quale enzima è elevato nella pancreatite acuta?",
+                options: ["AST", "Amilasi", "GGT", "ALT"],
+                correct: 1
+            },
+            {
+                text: "Il livello di albumina nel sangue è utilizzato per valutare:",
+                options: ["Funzione epatica", "Funzione polmonare", "Funzione renale", "Glicemia"],
+                correct: 0
+            },
+            {
+                text: "Quale delle seguenti non è una lipoproteina?",
+                options: ["LDL", "HDL", "Troponina", "VLDL"],
+                correct: 2
+            },
+            {
+                text: "Il dosaggio dell'HbA1c è importante nella gestione di:",
+                options: ["Insufficienza renale", "Diabete", "Ipertensione", "Dislipidemia"],
+                correct: 1
+            },
+            {
+                text: "Un aumento della fosfatasi alcalina è associato a malattie di:",
+                options: ["Cuore", "Ossa e fegato", "Pancreas", "Reni"],
+                correct: 1
+            },
+            {
+                text: "La determinazione del tempo di protrombina valuta la funzionalità di:",
+                options: ["Fegato", "Reni", "Cuore", "Pancreas"],
+                correct: 0
+            },
+            {
+                text: "L’aumento della troponina indica solitamente:",
+                options: ["Insufficienza renale", "Infarto miocardico", "Diabete", "Ictus"],
+                correct: 1
+            },
+            {
+                text: "L'iperlipidemia può aumentare il rischio di:",
+                options: ["Diarrea", "Malattie cardiovascolari", "Iperbilirubinemia", "Insufficienza renale"],
+                correct: 1
+            },
+            {
+                text: "L'aumento dei livelli di lattato nel sangue può essere un segno di:",
+                options: ["Iperossia", "Ipossiemia", "Iperglicemia", "Iperlipidemia"],
+                correct: 1
+            },
+            {
+                text: "Quale tra questi è un indicatore di danno muscolare?",
+                options: ["Bilirubina", "CK (Creatina Chinasi)", "Sodio", "Urea"],
+                correct: 1
+            },
+            {
+                text: "Il rapporto albumina/globulina è usato per valutare:",
+                options: ["Funzione pancreatica", "Funzione epatica", "Funzione cardiaca", "Funzione renale"],
+                correct: 1
+            },
+            {
+                text: "L'aumento del livello di urea nel sangue può essere indicativo di:",
+                options: ["Insufficienza renale", "Insufficienza epatica", "Iperglicemia", "Iperlipidemia"],
+                correct: 0
+            },
+            {
+                text: "Quale marcatore è utilizzato per il monitoraggio del carcinoma ovarico?",
+                options: ["CA 125", "PSA", "CEA", "AFP"],
+                correct: 0
+            },
+            {
+                text: "La concentrazione plasmatica di potassio è importante per la regolazione di:",
+                options: ["Bilirubina", "Equilibrio idrosalino e attività elettrica del cuore", "Funzione epatica", "Funzione pancreatica"],
+                correct: 1
             }
             // Puoi aggiungere qui tutte le altre domande dal set completo
         ];
@@ -158,10 +301,34 @@
             let resultDiv = document.getElementById('result');
             resultDiv.innerHTML = ''; // Reset del risultato
 
+            // Variabile per tracciare gli errori
+            let errors = 0;
+
+            // Recupera le risposte sbagliate dal localStorage (se esistono)
+            let wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
+
             questions.forEach((question, index) => {
-                let userAnswer = form[`q${index}`].value;
-                if (userAnswer == question.correct) {
+                // Ottieni tutte le risposte selezionate per la domanda corrente
+                const radios = form[`q${index}`];
+                let userAnswer = null;
+
+                // Controlla se esiste un input radio selezionato
+                if (radios) {
+                    for (let i = 0; i < radios.length; i++) {
+                        if (radios[i].checked) {
+                            userAnswer = radios[i].value;
+                            break;
+                        }
+                    }
+                }
+
+                // Confronta la risposta solo se l'utente ha selezionato qualcosa
+                if (userAnswer !== null && userAnswer == question.correct) {
                     score++;
+                } else {
+                    errors++;
+                    // Registra la domanda come sbagliata
+                    wrongAnswers[`q${index}`] = (wrongAnswers[`q${index}`] || 0) + 1;
                 }
             });
 
@@ -173,21 +340,32 @@
             }
 
             // Salva i dati nel local storage
-            saveResults(score);
+            saveResults(score, errors, wrongAnswers);
         }
 
         // Funzione per salvare i risultati nel local storage
-        function saveResults(score) {
-            let attempts = localStorage.getItem('attempts') || 0;
-            let totalErrors = localStorage.getItem('totalErrors') || 0;
+        function saveResults(score, errors, wrongAnswers) {
+            let attempts = parseInt(localStorage.getItem('attempts')) || 0;
+            let totalErrors = parseInt(localStorage.getItem('totalErrors')) || 0;
+
             attempts++;
-            totalErrors += (24 - score);
+            totalErrors += errors;
+
             localStorage.setItem('attempts', attempts);
             localStorage.setItem('totalErrors', totalErrors);
+            localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
         }
 
         // Carica il quiz alla pagina
         window.onload = renderQuiz;
+
+        // Funzione per ricaricare la pagina e riavviare il test
+        function restartTest() {
+            if (confirm("Sei sicuro di voler riavviare il test? Perderai tutte le risposte inserite.")) {
+                window.location.reload(); // Ricarica la pagina
+            }
+        }
     </script>
 </body>
+
 </html>
