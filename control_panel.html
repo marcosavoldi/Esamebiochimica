@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +13,12 @@
             padding: 20px;
             color: #333;
         }
+
         h1 {
             text-align: center;
             color: #0056b3;
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -24,6 +27,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
+
         button {
             display: block;
             width: 100%;
@@ -37,25 +41,31 @@
             transition: background-color 0.3s;
             margin-top: 10px;
         }
+
         button:hover {
             background-color: #003d80;
         }
+
         .stats {
             margin-top: 20px;
         }
+
         .stats p {
             font-weight: bold;
         }
+
         @media (max-width: 600px) {
             .container {
                 padding: 15px;
             }
+
             button {
                 font-size: 14px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Pannello di Controllo</h1>
@@ -71,40 +81,59 @@
             var statsDiv = document.getElementById('stats');
 
             // Recupera i dati dal Local Storage
-            var attempts = localStorage.getItem('attempts') || 0;
-            var totalErrors = localStorage.getItem('totalErrors') || 0;
+            var attempts = parseInt(localStorage.getItem('attempts')) || 0;
+            var totalErrors = parseInt(localStorage.getItem('totalErrors')) || 0;
             var wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
-            var correctAnswers = {
-                q1: 'a', // Giallo
-                q2: 'd'  // Verde
-            };
-
-            // Mappatura delle domande con il testo reale
-            var questionTexts = {
-                q1: 'Che colore è il sole?',
-                q2: 'Che colore è la vegetazione?'
-            };
 
             // Calcola la media degli errori
             var averageErrors = attempts > 0 ? (totalErrors / attempts).toFixed(2) : 0;
 
-            // Classifica delle 5 domande più sbagliate
-            var sortedWrongAnswers = Object.entries(wrongAnswers)
-                .sort((a, b) => b[1] - a[1])
-                .slice(0, 5);
+            // Mappatura delle domande con il testo reale (sostituisci questo con le tue domande)
+            var questionTexts = {
+                q0: 'Quale tra i seguenti enzimi è più comunemente misurato per diagnosticare un danno epatico?',
+                q1: 'Quale parametro è un indicatore di funzione renale?',
+                q2: 'L\'aumento della bilirubina nel sangue è associato a quale condizione?',
+                q3: 'Qual è l\'enzima più comunemente associato all\'infarto miocardico?',
+                q4: 'Il livello elevato di acido urico nel sangue può causare quale malattia?',
+                q5: 'Quale proteina è comunemente utilizzata come marker di infiammazione?',
+                q6: 'Quale parametro è utilizzato per valutare la funzionalità epatica?',
+                q7: 'L\'amilasi è un enzima utilizzato per diagnosticare problemi a quale organo?',
+                q8: 'La misurazione della glicemia viene utilizzata principalmente per diagnosticare quale patologia?',
+                q9: 'La clearance della creatinina misura la funzionalità di quale organo?',
+                // Continua con tutte le altre domande fino a q23 (per esempio)
+            };
+
+            // Mappatura delle risposte corrette
+            var correctAnswers = {
+                q0: 'ALT (Alanina aminotransferasi)',
+                q1: 'Creatinina',
+                q2: 'Iperbilirubinemia',
+                q3: 'Troponina',
+                q4: 'Gotta',
+                q5: 'Proteina C-reattiva (PCR)',
+                q6: 'Aspartato aminotransferasi (AST)',
+                q7: 'Pancreas',
+                q8: 'Diabete mellito',
+                q9: 'Reni',
+                // Continua con le risposte corrette per tutte le altre domande
+            };
 
             // Mostra le statistiche nel div
             statsDiv.innerHTML = `<p>Tentativi effettuati: ${attempts}</p>`;
             statsDiv.innerHTML += `<p>Media errori per tentativo: ${averageErrors}</p>`;
 
-            // Mostra le domande più sbagliate con il testo reale della domanda
+            // Mostra le domande più sbagliate con il testo reale della domanda e la risposta corretta
             statsDiv.innerHTML += "<h3>Domande più sbagliate:</h3>";
-            if (sortedWrongAnswers.length > 0) {
-                sortedWrongAnswers.forEach((entry, index) => {
-                    var questionKey = entry[0];
-                    var correctAnswerText = correctAnswers[questionKey] === 'a' ? 'Giallo' : 'Verde'; // Puoi espandere qui per più risposte
-                    statsDiv.innerHTML += `<p>${index + 1}. ${questionTexts[questionKey]}: Risposta corretta - ${correctAnswerText} (Sbagliata ${entry[1]} volte)</p>`;
-                });
+            if (Object.keys(wrongAnswers).length > 0) {
+                Object.entries(wrongAnswers)
+                    .sort((a, b) => b[1] - a[1]) // Ordina per numero di errori
+                    .slice(0, 5) // Prendi le 5 domande più sbagliate
+                    .forEach((entry, index) => {
+                        var questionKey = entry[0];
+                        var questionText = questionTexts[questionKey] || 'Domanda non trovata'; // Recupera il testo della domanda
+                        var correctAnswer = correctAnswers[questionKey] || 'Risposta corretta non trovata'; // Recupera la risposta corretta
+                        statsDiv.innerHTML += `<p>${index + 1}. ${questionText}: Risposta corretta - ${correctAnswer} (Sbagliata ${entry[1]} volte)</p>`;
+                    });
             } else {
                 statsDiv.innerHTML += "<p>Nessuna domanda è stata ancora sbagliata.</p>";
             }
@@ -114,4 +143,5 @@
         window.onload = loadStats;
     </script>
 </body>
+
 </html>
