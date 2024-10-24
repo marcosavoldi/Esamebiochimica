@@ -51,6 +51,11 @@
             margin-right: 10px;
         }
 
+        input[type="radio"]:checked {
+            accent-color: black;
+            /* Cambia il colore del pallino selezionato in nero */
+        }
+
         label:hover {
             background-color: #d1e7dd;
         }
@@ -320,25 +325,21 @@
             quizForm.appendChild(submitButton);
         }
 
-        // Calcola il punteggio e mostra il risultato
+        // Funzione per calcolare il punteggio, fermare il timer e salvare i dati
         function calculateScore(questions) {
+            clearInterval(timer); // Ferma il timer
             let score = 0;
             let form = document.getElementById('quizForm');
             let resultDiv = document.getElementById('result');
             resultDiv.innerHTML = ''; // Reset del risultato
-
-            // Variabile per tracciare gli errori
             let errors = 0;
-
-            // Recupera le risposte sbagliate dal localStorage (se esistono)
             let wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
 
+            // Calcola il punteggio e colora le risposte corrette
             questions.forEach((question, index) => {
-                // Ottieni tutte le risposte selezionate per la domanda corrente
                 const radios = form[`q${index}`];
                 let userAnswer = null;
 
-                // Controlla se esiste un input radio selezionato
                 if (radios) {
                     for (let i = 0; i < radios.length; i++) {
                         if (radios[i].checked) {
@@ -348,26 +349,51 @@
                     }
                 }
 
-                // Confronta la risposta solo se l'utente ha selezionato qualcosa
+                // Confronta la risposta e aggiorna il punteggio
                 if (userAnswer !== null && userAnswer == question.correct) {
                     score++;
                 } else {
                     errors++;
-                    // Registra la domanda come sbagliata
                     wrongAnswers[`q${index}`] = (wrongAnswers[`q${index}`] || 0) + 1;
+                }
+
+                // Colora la risposta corretta in verde
+                for (let i = 0; i < radios.length; i++) {
+                    if (i == question.correct) {
+                        radios[i].parentElement.style.backgroundColor = 'lightgreen'; // Risposta corretta evidenziata
+                    }
                 }
             });
 
-            // Determina se il test è superato
+            // Mostra il risultato del test
             if (score >= 18) {
                 resultDiv.innerHTML = `<p>TEST SUPERATO! Punteggio: ${score}/24</p>`;
             } else {
                 resultDiv.innerHTML = `<p>TEST NON SUPERATO. Punteggio: ${score}/24</p>`;
             }
 
-            // Salva i dati nel local storage
-            saveResults(score, errors, wrongAnswers);
+            // Calcola e salva il tempo totale impiegato
+            let totalTime = 40 * 60 - timeRemaining; // Tempo totale impiegato
+            saveResults(score, errors, wrongAnswers, totalTime); // Salva anche il tempo impiegato
         }
+
+        // Funzione per salvare i risultati nel local storage, inclusi il tempo e gli errori
+        function saveResults(score, errors, wrongAnswers, totalTime) {
+            let attempts = parseInt(localStorage.getItem('attempts')) || 0;
+            let totalErrors = parseInt(localStorage.getItem('totalErrors')) || 0;
+            let totalTimeSpent = parseInt(localStorage.getItem('totalTimeSpent')) || 0; // Tempo totale passato
+
+            attempts++;
+            totalErrors += errors;
+            totalTimeSpent += totalTime; // Aggiorna il tempo totale passato
+
+            // Salva i dati aggiornati nel localStorage
+            localStorage.setItem('attempts', attempts);
+            localStorage.setItem('totalErrors', totalErrors);
+            localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
+            localStorage.setItem('totalTimeSpent', totalTimeSpent); // Salva il tempo totale impiegato
+        }
+
 
         // Funzione per salvare i risultati nel local storage
         function saveResults(score, errors, wrongAnswers) {
@@ -421,57 +447,57 @@
             document.getElementById('time').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         }
 
-        // Bloccato quando il test viene inviato prima della scadenza
-        function calculateScore(questions) {
-            clearInterval(timer); // Ferma il timer
-            let score = 0;
-            let form = document.getElementById('quizForm');
-            let resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = ''; // Reset del risultato
-            let errors = 0;
-            let wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
+        // Aggiungi questa variabile per contare i clic sul timer
+        let timerClickCount = 0;
+
+        // Funzione per generare risposte casuali
+        function fillRandomAnswers() {
+            const quizForm = document.getElementById('quizForm');
+            const questions = document.querySelectorAll('.question');
+
+            // Cicla tutte le domande e seleziona una risposta casuale
             questions.forEach((question, index) => {
-                const radios = form[`q${index}`];
-                let userAnswer = null;
-                if (radios) {
-                    for (let i = 0; i < radios.length; i++) {
-                        if (radios[i].checked) {
-                            userAnswer = radios[i].value;
-                            break;
-                        }
-                    }
-                }
-                if (userAnswer !== null && userAnswer == question.correct) {
-                    score++;
-                } else {
-                    errors++;
-                    wrongAnswers[`q${index}`] = (wrongAnswers[`q${index}`] || 0) + 1;
-                }
+                const radios = quizForm[`q${index}`];
+                const randomIndex = Math.floor(Math.random() * radios.length); // Genera un indice casuale
+                radios[randomIndex].checked = true; // Seleziona una risposta casuale
             });
-            let totalTime = 40 * 60 - timeRemaining; // Tempo totale impiegato
-            saveResults(score, errors, wrongAnswers, totalTime); // Salva anche il tempo impiegato
-            if (score >= 18) {
-                resultDiv.innerHTML = `<p>TEST SUPERATO! Punteggio: ${score}/24</p>`;
-            } else {
-                resultDiv.innerHTML = `<p>TEST NON SUPERATO. Punteggio: ${score}/24</p>`;
+        }
+
+        // Funzione per selezionare tutte le risposte corrette basate sull'indice della domanda
+        function fillCorrectAnswers(questions) {
+            const quizForm = document.getElementById('quizForm');
+
+            // Per ogni domanda randomizzata, seleziona la risposta corretta in base all'indice originale
+            questions.forEach((question, index) => {
+                const radios = quizForm[`q${index}`];
+
+                // Seleziona la risposta corretta in base all'indice della domanda originale
+                radios[question.correct].checked = true;
+            });
+        }
+
+        // Aggiungi l'evento click sul timer
+        document.getElementById('timer').addEventListener('click', () => {
+            timerClickCount++;
+
+            // Se cliccato 3 volte, compila automaticamente con risposte casuali
+            if (timerClickCount === 3) {
+                fillRandomAnswers();
+                timerClickCount = 0; // Resetta il contatore
             }
-        }
 
-        // Funzione per salvare i risultati nel local storage
-        function saveResults(score, errors, wrongAnswers, totalTime) {
-            let attempts = parseInt(localStorage.getItem('attempts')) || 0;
-            let totalErrors = parseInt(localStorage.getItem('totalErrors')) || 0;
-            let totalTimeSpent = parseInt(localStorage.getItem('totalTimeSpent')) || 0; // Tempo totale passato
+            // Se cliccato 6 volte, compila automaticamente con tutte le risposte corrette
+            if (timerClickCount === 6) {
+                const randomQuestions = getRandomQuestions(24); // Ottieni le domande visualizzate
+                fillCorrectAnswers(randomQuestions); // Compila le risposte corrette
+                timerClickCount = 0; // Resetta il contatore
+            }
 
-            attempts++;
-            totalErrors += errors;
-            totalTimeSpent += totalTime; // Aggiorna il tempo totale passato
-
-            localStorage.setItem('attempts', attempts);
-            localStorage.setItem('totalErrors', totalErrors);
-            localStorage.setItem('wrongAnswers', JSON.stringify(wrongAnswers));
-            localStorage.setItem('totalTimeSpent', totalTimeSpent); // Salva il tempo totale impiegato
-        }
+            // Resetta il contatore se non clicca entro 1.5 secondi
+            setTimeout(() => {
+                timerClickCount = 0;
+            }, 1500);
+        });
 
     </script>
 </body>
