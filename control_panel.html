@@ -66,13 +66,11 @@
 
         .stats p strong {
             color: #0056b3;
-            /* Blu per il testo base in grassetto */
             font-weight: bold;
         }
 
         .stats p span {
             color: #333;
-            /* Nero per il testo non in grassetto */
             font-weight: normal;
         }
     </style>
@@ -106,8 +104,7 @@
             var averageMinutes = Math.floor(averageTime / 60);
             var averageSeconds = Math.floor(averageTime % 60);
 
-
-            // Mappatura delle domande con il testo reale (puoi sostituire queste domande con quelle del quiz completo)
+            // Mappatura delle domande con il testo reale
             var questionTexts = {
                 q0: 'Quale tra i seguenti enzimi è più comunemente misurato per diagnosticare un danno epatico?',
                 q1: 'Quale parametro è un indicatore di funzione renale?',
@@ -196,9 +193,6 @@
                 statsDiv.innerHTML += "<p><strong>Nessuna domanda è stata ancora sbagliata.</strong></p>";
             }
         }
-
-        // Carica le statistiche al caricamento della pagina
-        window.onload = loadStats;
 
         // Carica le statistiche al caricamento della pagina
         window.onload = loadStats;
