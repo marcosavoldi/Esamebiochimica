@@ -603,23 +603,9 @@
             // Mostra le statistiche nel div
             statsDiv.innerHTML = `<p><strong>Tentativi effettuati:</strong> <span>${attempts}</span></p>`;
             statsDiv.innerHTML += `<p><strong>Media errori per tentativo:</strong> <span>${averageErrors}</span></p>`;
-            statsDiv.innerHTML += `<p><strong>Tempo medio di completamento:</strong> <span>${averageMinutes} minuti e ${averageSeconds} secondi</span></p>`;
+           
 
-            // Mostra le domande più sbagliate con il testo reale della domanda e la risposta corretta
-            statsDiv.innerHTML += "<h3>Domande più sbagliate:</h3>";
-            if (Object.keys(wrongAnswers).length > 0) {
-                Object.entries(wrongAnswers)
-                    .sort((a, b) => b[1] - a[1]) // Ordina per numero di errori
-                    .slice(0, 5) // Prendi le 5 domande più sbagliate
-                    .forEach((entry, index) => {
-                        var questionKey = entry[0];
-                        var questionText = questionTexts[questionKey] || 'Domanda non trovata'; // Recupera il testo della domanda
-                        var correctAnswer = correctAnswers[questionKey] || 'Risposta corretta non trovata'; // Recupera la risposta corretta
-                        statsDiv.innerHTML += `<p><strong>${index + 1}. ${questionText}:</strong> <span>Risposta corretta - ${correctAnswer} (Sbagliata ${entry[1]} volte)</span></p>`;
-                    });
-            } else {
-                statsDiv.innerHTML += "<p><strong>Nessuna domanda è stata ancora sbagliata.</strong></p>";
-            }
+            
         }
 
         // Carica le statistiche al caricamento della pagina
