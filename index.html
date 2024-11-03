@@ -138,10 +138,14 @@
 
         <!-- Pulsante per riavviare il test -->
         <button type="button" onclick="restartTest()">Riavvia Test</button>
+
+        <!-- Pulsante per riproporre lo stesso test -->
+        <button type="button" onclick="repeatSameTest()">Riproponi lo stesso Test</button>
+
     </div>
 
     <script>
-        // Set di domande (esempio con alcune domande)
+        // Set di domande
         const questions = [
             {
                 text: "L'appropriatezza nella medicina di laboratorio riguarda soprattutto:",
@@ -1396,11 +1400,27 @@
             return selectedQuestions;
         }
 
-        // Mostra le domande nel quiz
-        function renderQuiz() {
+        // Funzione per salvare l'elenco delle domande visualizzate per riproporle se necessario
+        function saveSelectedQuestions(questions) {
+            localStorage.setItem('savedQuestions', JSON.stringify(questions));
+        }
+
+        // Funzione per caricare le domande salvate nel localStorage
+        function loadSavedQuestions() {
+            return JSON.parse(localStorage.getItem('savedQuestions'));
+        }
+
+        // Mostra il quiz con le domande salvate
+        function renderQuiz(savedQuestions = null) {
             const quizForm = document.getElementById('quizForm');
-            const randomQuestions = getRandomQuestions(24); // Ottieni 24 domande casuali
-            randomQuestions.forEach((question, index) => {
+            quizForm.innerHTML = ''; // Pulisci il form per evitare duplicati
+
+            const questionsToRender = savedQuestions || getRandomQuestions(24);
+            if (!savedQuestions) {
+                saveSelectedQuestions(questionsToRender); // Salva solo se è un nuovo test
+            }
+
+            questionsToRender.forEach((question, index) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.classList.add('question');
                 questionDiv.innerHTML = `<h3>${index + 1}. ${question.text}</h3>`;
@@ -1415,8 +1435,21 @@
             const submitButton = document.createElement('button');
             submitButton.textContent = "Invia Risposte";
             submitButton.type = "button";
-            submitButton.onclick = () => calculateScore(randomQuestions);
+            submitButton.onclick = () => calculateScore(questionsToRender);
             quizForm.appendChild(submitButton);
+        }
+
+        // Ripropone lo stesso test con le domande salvate
+        function repeatSameTest() {
+            const savedQuestions = loadSavedQuestions();
+            if (savedQuestions) {
+                document.getElementById('startButton').style.display = 'none';
+                document.getElementById('timer').style.display = 'block';
+                renderQuiz(savedQuestions); // Mostra le domande salvate
+                startTimer(); // Avvia il timer
+            } else {
+                alert("Nessun test precedente trovato. Avvia un nuovo test prima di riproporlo.");
+            }
         }
 
         // Funzione per calcolare il punteggio, fermare il timer e salvare i dati
@@ -1593,6 +1626,20 @@
             }, 1500);
         });
 
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then((registration) => {
+                        console.log('Service Worker registrato con successo:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('Service Worker registrazione fallita:', error);
+                    });
+            });
+        }
     </script>
 </body>
 
