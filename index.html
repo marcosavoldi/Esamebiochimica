@@ -147,1240 +147,2206 @@
     <script>
         // Set di domande
         const questions = [
-            {
-                text: "L'appropriatezza nella medicina di laboratorio riguarda soprattutto:",
-                options: ["Appropriatezza organizzativa", "Appropriatezza formativa", "Appropriatezza prescrittiva", "Appropriatezza terapeutica"],
-                correct: 2
-            },
-            {
-                text: "Nei laboratori di analisi non vengono generalmente impiegati:",
-                options: ["Biotecnologi", "Tecnici specializzati", "Nessuna delle risposte", "Medici"],
-                correct: 2
-            },
-            {
-                text: "In termini di appropriatezza, sono maggiori gli esami diagnostichi:",
-                options: ["Utilizzati erroneamente", "Sottoutilizzati", "Nessuna di queste", "Sovrautilizzati"],
-                correct: 1
-            },
-            {
-                text: "Nello schema brain-to-brain la richiesta di un esame diagnostico genera e termina:",
-                options: ["Nel cervello del clinico", "Nel cervello del tecnico di laboratorio", "Nel cervello del paziente", "Nel cervello del biochimico clinico"],
-                correct: 0
-            },
-            {
-                text: "La medicina di precisione prevede che:",
-                options: ["I pazienti affetti dalla stessa patologia siano trattati con farmaci diversi a seconda delle peculiarità biologiche", "Nessuna delle precedenti", "Tutti i pazienti affetti dalla stessa patologia siano trattati con lo stesso farmaco specifico", "Tutti i pazienti affetti dalla stessa patologia siano trattati con lo stesso farmaco generico"],
-                correct: 0
-            },
-            {
-                text: "La fase post-post-analitica è:",
-                options: ["Non fa parte dell'intero processo diagnostico", "E' sia interna che esterna al laboratorio di analisi", "Esterna al laboratorio di analisi", "Interna al laboratorio di analisi"],
-                correct: 2
-            },
-            {
-                text: "La diminuzione degli errori nella fase analitica sono stati raggiunti grazie:",
-                options: ["Minori procedimenti burocratici", "Minor numero di ore lavorative", "Maggiore standardizzazione delle procedure", "Maggior numero di personale impiegato"],
-                correct: 2
-            },
-            {
-                text: "La medicina di laboratorio è una disciplina che contribuisce a definire:",
-                options: ["Tutte le risposte", "La terapia", "La prognosi", "La diagnosi"],
-                correct: 0
-            },
-            {
-                text: "La metrologia è la scienza che studia:",
-                options: ["Le unità di misura", "Nessuna delle risposte precedenti", "Tutti i processi di misurazione", "Le variazioni delle misurazioni"],
-                correct: 2
-            },
-            {
-                text: "Fondamentalmente in un laboratorio di analisi medica si eseguono:",
-                options: ["Dei saggi biologici", "Nessuna delle precedenti", "Delle misurazioni", "Delle reazioni chimiche"],
-                correct: 2
-            },
-
-            {
-                text: "Il misurando è:",
-                options: ["L'unità di misura della misurazione", "Tutte le risposte precedenti", "Il risultato di una misurazione", "L'oggetto o il fenomeno da misurare"],
-                correct: 3
-            },
-            {
-                text: "In biochimica clinica è importante stabilire:",
-                options: ["Il motivo della misurazione", "L'idoneità del campione da misurare", "Il campione da misurare", "Tutte le risposte"],
-                correct: 3
-            },
-            {
-                text: "Con i metodi analitici usati nei laboratori diagnostici si arriva generalmente a determinare:",
-                options: ["La concentrazione di una sostanza in un campione", "Le proprietà chimico-fisiche di un campione", "Tutte le risposte", "Le proprietà biologiche di un campione"],
-                correct: 0
-            },
-            {
-                text: "La legge di Lambert Beer esprime:",
-                options: ["La proporzionalità tra la torbidità di una soluzione e l'assorbanza ad una determinata lunghezza d'onda", "La proporzionalità tra la concentrazione di una sostanza e l'assorbanza ad una determinata lunghezza d'onda", "La proporzionalità tra la solubilità di una sostanza e l'assorbanza ad una determinata lunghezza d'onda", "Tutte le risposte"],
-                correct: 1
-            },
-            {
-                text: "I metodi indiretti utilizzati nei laboratori diagnostici consentono di:",
-                options: ["Determinare la concentrazione di un analita presente in un campione biologico", "Tutte le risposte precedenti", "Determinare l'assorbanza di un analita presente in un campione biologico", "Determinare il tipo di analita presente in un campione biologico"],
-                correct: 1
-            },
-            {
-                text: "Le lunghezze d'onda utilizzate nelle misurazioni spettrofotometriche:",
-                options: ["Sono policromatiche", "Sono monocromatiche", "Tutte le risposte", "Sono nell'infrarosso"],
-                correct: 1
-            },
-            {
-                text: "La calibrazione è:",
-                options: ["un'operazione logico-pratica che predispone lo strumento a fornire i risultati della misurazione", "è un'operazione meccanica che stabilisce il rapporto tra il segnale e una grandezza", "è un'operazione meccanica, che predispone lo strumento a fornire i risultati della misurazione", "un'operazione logico-pratica che stabilisce il rapporto tra il segnale e una grandezza"],
-                correct: 3
-            },
-            {
-                text: "La taratura è:",
-                options: ["un'operazione logico-pratica che stabilisce il rapporto tra il segnale e una grandezza", "è un'operazione meccanica, che predispone lo strumento a fornire i risultati della misurazione", "è un'operazione meccanica che stabilisce il rapporto tra il segnale e una grandezza", "un'operazione logico-pratica che predispone lo strumento a fornire i risultati della misurazione"],
-                correct: 0
-            },
-            {
-                text: "I valori di riferimento di una grandezza biologica sono:",
-                options: ["Quei valori che più frequentemente vengono riscontrati in una popolazione malata.", "Quei valori che più frequentemente vengono riscontrati nelle analisi di laboratorio.", "Quei valori che più frequentemente vengono riscontrati in una popolazione sana.", "Quei valori che più frequentemente vengono riscontrati nei diversi laboratori di analisi."],
-                correct: 2
-            },
-            {
-                text: "In biochimica clinica vengono prevalentemente utilizzati:",
-                options: ["Soprattutto metodi indiretti di misurazione", "Sia metodi diretti che indiretti di misurazione", "Soprattutto metodi diretti di misurazione", "Nessuna delle precedenti risposte"],
-                correct: 1
-            },
-
-            {
-                text: "Con il termine di misurazione si intende:",
-                options: ["Tutte le risposte precedenti", "Il processo che permette di descrivere quantitativamente una proprietà", "Il processo che permette di descrivere un fenomeno chimico-fisico", "Il processo che permette di descrivere qualitativamente una proprietà"],
-                correct: 0
-            },
-            {
-                text: "Il livello di colesterolo:",
-                options: ["E' più alto negli uomini", "E' più alto nei bambini", "E' simile negli uomini e nelle donne", "E' più alto nelle donne"],
-                correct: 0
-            },
-            {
-                text: "Un campione viene definito lipemico se presenta:",
-                options: ["Elevate concentrazioni di lipidi", "Basse concentrazioni di lipidi", "Presenta tracce di lipidi", "Nessuna delle risposte precedenti"],
-                correct: 0
-            },
-            {
-                text: "Il cortisolo, l'ormone dello stress, presenta delle variazioni:",
-                options: ["Mensili", "Stagionali", "Non varia", "Diurne"],
-                correct: 3
-            },
-            {
-                text: "Gli analiti possono variare in funzione:",
-                options: ["Tutte le risposte precedenti", "Della razza", "Del genere", "Dell'età"],
-                correct: 0
-            },
-            {
-                text: "Le variabilità biologiche interindividuali variano:",
-                options: ["All'interno dello stesso individuo", "Tutte le risposte precedenti", "All'interno del laboratorio di analisi", "All'interno della popolazione"],
-                correct: 3
-            },
-            {
-                text: "Il fumo di sigaretta prima di un prelievo può aumentare i livelli di:",
-                options: ["Monociti", "Linfociti", "Eritrociti", "Leucociti"],
-                correct: 3
-            },
-            {
-                text: "Le variabilità della fase pre-analitica sono dovute:",
-                options: ["Alla variabilità legata al campione", "Alla variabilità legata al paziente", "Alla variabilità legata al prelievo", "Alla variabilità legata al campione e al paziente"],
-                correct: 3
-            },
-            {
-                text: "I campioni itterici contengono elevate concentrazioni di:",
-                options: ["Linfociti", "Lipidi", "Emoglobina", "Bilirubina"],
-                correct: 3
-            },
-            {
-                text: "Un campione viene definito emolizzato se:",
-                options: ["I livelli di emoglobina liberi sono superiori a 0,30 mg/ml", "I livelli di emoglobina sono inferiori a 0,30 mg/ml", "I livelli di emoglobina sono superiori a 0,30 mg/ml", "I livelli di emoglobina liberi sono inferiori a 0,30 mg/ml"],
-                correct: 0
-            },
-
-            {
-                text: "L'esercizio fisico comporta uno spostamento dei liquidi dal comparto:",
-                options: ["Intravasale a quello Interstiziale", "Interstiziale a quello intravasale", "Intravasale a quello intracellulare", "Intracellulare a quello intravasale"],
-                correct: 0
-            },
-            {
-                text: "Lo stress pre-prelievo può alterare i livelli:",
-                options: ["Del glucosio e dell'azotemia", "Delle catecolamine e del glucosio", "Del cortisolo e dell'azotemia", "Delle catecolamine e del cortisolo"],
-                correct: 3
-            },
-            {
-                text: "La caffeina è un inibitore della:",
-                options: ["Fosfoglucosio isomerasi", "Colinesterasi", "Fosfodiesterasi", "Fosfatasi"],
-                correct: 2
-            },
-            {
-                text: "Il caffè prima di un prelievo può alterare i livelli di glucosio per:",
-                options: ["La presenza di zucchero", "Tutte le risposte", "La presenza di caffeina", "La presenza di latte"],
-                correct: 2
-            },
-            {
-                text: "Prima di un prelievo è possibile prendere un caffè:",
-                options: ["Zuccherato", "Macchiato", "Amaro", "Non è consigliato"],
-                correct: 3
-            },
-            {
-                text: "Una misurata accurata si ha:",
-                options: ["Con esattezza alta e precisione alta", "Con precisione bassa ed esattezza alta", "Con precisione alta ed esattezza bassa", "Con esattezza bassa e precisione bassa"],
-                correct: 0
-            },
-            {
-                text: "La differenza critica o reference change value è il riferimento per valutare se:",
-                options: ["La differenza tra il valore di riferimento e la misurazione di un determinato analita in un paziente siano statisticamente significative", "La differenza tra la misurazioni di un determinato analita in un paziente e il valore di riferimento siano statisticamente significative", "La differenza tra due misurazioni di un determinato analita in pazienti diversi siano statisticamente significative", "La differenza tra due misurazioni di un determinato analita sullo stesso paziente siano statisticamente significative"],
-                correct: 3
-            },
-            {
-                text: "Tipicamente la variabilità intraindividuale è:",
-                options: ["Inferiore alla variabilità interindividuale", "Uguale alla variabilità interindividuale", "Dipende dal tipo di analita", "Superiore alla variabilità interindividuale"],
-                correct: 0
-            },
-            {
-                text: "L'errore può essere definito come la differenza tra:",
-                options: ["Il valore misurato e la media dei valori misurati", "Il valore misurato e il valore vero", "La media dei valori misurati e il valore vero", "Il valore vero e il valore misurato"],
-                correct: 1
-            },
-            {
-                text: "Una deviazione standard elevata indica che:",
-                options: ["L'imprecisione è bassa", "La riproducibilità è alta", "La ripetibilità è alta", "L'imprecisione è alta"],
-                correct: 3
-            },
-            {
-                text: "Gli errori sistematici dipendono:",
-                options: ["Dallo strumento", "Dai reagenti", "Dall'operatore", "Tutte le risposte"],
-                correct: 3
-            },
-            {
-                text: "Gli errori casuali sono:",
-                options: ["Totalmente prevedibili", "Totalmente eliminabili", "Parzialmente eliminabili", "Parzialmente prevedibili"],
-                correct: 3
-            },
-            {
-                text: "Gli errori di misura non sono dovuti a:",
-                options: ["Errori sistematici", "Nessuna delle risposte", "Errori casuali", "Errori grossolani"],
-                correct: 1
-            },
-            {
-                text: "La variabilità analitica è dovuta a:",
-                options: ["Reagenti", "Operatori", "Strumenti utilizzati", "Tutte le risposte"],
-                correct: 3
-            },
-            {
-                text: "Tutte le misurazioni eseguite nei laboratori sono soggette a:",
-                options: ["Variabilità biologica e variabilità analitica", "Variabilità biologica", "Variabilità analitica", "Non sono soggette a variabilità"],
-                correct: 0
-            },
-            {
-                text: "Si può definire come variazione biologica la fluttuazione che un analita ha rispetto al suo valore:",
-                options: ["Omeostatico", "Di rilevazione", "Allostatico", "Di misurazione"],
-                correct: 0
-            },
-
-            {
-                text: "L'imprecisione è la misura degli errori:",
-                options: ["Casuali", "Grossolani", "Non misura gli errori", "Sistematici"],
-                correct: 0
-            },
-            {
-                text: "I calibratori generalmente possono essere:",
-                options: ["Stabili limitatamente se conservati in frigorifero", "Stabili indefinitamente", "Stabili limitatamente", "Stabili limitatamente se conservati a temperatura ambiente"],
-                correct: 0
-            },
-            {
-                text: "Il luminolo emette fotoni di energia in presenza di:",
-                options: ["Una galattosidasi e acqua ossigenata", "Una perossidasi e acqua ossigenata", "Una deidrogenasi e acqua ossigenata", "Una fosfatasi e acqua ossigenata"],
-                correct: 1
-            },
-            {
-                text: "I traccianti fluorescenti sono molecole che eccitate con una fonte luminosa di una certa lunghezza d'onda, riemettono una luce a:",
-                options: ["Una lunghezza d'onda generalmente minore", "Una lunghezza d'onda sia maggiore che minore", "Una lunghezza d'onda generalmente simile", "Una lunghezza d'onda generalmente maggiore"],
-                correct: 3
-            },
-
-            {
-                text: "I vantaggi dei traccianti radioattivi sono:",
-                options: ["Segnale molto specifico e influenzato dal mezzo circostante", "Segnale molto specifico e modificabile durante la reazione", "Segnale molto specifico e ingombro sterico molto basso", "Segnale molto specifico e ingombro sterico molto alto"],
-                correct: 2
-            },
-            {
-                text: "Un buon tracciante per immunoistochimica deve avere:",
-                options: ["Basso rumore di fondo e bassa specificità", "Alto rumore di fondo e bassa specificità", "Alta intensità di segnale per unità di massa", "Bassa intensità di segnale per unità di massa"],
-                correct: 2
-            },
-            {
-                text: "Gli anticorpi policlonali si ottengono:",
-                options: ["Producendo un ibridoma", "Immunizzando un animale con l'aptene contro cui si vuole produrre l'anticorpo", "Tutte le risposte precedenti", "Immunizzando un animale con l'antigene contro cui si vuole produrre l'anticorpo"],
-                correct: 3
-            },
-            {
-                text: "Un aptene è una molecola che:",
-                options: ["Presenta uno o più epitopi", "Induce una risposta immunitaria", "Tutte le risposte precedenti", "È riconosciuta da un anticorpo"],
-                correct: 3
-            },
-            {
-                text: "Nelle analisi di laboratorio si utilizzano:",
-                options: ["Sia anticorpi policlonali che monoclonali", "Solo anticorpi monoclonali", "Solo anticorpi policlonali", "Dipende dal tipo di analita"],
-                correct: 0
-            },
-            {
-                text: "I dosaggi immunochimici si basano sulla:",
-                options: ["Specificità degli analiti", "Specificità della reazione enzimatica", "Specificità delle misurazioni spettrofotometriche", "Specificità della reazione antigene-anticorpo"],
-                correct: 3
-            },
-            {
-                text: "L'antigene è una molecola che:",
-                options: ["Tutte le risposte", "Induce una risposta immunitaria", "È riconosciuta da un anticorpo", "Presenta uno o più epitopi"],
-                correct: 0
-            },
-            {
-                text: "Gli anticorpi hanno una caratteristica struttura:",
-                options: ["Ternaria a forma di Y", "Monomerica a forma di Y", "Quaternaria a forma di Y", "Binaria a forma di Y"],
-                correct: 2
-            },
-            {
-                text: "Un ibridoma si ottiene per fusione tra:",
-                options: ["Un linfocita B e una cellula di mieloma", "Un leucocita e una cellula di mieloma", "Un leucocita e una cellula di melanoma", "Un linfocita B e una cellula di melanoma"],
-                correct: 0
-            },
-            {
-                text: "Gli anticorpi più comunemente utilizzati per lo sviluppo dei metodi immunochimici sono:",
-                options: ["IgE", "IgA", "IgD", "IgG"],
-                correct: 3
-            },
-            {
-                text: "Gli antigeni sono riconosciuti dalle regioni:",
-                options: ["Variabili degli anticorpi", "Costanti degli anticorpi", "Dipende dal tipo di anticorpo", "Variabili e costanti degli anticorpi"],
-                correct: 0
-            },
-            {
-                text: "Il principale vantaggio dei metodi competitivi è che possono riconoscere:",
-                options: ["Qualsiasi aptene", "Qualsiasi antigene indipendentemente dalle dimensioni", "Qualsiasi antigene di grosse dimensioni", "Qualsiasi antigene di piccole dimensioni"],
-                correct: 1
-            },
-            {
-                text: "Nei metodi non competitivi il segnale:",
-                options: ["Aumenta all'aumentare della concentrazione dell'analita.", "Aumenta al diminuire della concentrazione dell'analita.", "Diminuisce all'aumentare della concentrazione dell'analita.", "Nessuna delle risposte precedenti"],
-                correct: 0
-            },
-            {
-                text: "I metodi competitivi possono essere definiti:",
-                options: ["Eccesso di anticorpo", "Nessuna delle risposte precedenti", "Difetto di antigene", "Difetto di anticorpo"],
-                correct: 3
-            },
-            {
-                text: "I metodi a sandwich sono anche detti metodi:",
-                options: ["Competitivi", "A saturazione", "Non competitivi", "In difetto di anticorpo"],
-                correct: 2
-            },
-            {
-                text: "Con architettura del dosaggio immunologico s'intende il processo attraverso cui si evidenzia:",
-                options: ["Il substrato", "Il tracciante", "L'analita", "L'anticorpo"],
-                correct: 2
-            },
-            {
-                text: "Nei metodi competitivi la quantità di segnale prodotto:",
-                options: ["Aumenterà all'aumentare della concentrazione dell'analita", "Aumenterà all'aumentare della concentrazione dell'anticorpo", "Diminuirà all'aumentare della concentrazione dell'analita", "Diminuirà all'aumentare della concentrazione dell'anticorpo"],
-                correct: 2
-            },
-            {
-                text: "La turbidimetria e la nefelometria sono definiti:",
-                options: ["Nessuna delle risposte", "Metodi label-free", "Metodi anticorpi-free", "Metodi antigeni-free"],
-                correct: 1
-            },
-            {
-                text: "I metodi più utilizzati per separare il libero dal legato sono:",
-                options: ["Un secondo anticorpo", "Tutte le risposte", "Il sistema avidina biotina", "Proteina A"],
-                correct: 1
-            },
-            {
-                text: "La separazione libero-legato dovrebbe essere:",
-                options: ["Influenzata da fattori esterni", "Poco costosa", "Poco rapida", "Tutte le risposte precedenti"],
-                correct: 3
-            },
-
-            {
-                text: "Nei metodi in fase eterogenea è necessario separare:",
-                options: ["Nessuna delle risposte", "L'antigene dall'anticorpo", "L'antigene marcato da quello non marcato", "L'antigene non marcato dall'anticorpo"],
-                correct: 2
-            },
-            {
-                text: "I metodi non competitivi a differenza dei metodi competitivi presentano:",
-                options: ["Una maggiore specificità e una minore sensibilità", "Una minore specificità e una minore sensibilità", "Una maggiore specificità e una maggiore sensibilità", "Una minore specificità e una maggiore sensibilità"],
-                correct: 2
-            },
-            {
-                text: "Il segnale misurato da un metodo non competitivo è graficamente rappresentato da:",
-                options: ["Un'iperbole equilatera", "Una sigmoide", "Una parabola", "Una retta"],
-                correct: 1
-            },
-            {
-                text: "Gli enzimi si possono trovare nel sangue:",
-                options: ["Soltanto in condizioni fisiologiche", "Soltanto in condizioni patologiche", "Sia in condizioni fisiologiche che patologiche", "Nessuna delle risposte precedenti"],
-                correct: 2
-            },
-            {
-                text: "La lattatodeidrogenasi è una proteina:",
-                options: ["Nessuna delle risposte", "Tetramerica formata dalla combinazione di due diverse catene polipeptidiche", "Tetramerica formata dalla combinazione di 4 diverse catene polipeptidiche", "Tetramerica formata dalla combinazione di 3 diverse catene polipeptidiche"],
-                correct: 1
-            },
-            {
-                text: "Gli enzimi vengono misurati per:",
-                options: ["La loro carica elettrica", "La loro concentrazione", "La loro attività", "La loro dimensione"],
-                correct: 2
-            },
-            {
-                text: "L'attività di un enzima determina:",
-                options: ["Aumento del substrato e del prodotto", "Aumento del substrato con uguale concentrazione del prodotto", "Diminuzione del substrato e aumento del prodotto", "Diminuzione del substrato e del prodotto"],
-                correct: 2
-            },
-            {
-                text: "Della creatinchinasi esistono:",
-                options: ["Quattro isoenzimi", "Tre isoenzimi diversi", "Nessun isoenzima", "Due isoenzimi diversi"],
-                correct: 1
-            },
-            {
-                text: "Gli enzimi sono delle macromolecole proteiche che:",
-                options: ["Tutte le risposte precedenti", "Diminuiscono l'energia di transizione", "Diminuiscono la velocità di una reazione biochimica", "Diminuiscono la concentrazione finale dei prodotti"],
-                correct: 0
-            },
-            {
-                text: "I coenzimi durante la reazione enzimatica:",
-                options: ["Modificano la loro struttura ma possono essere riconvertiti", "Modificano la loro struttura permanentemente", "Nessuna delle risposte precedenti", "Non modificano la loro struttura"],
-                correct: 0
-            },
-            {
-                text: "La sigla BAP indica la:",
-                options: ["Fosfatasi alcalina epatica", "Nessuna delle precedenti", "Fosfatasi acida ossea", "Fosfatasi alcalina ossea"],
-                correct: 3
-            },
-            {
-                text: "Le amilasi sono degli enzimi coinvolti nella digestione:",
-                options: ["Dei lipidi", "Tutte le risposte", "Delle proteine", "Dei carboidrati"],
-                correct: 3
-            },
-            {
-                text: "La fosfatasi alcalina appartiene alla famiglia delle:",
-                options: ["Lipasi", "Idrolasi", "Nessuna delle risposte", "Ossidoriduttasi"],
-                correct: 1
-            },
-            {
-                text: "La gamma-glutamiltransferasi in condizioni normali presenta livelli più alti:",
-                options: ["Nei bambini", "Negli uomini", "Nelle donne", "Nelle donne in menopausa"],
-                correct: 1
-            },
-            {
-                text: "La fosfatasi alcalina presenta valori superiori alla norma in assenza di patologia durante:",
-                options: ["Menopausa", "La vecchiaia", "Età adulta", "Infanzia"],
-                correct: 3
-            },
-            {
-                text: "L'amilasi è un enzima maggiormente espresso nel:",
-                options: ["Pancreas e cuore", "Pancreas e ghiandole salivari", "Pancreas, fegato, ghiandole salivari", "Fegato e pancreas"],
-                correct: 1
-            },
-            {
-                text: "In caso di aumento dell'ALT con AST nei limiti si può pensare a problemi per:",
-                options: ["Muscoli", "Fegato", "Reni", "Cuore"],
-                correct: 1
-            },
-            {
-                text: "La creatinchinasi, in assenza di patologie, aumenta per:",
-                options: ["Assunzione di liquidi", "Esercizio fisico", "Gravidanza", "Aumento della pressione arteriosa"],
-                correct: 1
-            },
-            {
-                text: "La creatinchinasi è un enzima:",
-                options: ["Dimerico", "Monomerico", "Trimerico", "Tetramerico"],
-                correct: 0
-            },
-            {
-                text: "La creatinchinasi è un enzima che catalizza la:",
-                options: ["Tutte le risposte", "Defosforilazione della fosfo-creatina", "Fosforilazione della creatina", "La produzione di ATP"],
-                correct: 2
-            },
-
-            {
-                text: "Alti livelli di lipasi nel siero indicano un danno:",
-                options: ["Pancreatico", "Muscolare", "Renale", "Epatico"],
-                correct: 0
-            },
-            {
-                text: "La fosfatasi alcalina ha come sigla:",
-                options: ["APC", "AST", "ALP", "ALT"],
-                correct: 2
-            },
-            {
-                text: "In un elettroforesi su campione sierico l'albumina rispetto alla gamma globuline migra:",
-                options: ["Più velocemente", "L'albumina non è presente", "Migrano assieme", "Più lentamente"],
-                correct: 0
-            },
-            {
-                text: "L'elettroforesi su acetato di cellulosa è utilizzata particolarmente in ambito clinico per separare:",
-                options: ["Proteine plasmatiche", "RNA", "DNA", "Proteine"],
-                correct: 0
-            },
-            {
-                text: "In un sistema elettroforetico le molecole si separano tra di loro in base:",
-                options: ["Alla carica", "Alla forza ionica", "Al campo elettrico", "Al tipo di tampone"],
-                correct: 0
-            },
-            {
-                text: "L'aumento della temperatura in un sistema elettroforetico:",
-                options: ["Aumenta la viscosità", "Nessuna delle risposte", "Non altera la velocità elettroforetica", "Riduce la concentrazione salina"],
-                correct: 1
-            },
-            {
-                text: "I PAGE sono gel di:",
-                options: ["Acetato", "Ammonio", "Agarosio", "Acrilamide"],
-                correct: 3
-            },
-            {
-                text: "Gli AGE sono gel di:",
-                options: ["Ammonio", "Acetato", "Agarosio", "Acrilamide"],
-                correct: 2
-            },
-            {
-                text: "La capacità di risoluzione di gel segue il seguente ordine:",
-                options: ["Agarosio>Acetato>Acrilamide", "Acrilamide>Acetato>Agarosio", "Agarosio>Acrilamide>Acetato", "Acrilamide>Agarosio>Acetato"],
-                correct: 3
-            },
-            {
-                text: "Le molecole anfotere hanno carica netta:",
-                options: ["Positiva", "Dipende dal pH", "Neutra", "Negativa"],
-                correct: 1
-            },
-            {
-                text: "Nella CE si utilizza come supporto per la corsa elettroforetica:",
-                options: ["Silice", "Acrilamide", "Agarosio", "Acetato di cellulosa"],
-                correct: 0
-            },
-            {
-                text: "Il maggior vantaggio della CE è:",
-                options: ["Tutte le risposte", "Costi ridotti", "Rapidità di analisi", "L'utilizzo di soluzioni acquose"],
-                correct: 2
-            },
-            {
-                text: "Il β-Mercaptoetanolo è un agente:",
-                options: ["Denaturante", "Colorante", "Polimerizzante", "Nessuna delle risposte"],
-                correct: 0
-            },
-            {
-                text: "Nella tecnica del Western blot l'incubazione con BSA serve per:",
-                options: ["Tutte le precedenti risposte", "Aumentare il legame antigene-anticorpo", "Aumentare l'intensità del segnale", "Diminuire i siti aspecifici"],
-                correct: 3
-            },
-            {
-                text: "La poliacrilamide per polimerizzare necessita di:",
-                options: ["Ammonio per solfato", "Ammonio perclorato", "Ammonio solfato", "Ammonio acetato"],
-                correct: 0
-            },
-            {
-                text: "Il glicerolo serve per:",
-                options: ["Polimerizzare le proteine", "Appesantire le proteine", "Colorare le proteine", "Denaturare le proteine"],
-                correct: 1
-            },
-            {
-                text: "La PAGE può essere usata per separare le proteine in condizioni:",
-                options: ["Native", "Denaturanti e Native", "Non si usa per le proteine", "Denaturanti"],
-                correct: 1
-            },
-            {
-                text: "SDS-PAGE permette la separazione delle proteine in base alla:",
-                options: ["Dimensione", "Tutte le risposte", "Carica", "Forma"],
-                correct: 0
-            },
-            {
-                text: "Le proteine si muovono in un gel SDS-PAGE con una velocità:",
-                options: ["Inversamente proporzionale alla loro carica", "Direttamente proporzionale alla loro massa", "Direttamente proporzionale alla loro carica", "Inversamente proporzionale alla loro massa"],
-                correct: 3
-            },
-
-            {
-                text: "L'elettroforesi 2D combina:",
-                options: ["L'isolettrofocalizzazione e la CE", "L'isolettrofocalizzazione e la SDS-PAGE", "L'isolettrofocalizzazione e la SDS-AGE", "La CE e la SDS-PAGE"],
-                correct: 1
-            },
-            {
-                text: "Nella tecnica del western blot le proteine sono trasferite su un foglio di:",
-                options: ["PVDP", "Nitrocellulosa", "Tutte le risposte", "Acetato"],
-                correct: 1
-            },
-            {
-                text: "La mobilità elettroforetica relativa delle proteine varia in modo lineare in base a:",
-                options: ["Nessuna delle risposte", "Logaritmo decimale della massa molecolare relativa", "Massa molecolare relativa", "Logaritmo naturale della massa molecolare relativa"],
-                correct: 1
-            },
-            {
-                text: "La bollitura prima di caricare il campione in un gel elettroforetico serve a:",
-                options: ["Fluidificare le proteine", "Denaturare le proteine", "Concentrare le proteine", "Far evaporare il liquido in eccesso"],
-                correct: 1
-            },
-            {
-                text: "Il plasma è simile:",
-                options: ["Al siero ma senza la frazione corpuscolata", "Al sangue ma senza la frazione corpuscolata", "Al siero ma senza i fattori della coagulazione", "Al sangue ma senza i fattori della coagulazione"],
-                correct: 1
-            },
-            {
-                text: "I vacutainer con il tappo giallo si usano per ottenere:",
-                options: ["Siero", "Urine", "Sangue intero", "Plasma"],
-                correct: 0
-            },
-            {
-                text: "Gli aghi per i prelievi hanno un gauge:",
-                options: ["3-9", "100-200", "23-45", "19-23"],
-                correct: 3
-            },
-            {
-                text: "Il sangue capillare contiene:",
-                options: ["Tutte le risposte", "Sangue venoso", "Sangue arterioso", "Liquido interstiziale"],
-                correct: 0
-            },
-            {
-                text: "L'EDTA altera la morfologia:",
-                options: ["Delle piastrine", "Nessuna delle risposte", "Degli eritrociti", "Dei leucociti"],
-                correct: 0
-            },
-            {
-                text: "L'eparina altera la morfologia:",
-                options: ["Dei leucociti", "Delle piastrine", "Degli eritrociti", "Nessuna delle risposte"],
-                correct: 2
-            },
-            {
-                text: "Gli anticoagulanti sono necessari per ottenere:",
-                options: ["Il siero", "Il sangue", "Il plasma", "Tutte le risposte"],
-                correct: 2
-            },
-            {
-                text: "I componenti maggiori nel sangue sono:",
-                options: ["Eritrociti>Linfociti>Piastrine", "Eritrociti>Piastrine=Linfociti", "Piastrine>Eritrociti>Linfociti", "Eritrociti>Piastrine>Linfociti"],
-                correct: 3
-            },
-            {
-                text: "Il volume del sangue varia in funzione:",
-                options: ["Del genere", "Del peso", "Tutte le risposte", "Dell'età"],
-                correct: 2
-            },
-            {
-                text: "Il sangue costituisce:",
-                options: ["8% del peso del corpo", "12% del peso del corpo", "16% del peso del corpo", "4% del peso del corpo"],
-                correct: 0
-            },
-            {
-                text: "Il plasma si ottiene centrifugando il sangue:",
-                options: ["Senza anticoagulanti a 300 rpm", "Con anticoagulanti a 300 rpm", "Con anticoagulanti a 3000 rpm", "Senza anticoagulanti a 3000 rpm"],
-                correct: 2
-            },
-            {
-                text: "Il sangue è un tessuto:",
-                options: ["Stromale", "Mesenchimale", "Connettivale", "Nessuna delle risposte"],
-                correct: 2
-            },
-            {
-                text: "Il siero è simile:",
-                options: ["Al sangue ma senza la frazione corpuscolata", "Al sangue ma senza i fattori della coagulazione", "Al plasma ma senza i fattori della coagulazione", "Al plasma ma senza la frazione corpuscolata"],
-                correct: 2
-            },
-            {
-                text: "L'esame più indicato per individuare una componente monoclonale è:",
-                options: ["L'esame immunometrico delle urine", "L'esame immunometrico delle sieroproteine", "L'elettroforesi delle sieroproteine", "L'elettroforesi delle urine"],
-                correct: 2
-            },
-            {
-                text: "L'albumina può diminuire nel sangue in seguito a:",
-                options: ["Vomito", "Nessuna delle risposte", "Esercizio fisico", "Diarrea"],
-                correct: 1
-            },
-            {
-                text: "La pressione oncotica è la pressione osmotica esercitata:",
-                options: ["Dalle proteine", "Dai sali", "Dai glicidi", "Dai lipidi"],
-                correct: 0
-            },
-
-            {
-                text: "Le gammopatie monoclonali sono dovute:",
-                options: ["Alla proliferazione anomala dei leucociti", "Alla proliferazione anomala delle plasmacellule", "Alla differenziazione anomala dei leucociti", "Alla differenziazione anomala delle plasmacellule"],
-                correct: 1
-            },
-            {
-                text: "Le cellule staminali della linea linfoide danno origine a:",
-                options: ["Leucociti", "Linfociti", "Piastrine", "Granulociti"],
-                correct: 1
-            },
-            {
-                text: "Le plasmacellule sono:",
-                options: ["Linfociti C", "Linfociti B", "Piastrine", "Leucociti"],
-                correct: 1
-            },
-            {
-                text: "L'assenza di componente monoclonale:",
-                options: ["Non garantisce l'assenza di una gammopatia", "Nessuna delle risposte", "Garantisce l'assenza di una gammopatia", "Dipende dal tipo di gammopatia"],
-                correct: 0
-            },
-            {
-                text: "Le gammopatie monoclonali:",
-                options: ["Possono essere asintomatiche", "Sono sempre stabili", "Sono sempre asintomatiche", "Sono sempre sintomatiche"],
-                correct: 0
-            },
-            {
-                text: "Il mieloma multiplo colpisce prevalentemente le persone sopra i:",
-                options: ["40 anni", "50 anni", "70 anni", "60 anni"],
-                correct: 3
-            },
-            {
-                text: "L'albumina è prodotta maggiormente nel:",
-                options: ["Fegato", "Intestino", "Muscolo", "Reni"],
-                correct: 0
-            },
-            {
-                text: "L'alfa1-antitripsina ha un ruolo protettivo nei confronti:",
-                options: ["Del fegato", "Dei reni", "Del cuore", "Dei polmoni"],
-                correct: 3
-            },
-            {
-                text: "La transtiretina è un marcatore di:",
-                options: ["Danno renale", "Danno polmonare", "Danno epatico", "Danno cardiaco"],
-                correct: 2
-            },
-            {
-                text: "La via classica del complemento è attivata:",
-                options: ["Dal complesso Ag-Ab", "Dai lipopolisaccaridi", "Dal mannosio", "Dai polisaccaridi"],
-                correct: 0
-            },
-            {
-                text: "La via alternativa del complemento è attivata:",
-                options: ["Tutte le risposte precedenti", "Dai lipopolisaccaridi dei batteri", "Dall'interazione antigene-anticorpo", "Dalla lectina"],
-                correct: 1
-            },
-            {
-                text: "La Proteina C Reattiva è una:",
-                options: ["Un fattore del complemento", "Alfa globulina", "Beta globulina", "Gamma globulina"],
-                correct: 1
-            },
-            {
-                text: "Il fattore reumatoide è una:",
-                options: ["Beta globulina", "Nessuna delle precedenti", "Gamma globulina", "Alfa globulina"],
-                correct: 2
-            },
-            {
-                text: "Il ruolo principale dell'aptoglobina è:",
-                options: ["Tutte le risposte", "Regolatore della pressione oncotica", "Antiossidante", "Riserva energetica"],
-                correct: 0
-            },
-            {
-                text: "La beta 2 microglobulina è presente prevalentemente sulla superficie:",
-                options: ["Tutte le risposte", "Degli eritrociti", "Dei granulociti", "Dei linfociti"],
-                correct: 3
-            },
-            {
-                text: "I geni dell'MHC di classe I non sono espressi:",
-                options: ["Dagli eosinofili", "Dagli eritrociti", "Dai linfociti", "Dai basofili"],
-                correct: 1
-            },
-            {
-                text: "La misurazione della beta 2-microglobulina fornisce indicazione sul funzionamento:",
-                options: ["Epatico", "Cardiaco", "Ipofisario", "Renale"],
-                correct: 3
-            },
-            {
-                text: "La ceruloplasmina è il principale trasportatore del:",
-                options: ["Ferro", "Emoglobina", "Colesterolo", "Rame"],
-                correct: 3
-            },
-            {
-                text: "La ceruloplasmina aumenta in seguito a:",
-                options: ["Infiammazione", "Danno epatico", "Esercizio fisico", "Tutte le risposte"],
-                correct: 3
-            },
-
-            {
-                text: "La ferritina è una proteina di deposito del:",
-                options: ["Rame", "Zinco", "Ferro", "Calcio"],
-                correct: 2
-            },
-            {
-                text: "La ferritina è un indice di:",
-                options: ["Metabolismo degli zuccheri", "Metabolismo lipidico", "Metabolismo degli ormoni", "Metabolismo del ferro"],
-                correct: 3
-            },
-            {
-                text: "La transferrina è una proteina di trasporto del:",
-                options: ["Ferro", "Calcio", "Rame", "Zinco"],
-                correct: 0
-            },
-            {
-                text: "Il valore della ferritina è più alto nei:",
-                options: ["Bambini", "Uomini", "Nessuna delle risposte", "Donne"],
-                correct: 1
-            },
-            {
-                text: "L'emoglobina è composta da:",
-                options: ["4 subunità e 4 gruppi prostetici", "2 subunità e 2 gruppi prostetici", "1 subunità e 1 gruppo prostetico", "3 subunità e 3 gruppi prostetici"],
-                correct: 0
-            },
-            {
-                text: "L'emoglobina è contenuta:",
-                options: ["Nei granulociti", "Nessuna delle risposte", "Nei leucociti", "Negli eritrociti"],
-                correct: 3
-            },
-            {
-                text: "L'emoglobina è una proteina di:",
-                options: ["Trasporto di ossigeno", "Riserva", "Difesa", "Trasporto di glucosio"],
-                correct: 0
-            },
-            {
-                text: "La carbossiemoglobina è l'emoglobina con legato:",
-                options: ["Ossigeno", "Idrogeno", "Monossido di carbonio", "Biossido di carbonio"],
-                correct: 2
-            },
-            {
-                text: "L'emoglobina A1c è utilizzata come indice:",
-                options: ["Del metabolismo lipidico", "Del metabolismo glucidico", "Del metabolismo ormonale", "Del metabolismo proteico"],
-                correct: 1
-            },
-            {
-                text: "Un aumento di emoglobina A2 può essere indicativo di:",
-                options: ["Un processo infiammatorio", "Un deficit enzimatico", "Un'emoglobinopatia", "Nessuna delle risposte"],
-                correct: 2
-            },
-            {
-                text: "L'emoglobina fetale HbF scompare al:",
-                options: ["Sesto mese di vita", "Primo mese di vita", "Primo anno di vita", "Terzo mese di vita"],
-                correct: 0
-            },
-            {
-                text: "Il ferro è assorbito prevalentemente nel:",
-                options: ["Digiuno", "Duodeno", "Colon", "Ileo"],
-                correct: 1
-            },
-            {
-                text: "La ferritina aumenta in caso di:",
-                options: ["Sanguinamento", "Infezione", "Carenza di ferro", "Dieta vegetariana"],
-                correct: 1
-            },
-            {
-                text: "La sideremia misura la concentrazione di ferro:",
-                options: ["Nel sangue", "Nei tessuti", "Nel midollo osseo", "Nel fegato"],
-                correct: 0
-            },
-            {
-                text: "La transferrina è prodotta prevalentemente nel:",
-                options: ["Rene", "Intestino", "Midollo osseo", "Fegato"],
-                correct: 3
-            },
-            {
-                text: "La transferrina è una proteina che può essere definita anche:",
-                options: ["Di trasporto", "Di riserva", "Difensiva", "Di segnale"],
-                correct: 0
-            },
-            {
-                text: "Il deficit di ferro porta ad un'anemia:",
-                options: ["Normocromica e normocitica", "Microcitica e normocromica", "Microcitica e ipocromica", "Normocromica e ipercromica"],
-                correct: 2
-            },
-            {
-                text: "Un deficit di vitamina B12 porta ad un'anemia:",
-                options: ["Normocitica e normocromica", "Normocromica e ipocromica", "Microcitica e normocromica", "Megaloblastica"],
-                correct: 3
-            },
-            {
-                text: "La bilirubina deriva dalla degradazione dell'emoglobina contenuta nei:",
-                options: ["Granulociti", "Eritrociti", "Piastrine", "Linfociti"],
-                correct: 1
-            },
-
-            {
-                text: "La bilirubina è una molecola:",
-                options: ["Polare", "Liposolubile", "Di colore rosso", "Proteica"],
-                correct: 1
-            },
-            {
-                text: "L'ittero è dovuto ad un accumulo di bilirubina nei:",
-                options: ["Muscoli", "Tessuti", "Ossa", "Polmoni"],
-                correct: 1
-            },
-            {
-                text: "L'iperbilirubinemia pre-epatica è causata da:",
-                options: ["Emolisi", "Deficit di captazione", "Ittero ostruttivo", "Ittero colestatico"],
-                correct: 0
-            },
-            {
-                text: "La bilirubina coniugata è definita anche:",
-                options: ["Nessuna delle risposte", "Diretta", "Indiretta", "Libera"],
-                correct: 1
-            },
-            {
-                text: "La bilirubina non coniugata è definita anche:",
-                options: ["Libera", "Diretta", "Coniugata", "Ossidata"],
-                correct: 0
-            },
-            {
-                text: "L'enzima che coniuga la bilirubina è la:",
-                options: ["Adenilato ciclasi", "Glucosio-6-fosfatasi", "Glucuronil transferasi", "Beta-galattosidasi"],
-                correct: 2
-            },
-            {
-                text: "Il valore della bilirubina può essere alterato da:",
-                options: ["Acqua", "Gravidanza", "Digiuno", "Fumo"],
-                correct: 2
-            },
-            {
-                text: "La maggior parte dell'ammoniaca nel corpo umano è prodotta dal:",
-                options: ["Fegato", "Muscolo", "Cervello", "Intestino"],
-                correct: 3
-            },
-            {
-                text: "L'ammoniaca è tossica per il:",
-                options: ["Sistema muscolare", "Sistema nervoso centrale", "Sistema immunitario", "Sistema respiratorio"],
-                correct: 1
-            },
-            {
-                text: "L'ammoniaca nel sangue aumenta in caso di alterazione della funzione:",
-                options: ["Polmonare", "Epatica", "Renale", "Cardiaca"],
-                correct: 1
-            },
-            {
-                text: "L'acido urico è un prodotto finale del metabolismo delle:",
-                options: ["Proteine", "Vitamine", "Purine", "Pirimidine"],
-                correct: 2
-            },
-            {
-                text: "Un aumento di acido urico nel sangue causa:",
-                options: ["Reumatismi", "Artrite reumatoide", "Nessuna delle risposte", "Gotta"],
-                correct: 3
-            },
-            {
-                text: "Il ciclo dell'urea avviene nel:",
-                options: ["Rene", "Fegato", "Cuore", "Muscolo"],
-                correct: 1
-            },
-            {
-                text: "L'azoto ureico è il principale prodotto dell'eliminazione dell'azoto con:",
-                options: ["Le urine", "L'espirazione", "Il sudore", "Le feci"],
-                correct: 0
-            },
-            {
-                text: "L'urea è un prodotto del metabolismo:",
-                options: ["Dei carboidrati", "Dei lipidi", "Dei minerali", "Delle proteine"],
-                correct: 3
-            },
-            {
-                text: "L'urea è prodotta:",
-                options: ["Dal catabolismo delle proteine", "Dal catabolismo dei carboidrati", "Dalla sintesi delle proteine", "Dal catabolismo dei lipidi"],
-                correct: 0
-            },
-            {
-                text: "La creatinina è un prodotto del metabolismo:",
-                options: ["Delle vitamine", "Delle proteine", "Del colesterolo", "Della creatina"],
-                correct: 3
-            },
-            {
-                text: "La clearance della creatinina è un indice della funzione:",
-                options: ["Renale", "Epato-renale", "Epatica", "Muscolare"],
-                correct: 0
-            },
-            {
-                text: "L'azotemia aumenta in caso di:",
-                options: ["Insufficienza cardiaca", "Nessuna delle risposte", "Insufficienza renale", "Diabete"],
-                correct: 2
-            },
-
-            {
-                text: "La creatinina sierica può essere aumentata da:",
-                options: ["Nessuna delle risposte", "Digiuno", "Attività fisica intensa", "Gravidanza"],
-                correct: 2
-            },
-            {
-                text: "La maggior parte del colesterolo è prodotta dal:",
-                options: ["Intestino", "Muscolo", "Rene", "Fegato"],
-                correct: 3
-            },
-            {
-                text: "Il colesterolo è sintetizzato a partire da:",
-                options: ["Fruttosio", "Acidi grassi", "Glicerolo", "Acetil-CoA"],
-                correct: 3
-            },
-            {
-                text: "Il colesterolo totale comprende:",
-                options: ["LDL e HDL", "LDL e trigliceridi", "HDL e trigliceridi", "HDL, LDL e trigliceridi"],
-                correct: 0
-            },
-            {
-                text: "L'ipercolesterolemia può essere associata ad un aumento di rischio di:",
-                options: ["Infezioni", "Malattie cardiovascolari", "Malattie neurologiche", "Malattie polmonari"],
-                correct: 1
-            },
-            {
-                text: "L'ipertrigliceridemia è un fattore di rischio per:",
-                options: ["Nessuna delle risposte", "Danno renale", "Patologie del sistema nervoso", "Malattie cardiovascolari"],
-                correct: 3
-            },
-            {
-                text: "La lipoproteina HDL è detta:",
-                options: ["Colesterolo cattivo", "Colesterolo totale", "Colesterolo buono", "Colesterolo complesso"],
-                correct: 2
-            },
-            {
-                text: "I chilomicroni trasportano prevalentemente:",
-                options: ["Trigliceridi", "LDL", "VLDL", "HDL"],
-                correct: 0
-            },
-            {
-                text: "La densità delle lipoproteine è inversamente proporzionale alla loro:",
-                options: ["Concentrazione", "Quantità di lipidi", "Quantità di proteine", "Nessuna delle risposte"],
-                correct: 1
-            },
-            {
-                text: "L'enzima lipoproteina lipasi idrolizza i trigliceridi a livello:",
-                options: ["Dei vasi sanguigni", "Dello stomaco", "Del fegato", "Dell'intestino"],
-                correct: 0
-            },
-            {
-                text: "La vitamina A è immagazzinata nel:",
-                options: ["Cervello", "Fegato", "Cuore", "Milza"],
-                correct: 1
-            },
-            {
-                text: "Il calciferolo è:",
-                options: ["Vitamina A", "Vitamina C", "Vitamina D", "Vitamina E"],
-                correct: 2
-            },
-            {
-                text: "La vitamina K è essenziale per:",
-                options: ["Sintesi degli acidi biliari", "Sintesi dei lipidi", "Sintesi delle proteine", "Coagulazione del sangue"],
-                correct: 3
-            },
-            {
-                text: "La vitamina C è anche detta:",
-                options: ["Acido carbonico", "Acido citrico", "Acido ascorbico", "Acido succinico"],
-                correct: 2
-            },
-            {
-                text: "La carenza di vitamina B12 provoca:",
-                options: ["Anemia microcitica", "Anemia sideroblastica", "Anemia normocitica", "Anemia megaloblastica"],
-                correct: 3
-            },
-            {
-                text: "L'acido folico appartiene al gruppo delle vitamine:",
-                options: ["B", "C", "K", "D"],
-                correct: 0
-            },
-            {
-                text: "La carenza di vitamina D provoca:",
-                options: ["Osteoporosi", "Scorbuto", "Anemia", "Sanguinamento"],
-                correct: 0
-            },
-            {
-                text: "La vitamina E ha attività:",
-                options: ["Ormonale", "Antiossidante", "Enzimatica", "Emostatica"],
-                correct: 1
-            },
-            {
-                text: "La vitamina B1 è anche detta:",
-                options: ["Riboflavina", "Tiamina", "Piridossina", "Cobalamina"],
-                correct: 1
-            },
-
-            {
-                text: "La carenza di vitamina B1 provoca:",
-                options: ["Anemia", "Beriberi", "Rachitismo", "Scorbuto"],
-                correct: 1
-            },
-            {
-                text: "La riboflavina è anche detta vitamina:",
-                options: ["B2", "B3", "B5", "B6"],
-                correct: 0
-            },
-            {
-                text: "La carenza di niacina provoca:",
-                options: ["Pellagra", "Beriberi", "Scorbuto", "Rachitismo"],
-                correct: 0
-            },
-            {
-                text: "L'acido pantotenico è anche detto vitamina:",
-                options: ["B7", "B6", "B5", "B9"],
-                correct: 2
-            },
-            {
-                text: "La piridossina è anche detta vitamina:",
-                options: ["B7", "B3", "B6", "B5"],
-                correct: 2
-            },
-            {
-                text: "La carenza di biotina provoca problemi a livello di:",
-                options: ["Sistema circolatorio", "Sistema nervoso", "Sistema immunitario", "Cute e capelli"],
-                correct: 3
-            },
-            {
-                text: "La cobalamina è anche detta vitamina:",
-                options: ["B9", "B3", "B12", "B6"],
-                correct: 2
-            },
-            {
-                text: "La vitamina C è importante per la sintesi di:",
-                options: ["Collagene", "Proteine plasmatiche", "Emoglobina", "Glicogeno"],
-                correct: 0
-            },
-            {
-                text: "Il potassio è il principale catione:",
-                options: ["Extracellulare", "Nessuna delle risposte", "Endoplasmatico", "Intracellulare"],
-                correct: 3
-            },
-            {
-                text: "Il sodio è il principale catione:",
-                options: ["Endoplasmatico", "Extracellulare", "Nessuna delle risposte", "Intracellulare"],
-                correct: 1
-            },
-            {
-                text: "Il calcio è importante per:",
-                options: ["Contrazione muscolare", "Coagulazione", "Formazione dell'osso", "Tutte le risposte"],
-                correct: 3
-            },
-            {
-                text: "L'ipercalcemia può essere causata da:",
-                options: ["Iperventilazione", "Iperparatiroidismo", "Digiuno", "Eccesso di vitamina B12"],
-                correct: 1
-            },
-            {
-                text: "Il fosforo è un costituente:",
-                options: ["Delle proteine", "Degli acidi nucleici", "Del collagene", "Del glicogeno"],
-                correct: 1
-            },
-            {
-                text: "Il magnesio è un cofattore di:",
-                options: ["Ormoni", "Anticorpi", "Vitamine", "Enzimi"],
-                correct: 3
-            },
-            {
-                text: "Il cloro è il principale anione:",
-                options: ["Nessuna delle risposte", "Endoplasmatico", "Intracellulare", "Extracellulare"],
-                correct: 3
-            },
-            {
-                text: "La maggior parte del ferro è presente come:",
-                options: ["Transferrina", "Ferritina", "Emoglobina", "Nessuna delle risposte"],
-                correct: 2
-            },
-            {
-                text: "Il ferro è trasportato nel plasma dalla:",
-                options: ["Ferritina", "Emoglobina", "Transferrina", "Emosiderina"],
-                correct: 2
-            },
-            {
-                text: "Lo iodio è necessario per la sintesi degli ormoni:",
-                options: ["Nessuna delle risposte", "Ipofisari", "Tiroidei", "Paratiroidei"],
-                correct: 2
-            },
-            {
-                text: "Il fluoro è importante per la formazione di:",
-                options: ["Tutte le risposte", "Dentina", "Smalto dei denti", "Ossa"],
-                correct: 2
-            },
-            {
-                text: "Il rame è un componente di numerosi:",
-                options: ["Ormoni", "Vitamine", "Anticorpi", "Enzimi"],
-                correct: 3
-            },
-            {
-                text: "Il manganese è un cofattore per enzimi coinvolti nel metabolismo:",
-                options: ["Degli acidi nucleici", "Dei carboidrati", "Delle proteine", "Dei lipidi"],
-                correct: 1
-            },
-            {
-                text: "Il cobalto è presente nella vitamina:",
-                options: ["B1", "B12", "B6", "B3"],
-                correct: 1
-            },
-            {
-                text: "Lo zinco è importante per la funzione di:",
-                options: ["Ormoni steroidei", "Ormoni tiroidei", "Insulina", "Vitamina C"],
-                correct: 2
-            },
-            {
-                text: "Il selenio è importante per la funzione:",
-                options: ["Emostatica", "Antiossidante", "Ormonale", "Enzimatica"],
-                correct: 1
-            },
-            {
-                text: "L'iponatremia indica una bassa concentrazione di sodio nel:",
-                options: ["Liq. endocellulare", "Sangue", "Urine", "Liq. intercellulare"],
-                correct: 1
-            },
-            {
-                text: "L'iperkaliemia indica un'alta concentrazione di potassio nel:",
-                options: ["Sangue", "Liq. intercellulare", "Liq. endocellulare", "Urine"],
-                correct: 0
-            },
-            {
-                text: "L'ipocalcemia indica una bassa concentrazione di calcio nel:",
-                options: ["Sangue", "Urine", "Liq. intercellulare", "Liq. endocellulare"],
-                correct: 0
-            },
-            {
-                text: "La fosfatasi alcalina è un indicatore di attività:",
-                options: ["Renale", "Cardiaca", "Ossea", "Epatica"],
-                correct: 2
-            },
-            {
-                text: "La gamma-glutamiltransferasi (GGT) è un indicatore di danno:",
-                options: ["Renale", "Cardiaco", "Epatobiliare", "Muscolare"],
-                correct: 2
-            },
-            {
-                text: "La lattato deidrogenasi (LDH) aumenta in caso di:",
-                options: ["Necrosi tissutale", "Anemia", "Emorragia", "Infiammazione"],
-                correct: 0
-            },
-            {
-                text: "La troponina è un marker specifico per il danno:",
-                options: ["Epatico", "Polmonare", "Muscolare", "Miocardico"],
-                correct: 3
-            },
-            {
-                text: "La mioglobina è una proteina presente nel:",
-                options: ["Cuore", "Polmone", "Tessuto nervoso", "Muscolo scheletrico"],
-                correct: 3
-            },
-            {
-                text: "La proteina C-reattiva è un indice di:",
-                options: ["Danno renale", "Infiammazione", "Danno polmonare", "Danno epatico"],
-                correct: 1
-            },
-            {
-                text: "L'emoglobina glicosilata (HbA1c) è un indicatore del controllo a lungo termine della:",
-                options: ["Pressione arteriosa", "Glicemia", "Funzione renale", "Lipidemia"],
-                correct: 1
-            },
-            {
-                text: "Il peptide natriuretico atriale (ANP) è prodotto dal:",
-                options: ["Polmone", "Cervello", "Cuore", "Fegato"],
-                correct: 2
-            },
-            {
-                text: "L'ormone antidiuretico (ADH) agisce principalmente a livello del:",
-                options: ["Cuore", "Polmone", "Rene", "Intestino"],
-                correct: 2
-            },
-            {
-                text: "L'aldosterone agisce principalmente a livello del:",
-                options: ["Polmone", "Intestino", "Cuore", "Rene"],
-                correct: 3
-            },
-            {
-                text: "Il paratormone (PTH) regola il metabolismo del:",
-                options: ["Calcio", "Potassio", "Sodio", "Magnesio"],
-                correct: 0
-            },
-            {
-                text: "La calcitonina è prodotta dalla:",
-                options: ["Paratiroide", "Ipofisi", "Corteccia surrenale", "Tiroide"],
-                correct: 3
-            }
-
+           {
+        text: "L'appropriatezza nella medicina di laboratorio riguarda soprattutto:",
+        options: ['Appropriatezza organizzativa', 'Appropriatezza formativa', 'Appropriatezza prescrittiva', 'Appropriatezza terapeutica'],
+        correct: 2
+    },
+    {
+        text: "Nei laboratori di analisi non vengono generalmente impiegati:",
+        options: ['Biotecnologi', 'Tecnici specializzati', 'Nessuna delle risposte', 'Medici'],
+        correct: 2
+    },
+    {
+        text: "In termini di appropriatezza, sono maggiori gli esami diagnostichi",
+        options: ['Utilizzati erroneamente', 'Sottoutilizzati', 'Nessuna di queste', 'Sovrautilizzati'],
+        correct: 1
+    },
+    {
+        text: "Nello schema brain-to-brain la richiesta di un esame diagnostico genera e termina:",
+        options: ['Nel cervello del clinico', 'Nel cervello del tecnico di laboratorio', 'Nel cervello del paziente', 'Nel cervello del biochimico clinico'],
+        correct: 0
+    },
+    {
+        text: "La medicina di precisione prevede che:",
+        options: ['I pazienti affetti dalla stessa patologia siano trattati con farmaci diversi a seconda delle peculiarità biologiche', 'Nessuna delle precedenti', 'Tutti i pazienti affetti dalla stessa patologia siano trattati con lo stesso farmaco specifico', 'Tutti i pazienti affetti dalla stessa patologia siano trattati con lo stesso farmaco generico'],
+        correct: 0
+    },
+    {
+        text: "La fase post-post-analitica è",
+        options: ["Non fa parte dell'intero processo diagnostico", "E' sia interna che esterna la laboratorio di analisi", 'Esterna al laboratorio di analisi', 'Interna al laboratorio di analisi'],
+        correct: 2
+    },
+    {
+        text: "La diminuzione degli errori nella fase analitica sono stati raggiunti grazie",
+        options: ['Minori procedimenti burocratici', 'Minor numero di ore lavorative', 'Maggiore standardizzazione delle procedure', 'Maggior numero di personale impiegato'],
+        correct: 2
+    },
+    {
+        text: "La medicina di laboratorio è una disciplina che contribuisce a definire:",
+        options: ['Tutte le risposte', 'La terapia', 'La prognosi', 'La diagnosi'],
+        correct: 0
+    },
+    {
+        text: "La metrologia è la scienza che studia",
+        options: ['Le unità di misura', 'Nessuna delle risposte precedenti', 'Tutti i processi di misurazione', 'Le variazioni delle misurazioni'],
+        correct: 2
+    },
+    {
+        text: "Fondamentalmente in un laboratorio di analisi medica si eseguono",
+        options: ['Dei saggi biologici', 'Nessuna delle precedenti', 'Delle misurazioni', 'Delle reazioni chimiche'],
+        correct: 2
+    },
+    {
+        text: "Il misurando è",
+        options: ["L'unità di misura della misurazione", 'Tutte le risposte precedenti', 'Il risultato di una misurazione', "L'oggetto o il fenomeno da misurare"],
+        correct: 3
+    },
+    {
+        text: "In biochimica clinica è importante stabilire",
+        options: ['Il motivo della misurazione', "L'idoneità del campione da misurare", 'Il campione da misurare', 'Tutte le risposte'],
+        correct: 3
+    },
+    {
+        text: "Con i metodi analitici usati nei laboratori diagnostici si arriva generalmente a determinare",
+        options: ['La concentrazione di una sostanza in un campione', 'Le proprietà chimico-fisiche di un campione', 'Tutte le risposte', 'Le proprietà biologiche di un campione'],
+        correct: 0
+    },
+    {
+        text: "La legge di Lambert Beer esprime",
+        options: ["La proporzionalità tra la torbidità di una soluzione e l'assorbanza ad una determinata lunghezza d'onda", "La proporzionalità tra la concentrazione di una sostanza e l'assorbanza ad una determinata lunghezza d'onda", "La proporzionalità tra la solubilità di una sostanza e l'assorbanza ad una determinata lunghezza d'onda", 'Tutte le risposte'],
+        correct: 1
+    },
+    {
+        text: "I metodi indiretti utilizzati nei laboratori diagnostici consentono di",
+        options: ['Determinare la concentrazione di un analita presente in un campione biologco', 'Tutte le risposte precedenti', "Determinare l'assorbanza di un analita presente in un campione biologco", 'Determinare il tipo di analita presente in un campione biologico'],
+        correct: 1
+    },
+    {
+        text: "Le lunghezze d'onda utilizzata nelle misurazioni spettrofotometriche",
+        options: ['Sono policromatiche', 'Sono monocromatiche', 'Tutte le risposte', "Sono nell'infrarosso"],
+        correct: 1
+    },
+    {
+        text: "La calibrazione è",
+        options: ["un'operazione logico-pratica che predispone lo strumento a fornire i risultati della misurazione", "è un'operazione meccanica che stabilisce il rapporto tra il segnale e una grandezza", "è un'operazione meccanica, che predispone lo strumento a fornire i risultati della misurazione", "un'operazione logico-pratica che stabilisce il rapporto tra il segnale e una grandezza"],
+        correct: 3
+    },
+    {
+        text: "La taratura è",
+        options: ["un'operazione logico-pratica che stabilisce il rapporto tra il segnale e una grandezza", "è un'operazione meccanica, che predispone lo strumento a fornire i risultati della misurazione", "è un'operazione meccanica che stabilisce il rapporto tra il segnale e una grandezza", "un'operazione logico-pratica che predispone lo strumento a fornire i risultati della misurazione"],
+        correct: 1
+    },
+    {
+        text: "I valori di riferimento di una grandezza biologica sono",
+        options: ['Quei valori che più frequentemente vengono riscontrati una popolazione malata.', 'Quei valori che più frequentemente vengono riscontrati nelle analisi di laboratorio.', 'Quei valori che più frequentemente vengono riscontrati una popolazione sana.', 'Quei valori che più frequentemente vengono riscontrati nei diversi laboratori di analisi.'],
+        correct: 2
+    },
+    {
+        text: "In biochimica clinica vengono prevalentemente utilizzati",
+        options: ['Soprattutto metodi indiretti di misurazione', 'Sia metodi diretti che indiretti di misurazione', 'Soprattutto metodi diretti di misurazione', 'Nessuna delle precedenti risposte'],
+        correct: 1
+    },
+    {
+        text: "Con il termine di misurazione si intende",
+        options: ['Tutte le risposte precedenti', 'Il processo che permette di descrivere quantitativamente una proprietà', 'Il processo che permette di descrivere un fenomeno chimico-fisico', 'Il processo che permette di descrivere qualitativamente una proprietà'],
+        correct: 0
+    },
+    {
+        text: "Il livello di colesterolo",
+        options: ["E' più alto negli uomini", "E' più alto nei bambini", "E' simile negli uomini e nelle donne", "E' più alto nelle donne"],
+        correct: 3
+    },
+    {
+        text: "Un campione viene definito lipemico se presenta",
+        options: ['Elevate concentrazioni di lipidi', 'Basse concentrazioni di lipidi', 'Presenta tracce di lipidi', 'Nessuna delle risposte precedenti'],
+        correct: 0
+    },
+    {
+        text: "Il cortisolo, l'ormone dello stress, presenza delle variazioni",
+        options: ['Mensili', 'Stagionali', 'Non varia', 'Diurne'],
+        correct: 3
+    },
+    {
+        text: "Gli analiti posso variare in funzione",
+        options: ['Tutte le risposte precedenti', 'Della razza', 'Del genere', "Dell'età"],
+        correct: 0
+    },
+    {
+        text: "Le variabilità biologiche interindividuali variano",
+        options: ["All'interno dello stesso individuo", 'Tutte le risposte precedenti', "All'interno del laboratorio di analisi", "All'interno della popolazione"],
+        correct: 1
+    },
+    {
+        text: "Il fumo di sigaretta prima di un prelievo può aumentare i livelli di",
+        options: ['Monociti', 'Linfociti', 'Eritrociti', 'Leucociti'],
+        correct: 3
+    },
+    {
+        text: "Le variabilità della fase pre-analitica sono dovute",
+        options: ['Alla variabilità legata la campione', 'Alla variabilità legata al paziente', 'Alla variabilità legata al prelievo', 'Alla variabilità legata la campione e al paziente'],
+        correct: 3
+    },
+    {
+        text: "I campioni itterici contengono elevate concentrazioni di",
+        options: ['Linfociti', 'Lipidi', 'Emoglobina', 'Bilirubina'],
+        correct: 3
+    },
+    {
+        text: "Un campione viene definito emolizzato se",
+        options: ['I livelli di emoglobina liberi sono superiori 0,30 mg/ml', 'I livelli di emoglobina sono inferiori 0,30 mg/ml', 'I livelli di emoglobina sono superiori 0,30 mg/ml', 'I livelli di emoglobina liberi sono inferiori 0,30 mg/ml'],
+        correct: 0
+    },
+    {
+        text: "L'esercizio fisico comporta uno spostamento dei liquidi dal comparto",
+        options: ['Intravasale a quello Interstiziale', 'Interstiziale a quello intravasale', 'Intravasale a quello intracellulare', 'Intracellulare a quello intravasale'],
+        correct: 0
+    },
+    {
+        text: "Lo stress pre-prelievo può alterare i livelli",
+        options: ["Del glucosio e dell'azotemia", 'Delle catecolamine e del glucosio', "Del cortisolo e dell'azotemia", 'Delle catecolamine e del cortisolo'],
+        correct: 3
+    },
+    {
+        text: "La caffeina è un inibitore della",
+        options: ['Fosfoglucosio isomerasi', 'Colinesterasi', 'Fosfodiesterasi', 'Fosfatasi'],
+        correct: 2
+    },
+    {
+        text: "IL caffè prima di un prelievo può alterare i livelli di glucosio per",
+        options: ['La presenza di zucchero', 'Tutte le risposte', 'La presenza di caffeina', 'La presenza di latte'],
+        correct: 2
+    },
+    {
+        text: "Prima di un prelievo possibile prendere un caffè è",
+        options: ['Zuccherato', 'Macchiato', 'Amaro', 'Non è consigliato'],
+        correct: 3
+    },
+    {
+        text: "Una misurata accurata si ha",
+        options: ['Con esattezza alta e precisione alta', 'Con precisione bassa ed esattezza lata', 'Con precisione alta ed esattezza bassa', 'Con esattezza bassa e precisione bassa'],
+        correct: 0
+    },
+    {
+        text: "La differenza critica o reference change value è il riferimento per valutare se",
+        options: ['La differenza tra il valore di riferimento e la misurazione di un determinato analita in un paziente siano statisticamente significative', 'La differenza tra la misurazioni di un determinato analita in un paziente e il valore di riferimento siano statisticamente significative', 'La differenza tra due misurazioni di un determinato analita in pazienti diversi siano statisticamente significative', 'La differenza tra due misurazioni di un determinato analita sullo stesso paziente siano statisticamente significative'],
+        correct: 3
+    },
+    {
+        text: "Tipicamente la variabilità intraindividuale è",
+        options: ['Inferiore alla variabilità interindividuale', 'Uguale alla variabilità interindividuale', 'Dipende dal tipo di analita', 'Superiore alla variabilità interindividuale'],
+        correct: 0
+    },
+    {
+        text: "L'errore può essere definito come la differenza tra",
+        options: ['Il valore misurato e la media dei valori misurati', 'Il valore misurato e il valore vero', 'La media dei valori misurati e il valore vero', 'Il valore vero e il valore misurato'],
+        correct: 3
+    },
+    {
+        text: "Una deviazione standard elevata indica che",
+        options: ["L'imprecisione è bassa", 'La riproducibilità è alta', 'La ripetibilità è alta', "L'imprecisione è alta"],
+        correct: 3
+    },
+    {
+        text: "Gli errori sistematici dipendono",
+        options: ['Dallo strumento', 'Dai reagenti', "Dall'operatore", 'Tutte le risposte'],
+        correct: 3
+    },
+    {
+        text: "Gli errori casuali sono",
+        options: ['Totalmente prevedibili', 'Totalmente eliminabili', 'Parzialmente eliminabili', 'Parzialmente prevedibili'],
+        correct: 2
+    },
+    {
+        text: "Gli errori di misura non sono dovuti a",
+        options: ['Errori sistematici', 'Nessuna delle risposte', 'Errori casuali', 'Errori grossolani'],
+        correct: 1
+    },
+    {
+        text: "La variabilità analitica è dovuta a",
+        options: ['Reagenti', 'Operatori', 'Strumenti utilizzati', 'Tutte le risposte'],
+        correct: 3
+    },
+    {
+        text: "Tutte le misurazioni eseguite nei laboratori sono soggette a",
+        options: ['Variabilità biologica e variabilità analitica', 'Variabilità biologica', 'Variabilità analitica', 'Non sono soggette a variabilità'],
+        correct: 0
+    },
+    {
+        text: "Si può definire come variazione biologica la fluttuazione che un analità ha rispetto al suo valore",
+        options: ['Omeostatico', 'Di rilevazione', 'Allostatico', 'Di misurazione'],
+        correct: 0
+    },
+    {
+        text: "L'imprecisione è la misura degli errori",
+        options: ['Casuali', 'Grossolani', 'Non misura gli errori', 'Sistematici'],
+        correct: 0
+    },
+    {
+        text: "I calibratori generalmente possono essere",
+        options: ['Stabili limitatamente se conservati in frigorifero', 'Stabili indefinitamente', 'Stabili limitatamente', 'Stabili limitatamente se conservati a temperatura ambiente'],
+        correct: 3
+    },
+    {
+        text: "Il luminolo emette fotoni di energia in presenza di",
+        options: ['Una galattosidasi e acqua ossigenata', 'Una perossidasi e acqua ossigenata', 'Una deidrogenasi e acqua ossigenata', 'Una fosfatasi e acqua ossigenata'],
+        correct: 1
+    },
+    {
+        text: "I traccianti fluorescenti sono molecole che eccitate con una fonte luminosa di una certa lunghezza d'onda, riemettono una luce ad",
+        options: ["Una lunghezza d'onda generalmente minore", "Una lunghezza d'onda sia maggiore che minore", "Una lunghezza d'onda generalmente simile", "Una lunghezza d'ona generalmente maggiore"],
+        correct: 3
+    },
+    {
+        text: "I vantaggi dei traccianti radioattivi sono",
+        options: ['Segnale molto specifico e influenzato dal mezzo circostante', 'Segnale molto specifico e modificabile durante la reazione', 'Segnale molto specifico e ingombro sterico molto basso', 'Segnale molto specifico e ingombro sterico molto alto'],
+        correct: 2
+    },
+    {
+        text: "Un buon tracciante per immunoistochimica deve avere",
+        options: ['Basso rumore di fondo e bassa specificità', 'Alta rumore di fondo e bassa specificità', 'Alta intensità di segnale per unità di massa', 'Bassa intensità di segnale per unità di massa'],
+        correct: 2
+    },
+    {
+        text: "Gli anticorpi policlonali si ottengono",
+        options: ['Producendo un ibridoma', "Immunizzando un animale con l'aptene contro cui si vuole produrre l' anticorpo", 'Tutte le risposte precedenti', "Immunizzando un animale con l'antigene contro cui si vuole produrre l' anticorpo"],
+        correct: 3
+    },
+    {
+        text: "Un aptene è una molecola che",
+        options: ['Presenta uno o più epitopi', 'Induce una risposta immunitaria', 'Tutte le risposte precedenti', "E' riconosciuta da un anticorpo"],
+        correct: 3
+    },
+    {
+        text: "Nelle analisi di laboratorio si utilizzano",
+        options: ['Sia anticorpi policlonali che monoclonali', 'Solo anticorpi monoclonali', 'Solo anticorpi policlonali', 'Dipende dal tipo di analita'],
+        correct: 0
+    },
+    {
+        text: "I dosaggi immunochimici si basano sulla",
+        options: ['Sulla specificità degli analiti', 'Sulla specificità della reazione enzimatiche', 'Sulla specificità delle misurazioni spettrofotometriche', 'Sulla specificità della reazione antigene-anticorpo'],
+        correct: 3
+    },
+    {
+        text: "L'antigene è una molecola che",
+        options: ['Tutte le risposte', 'Induce una risposta immunitaria', "E' riconosciuta da un anticorpo", 'Presenta uno o più epitopi'],
+        correct: 0
+    },
+    {
+        text: "Gli anticorpi hanno una caratteristica struttura",
+        options: ['Ternaria a forma di Y', 'Monomerica a forma di Y', 'Quaternaria a forma di Y', 'Binaria a forma di Y'],
+        correct: 2
+    },
+    {
+        text: "Un ibridoma si ottiene per fusione tra",
+        options: ['Un linfocita B e una cellula di mieloma', 'Un leucocita e una cellula di mieloma', 'Un leucocita e una cellula di melanoma', 'Un linfocita B e una cellula di melanoma'],
+        correct: 0
+    },
+    {
+        text: "Gli anticorpi più comunemente utilizzati per lo sviluppo dei metodi immunochimici sono",
+        options: ['IgE', 'IgA', 'IgD', 'IgG'],
+        correct: 3
+    },
+    {
+        text: "Gli antigeni sono riconosciuti dalle regioni",
+        options: ['Variabili degli anticorpi', 'Costanti degli anticorpo', 'Dipende dal tipo di anticorpo', 'Variabili e costanti degli anticorpi'],
+        correct: 0
+    },
+    {
+        text: "Il principale vantaggio dei metodi competitivi è che possono riconoscere",
+        options: ['Qualsiasi aptene', 'Qualsiasi antigene indipendentemente dalle dimensioni', 'Qualsiasi antigene di grosse dimensioni', 'Qualsiasi antigene di piccole dimensioni'],
+        correct: 1
+    },
+    {
+        text: "Nei metodi non competitivi il segnale",
+        options: ["Aumenta all'aumentare della concentrazione dell'analita.", "Aumenta al diminuire della concentrazione dell'analita.", "Diminuisce all'aumentare della concentrazione dell'analita.", 'Nessuna delle risposte precedenti'],
+        correct: 0
+    },
+    {
+        text: "I metodi competitivi possono essere definiti",
+        options: ['Eccesso di anticorpo', 'Nessuna delle risposte precedenti', 'Difetto di antigene', 'Difetto di anticorpo'],
+        correct: 3
+    },
+    {
+        text: "I metodi a sandwich sono anche detti metodi:",
+        options: ['Competitivi', 'A saturazione', 'Non competitivi', 'In difetto di anticorpo'],
+        correct: 2
+    },
+    {
+        text: "Con architettura del dosaggio immunologico s'intende il processo attraverso cui si evidenzia",
+        options: ['Il substrato', 'Il tracciante', "L'analita", "L'anticorpo"],
+        correct: 2
+    },
+    {
+        text: "Nei metodi competitivi la quantità di segnale prodotto",
+        options: ["Aumenterà all'aumentare della concentrazione dell'analita", "Aumenterà all'aumentare della concentrazione dell'anticorpo", "Diminuirà all'aumentare della concentrazione dell'analita", "Diminuirà all'aumentare della concentrazione dell' anticorpo"],
+        correct: 2
+    },
+    {
+        text: "La turbidimetria e la nefelometria sono definiti",
+        options: ['Nessuna delle risposte', 'Metodi label-free', 'Metodi anticorpi-free', 'Metodi antigeni-free'],
+        correct: 1
+    },
+    {
+        text: "I metodi più utilizzati per separare il libero dal legato sono",
+        options: ['Un secondo anticorpo', 'Tutte le risposte', 'Il sistema avidina biotina', 'Proteina A'],
+        correct: 1
+    },
+    {
+        text: "La separazione libero-legato dovrebbe essere",
+        options: ['Influenzata da fattori esterni', 'Poco costosa', 'Poco rapida', 'Tutte le risposte precedenti'],
+        correct: 1
+    },
+    {
+        text: "Nei metodi in fase eterogenea è necessario separare",
+        options: ['Nessuna delle risposte', "L'antigene dall'anticorpo", "L'antigene marcato da quello non marcato", "L'antigene non marcato dall'anticorpo"],
+        correct: 2
+    },
+    {
+        text: "I metodi non competitivi a differenza dei metodi competitivi presentano",
+        options: ['Una maggiore specificità e una minore sensibilità', 'Una minore specificità e una minore sensibilità', 'Una maggiore specificità e una maggiore sensibilità', 'Una minore specificità e una maggiore sensibilità'],
+        correct: 2
+    },
+    {
+        text: "Il segnale misurato da un metodo non competitivo è graficamente rappresentato da",
+        options: ['Un iperbole equilatera', 'Una sigmoide', 'Una parabola', 'Una retta'],
+        correct: 1
+    },
+    {
+        text: "Gli enzimi si possono trovare nel sangue",
+        options: ['Soltanto in condizioni fisiologiche', 'Soltanto in condizioni patologiche', 'Sia in condizioni fisiologiche che patologiche', 'Nessuna delle risposte precedenti'],
+        correct: 2
+    },
+    {
+        text: "La lattatodeidrogenasi è una proteina",
+        options: ['Nessuna delle risposte', 'Tetramerica formata dalla combinazione di due diverse catene polipeptidiche', 'Tetramerica formata dalla combinazione di 4 diverse catene polipeptidiche', 'Tetramerica formata dalla combinazione di 3 diverse catene polipeptidiche'],
+        correct: 1
+    },
+    {
+        text: "Gli enzimi vengono misurati per",
+        options: ['La loro carica elettrica', 'La loro concentrazione', 'La loro attività', 'La loro dimensione'],
+        correct: 2
+    },
+    {
+        text: "L'attività di un enzima determina",
+        options: ['Aumento del substrato e del prodotto', 'Aumento del substrato con uguale concentrazione del prodotto', 'Diminuzione del substrato e aumento del prodotto', 'Diminuzione del substrato e del prodotto'],
+        correct: 3
+    },
+    {
+        text: "Della creatinchisasi esisotono",
+        options: ['Quattro isoenzimi', 'Tre isoenzimi diversi', 'Nessun isoenzima', 'Due isoenzimi diversi'],
+        correct: 1
+    },
+    {
+        text: "Gli enzimi sono delle macromolecole proteiche che",
+        options: ['Tutte le risposte precedenti', "Diminuiscono l'energia di transizione", 'Diminuiscono la velocità di una reazione biochimica', 'Diminuiscono la concentrazione finale dei prodotti'],
+        correct: 0
+    },
+    {
+        text: "I coenzimi durante la reazione enzimatica",
+        options: ['Modificano la loro struttura ma possono essere riconvertiti', 'Modificano la loro struttura permanentemente', 'Nessuna delle risposte precedenti', 'Non modificano la loro struttura'],
+        correct: 0
+    },
+    {
+        text: "La sigle BAP indica la",
+        options: ['Fosfatasi alcalina epatica', 'Nessuna delle precedenti', 'Fosfatasi acida ossea', 'Fosfatasi alcalina ossea'],
+        correct: 3
+    },
+    {
+        text: "Le amilasi sono degli enzimi coinvolti nella digestione",
+        options: ['Dei lipidi', 'Tutte le risposte', 'Delle Proteine', 'Dei carboidrati'],
+        correct: 3
+    },
+    {
+        text: "La fosfatasi alcalina appartiene alla famiglia delle",
+        options: ['Lipasi', 'Idrolasi', 'Nessuna delle risposte', 'Ossidoriduttasi'],
+        correct: 1
+    },
+    {
+        text: "La gamma-glutamiltransferasi in condizioni normali presenta livelli più alti",
+        options: ['Nei bambini', 'Negli uomini', 'Nelle donne', 'Nelle donne in menopausa'],
+        correct: 1
+    },
+    {
+        text: "La fosfatasi alcalina presenta valori superiori alla norma in assenza di patologia durante",
+        options: ['Menopausa', 'La vecchiaia', 'Età adulta', 'Infanzia'],
+        correct: 3
+    },
+    {
+        text: "L'amilasi è un enzima maggiormente espresso nel",
+        options: ['Pancreas e cuore', 'Pancreas e ghiandole salivari', 'Pancreas, fegato, ghiandole salivari', 'Fegato e pancreas'],
+        correct: 1
+    },
+    {
+        text: "In caso di aumento dell'ALT con AST nei limiti si può pensare a pronlemi per",
+        options: ['Muscoli', 'Fegato', 'Reni', 'Cuore'],
+        correct: 1
+    },
+    {
+        text: "La creatinchinasi, in assenza di patologie, aumenta per",
+        options: ['Assunzione di liquidi', 'Esercizio fisico', 'Gravidanza', 'Aumento della pressione arteriosa'],
+        correct: 1
+    },
+    {
+        text: "La creatinchinasi è un enzima",
+        options: ['Dimerico', 'Monomerico', 'Trimerico', 'Tetramerico'],
+        correct: 0
+    },
+    {
+        text: "La creatinchinasi è un enzima che catalizza la",
+        options: ['Tutte le risposte', 'Defosforilazione della fosfo-creatina', 'Fosforilazione della creatina', 'La produzione di ATP'],
+        correct: 0
+    },
+    {
+        text: "Alti livelli di lipasi nel siero indicano un danno",
+        options: ['Pancreatico', 'Muscolare', 'Renale', 'Epatico'],
+        correct: 0
+    },
+    {
+        text: "La fosfatasi alcalina ha come sigla",
+        options: ['APC', 'AST', 'ALP', 'ALT'],
+        correct: 2
+    },
+    {
+        text: "In un elettroforesi su campione sierico l'albumina rispetto alla gamma globuline migra",
+        options: ['Più velocemente', "L'albumina non è presente", 'Migrano assieme', 'Più lentamente'],
+        correct: 0
+    },
+    {
+        text: "L'elettroforesi su acetato di cellulosa è utilizzata particolarmente in ambito clinico per separare",
+        options: ['Proteine plasmatiche', 'RNA', 'DNA', 'Proteine'],
+        correct: 0
+    },
+    {
+        text: "In un sistema elettroforetico le molecole si separano tra di loro in base",
+        options: ['Alla carica', 'Alla forza ionica', 'Al campo elettrico', 'Al tipo di tampone'],
+        correct: 0
+    },
+    {
+        text: "L'aumento della temperatura in un sistema elettroforetico",
+        options: ['Aumenta la viscosità', 'Nessuna delle risposte', 'Non altera la velocità elettroforetica', 'Riduce la concentrazione salina'],
+        correct: 1
+    },
+    {
+        text: "I PAGE sono gel di",
+        options: ['Acetato', 'Ammonio', 'Agarosio', 'Acrilamide'],
+        correct: 3
+    },
+    {
+        text: "Gli AGE sono gel di",
+        options: ['Ammonio', 'Acetato', 'Agarosio', 'Acrilamide'],
+        correct: 2
+    },
+    {
+        text: "La capacità di risoluzione di gel segue il seguente ordine",
+        options: ['Agarosio>Acetato>Acrilamide', 'Acrilamide>Acetato>Agarosio', 'Agarosio>Acrilamide>Acetato', 'Acrilamide>Agarosio>Acetato'],
+        correct: 3
+    },
+    {
+        text: "Le molecole anforetiche hanno carica netta",
+        options: ['Positiva', 'Dipende dal pH', 'Neutra', 'Negativa'],
+        correct: 1
+    },
+    {
+        text: "Nella CE su utilizza come supporto per la corsa elettroforetica",
+        options: ['Silice', 'Acrilamide', 'Agarosio', 'Acetato di cellulosa'],
+        correct: 0
+    },
+    {
+        text: "Il maggiorvantaggio della CE è",
+        options: ['Tutte le risposte', 'Costi ridotti', 'Rapidità di analisi', "L'utilizzo di soluzioni acquose"],
+        correct: 2
+    },
+    {
+        text: "Il ?-Mercaptoetanolo è un agente",
+        options: ['Denaturante', 'Colorante', 'Polimerizzante', 'Nessuna delle risposte'],
+        correct: 3
+    },
+    {
+        text: "Nella tecnica del Western blot l'incubazione con BSA serve per",
+        options: ['Tutte le precedenti risposte', 'Aumentare il legame antigene anticorpo', "Aumentare l'intensità del segnale", 'Diminuire i siti aspecifici'],
+        correct: 3
+    },
+    {
+        text: "La poliacrilamide per polimerizzare necessità di",
+        options: ['Ammonio per solfato', 'Ammonio perclorato', 'Ammonio solfato', 'Ammonio acetato'],
+        correct: 0
+    },
+    {
+        text: "Il glicerolo serve per",
+        options: ['Polimerizzare le proteine', 'Appesantire le proteine', 'Colorare le proteine', 'Denaturare le proteine'],
+        correct: 1
+    },
+    {
+        text: "La PAGE può essere usata per separare le proteine in condizioni",
+        options: ['Native', 'Denaturanti e Native', 'Non si usa per le proteine', 'Denaturanti'],
+        correct: 1
+    },
+    {
+        text: "SDS-PAGE permette la separazione delle proteine in base alla",
+        options: ['Dimensione', 'Tutte le risposte', 'Carica', 'Forma'],
+        correct: 0
+    },
+    {
+        text: "Le proteine si muovono in un gel SDS-PAGE con un velocità",
+        options: ['Inversamente proporzionale alla loro carica', 'Direttamente proporzionale alla loro massa', 'Direttamente proporzionale alla loro carica', 'Inversamente proporzionale alla loro massa'],
+        correct: 3
+    },
+    {
+        text: "L'elettroforesi 2D combina",
+        options: ["L'isolettrofocalizzazione e la CE", "L'isolettrofocalizzazione e la SDS-PAGE", "L'isolettrofocalizzazione e la SDS-AGE", 'La CE e la SDS-PAGE'],
+        correct: 1
+    },
+    {
+        text: "Nella tecnica del western blot le proteine sono trasferite su un foglio di",
+        options: ['PVDP', 'Nitrocellulosa', 'Tutte le risposte', 'Acetato'],
+        correct: 2
+    },
+    {
+        text: "La mobilità elettroforetica relativa delle proteine varia in modo lineare in base a",
+        options: ['Nessuna delle risposte', 'Logaritto decimale della massa molecolare relativa', 'Massa molecolare relativa', 'Logaritto naurale della massa molecolare relativa'],
+        correct: 1
+    },
+    {
+        text: "La bollitura prima di caricare il campione in un gel elettroforetico serve a",
+        options: ['Fluidificare le proteine', 'Denaturare le proteine', 'Concentrare le proteine', 'Far evaporare il liquido in eccesso'],
+        correct: 1
+    },
+    {
+        text: "Il plasma è simile",
+        options: ['Al siero ma senza la frazione corpuscolata', 'Al sangue ma senza la frazione corpuscolata', 'Al siero ma senza i fattori della coagulazione', 'Al sangue ma senza i fattori della coagulazione'],
+        correct: 1
+    },
+    {
+        text: "I vacutainer con il tappo giallo si usano per ottenere",
+        options: ['Siero', 'Urine', 'Sangue intero', 'Plasma'],
+        correct: 0
+    },
+    {
+        text: "Gli aghi per i prelievi hanno un gauge",
+        options: ['3-9', '100-200', '23-45', '19-23'],
+        correct: 3
+    },
+    {
+        text: "Il sangue capillare contiene",
+        options: ['Tutte le risposte', 'Sangue venoso', 'Sangue arterioso', 'Liquido inetrstiziale'],
+        correct: 0
+    },
+    {
+        text: "L'EDTA altera la morfologia",
+        options: ['Delle piastrine', 'Nessuna delle risposte', 'Degli eritrociti', 'Dei leucociti'],
+        correct: 0
+    },
+    {
+        text: "L'eparina altera la morfologia",
+        options: ['Dei leucociti', 'Delle piastrine', 'Degli eritrociti', 'Nessuna delle risposte'],
+        correct: 2
+    },
+    {
+        text: "Gli anticoagulanti sono necessari per ottenere",
+        options: ['Il siero', 'Il sangue', 'Il plasma', 'Tutte le risposte'],
+        correct: 2
+    },
+    {
+        text: "I componenti maggiori nel sangue sono",
+        options: ['Eritrociti>Linfociti>Piastrine', 'Eritrociti>Piastrine=Linfociti', 'Piastrine>Eritrociti>Linfociti', 'Eritrociti>Piastrine>Linfociti'],
+        correct: 3
+    },
+    {
+        text: "Il volume del sangue varia in funzione",
+        options: ['Del genere', 'Del peso', 'Tutte le risposte', "Dell'età"],
+        correct: 2
+    },
+    {
+        text: "Il sangue costituisce",
+        options: ['8% del peso del corpo', '12% peso del corpo', '16% peso del corpo', '4% del peso del corpo'],
+        correct: 0
+    },
+    {
+        text: "Il plasma si ottiene centrifugando il sangue",
+        options: ['Senza anticoagulanti a 300 rpm', 'Con anticoagulanti a 300 rpm', 'Con anticoagulanti a 3000 rpm', 'Senza anticoagulanti a 3000 rpm'],
+        correct: 2
+    },
+    {
+        text: "Il sangue è un tessuto",
+        options: ['Stromale', 'Mesenchimale', 'Connettivale', 'Nessuna delle risposte'],
+        correct: 2
+    },
+    {
+        text: "Il siero è simile",
+        options: ['Al sangue ma senza la frazione corpuscolata', 'Al sangue ma senza i fattori della coagulazione', 'Al plasma ma senza i fattori della coagulazione', 'Al plasma ma senza la frazione corpuscolata'],
+        correct: 2
+    },
+    {
+        text: "L'esame più indicato per individuare le una componente monoclonale è",
+        options: ["L'esame immunometrico delle urine", "L'esame immunometrico delle sieroproteine", "L'elettroforesi delle sieroproteine", "L'elettroforesi delle urine"],
+        correct: 2
+    },
+    {
+        text: "L'albumina può diminuire nel sangue in seguito a",
+        options: ['Vomito', 'Nessuna delle risposte', 'Esercizio fisico', 'Diarrea'],
+        correct: 1
+    },
+    {
+        text: "La pressione oncotica è la pressione osmotica esercitata",
+        options: ['Dalle proteine', 'Dai Sali', 'Dai glicidi', 'Dai lipidi'],
+        correct: 0
+    },
+    {
+        text: "Le gammopatie monoclonali sono dovute",
+        options: ['Alla proliferazione anomala dei leucociti', 'Alla proliferazione anomala delle plasmacellule', 'Alla differenziazione anomala dei leucociti', 'Alla differenziazione anomala delle plasmacellule'],
+        correct: 1
+    },
+    {
+        text: "Le cellule staminali della linea linfoidedanno origine a",
+        options: ['Leucociti', 'Linfociti', 'Piastrine', 'Granulociti'],
+        correct: 1
+    },
+    {
+        text: "Le plasmacellule sono",
+        options: ['Linfociti C', 'Linfociti B', 'Piastrine', 'Leucociti'],
+        correct: 1
+    },
+    {
+        text: "L'assenza di componente monoclonale",
+        options: ["Non garantisce l'assenza di una gammopatia", 'Nessuna delle risposte', "Garantisce l'assenza di una gammopatia", 'Dipende dal tipo di gammopatia'],
+        correct: 0
+    },
+    {
+        text: "Le gammopatie monoclonali",
+        options: ['Possono essere asintomatiche', 'Sono sempre stabili', 'Sono sempre asintomatiche', 'Sono sempre sintomatiche'],
+        correct: 0
+    },
+    {
+        text: "Il mieloma multiplo colpisce prevalentemente le persone sopra i",
+        options: ['40 anni', '50 anni', '70 anni', '60 anni'],
+        correct: 2
+    },
+    {
+        text: "L'albumina è prodotta maggiormente nel",
+        options: ['Fegato', 'Intestino', 'Muscolo', 'Reni'],
+        correct: 0
+    },
+    {
+        text: "L'alfa1-antitripsina ha un ruolo protettivo nei confronti",
+        options: ['Del fegato', 'Dei reni', 'Del cuore', 'Dei polmoni'],
+        correct: 3
+    },
+    {
+        text: "La transtiretina è un marcatore di",
+        options: ['Danno renale', 'Danno polmonare', 'Danno epatico', 'Danno cardiaco'],
+        correct: 2
+    },
+    {
+        text: "La via classica del complemento è attivata",
+        options: ['Dal complesso Ag-Ab', 'Dai lipopolisaccaridi', 'Dal mannosio', 'Dai polisaccaridi'],
+        correct: 0
+    },
+    {
+        text: "La via alternativa del complemento è attivata",
+        options: ['Tutte le risposte precedenti', 'Dai lipopolisaccaridi dei batteri', "Dall'interazione antigene anticorpo", 'Dalla lectina'],
+        correct: 1
+    },
+    {
+        text: "La Proteina C Reattiva è una",
+        options: ['Un fattore de lcomplemento', 'Alfa globulina', 'Beta globulina', 'Gamma globulina'],
+        correct: 1
+    },
+    {
+        text: "Il fattore reumatoide è una",
+        options: ['Beta globulina', 'Nessuna delle precedenti', 'Gamma globulina', 'Alfa globulina'],
+        correct: 1
+    },
+    {
+        text: "Il ruolo principale dell'aptoglobina è",
+        options: ['Tutte le risposte', 'Regolatore della pressione oncotica', 'Antiossidante', 'Riserva energetica'],
+        correct: 2
+    },
+    {
+        text: "La beta 2 microglobulina è presente prevalentemente sulla superficie",
+        options: ['Tutte le risposte', 'Degli eritrociti', 'Dei granulociti', 'Dei linfociti'],
+        correct: 3
+    },
+    {
+        text: "I geni dell'HMC di classe I non sono espressi",
+        options: ['Dagli eosinofili', 'Dagli eritrociti', 'Dai linfociti', 'Dai basofili'],
+        correct: 1
+    },
+    {
+        text: "La misurazione della beta 2-microglobulina fornisce indicazione sul funzionamento",
+        options: ['Epatico', 'Cardiaco', 'Ipofisario', 'Renale'],
+        correct: 3
+    },
+    {
+        text: "La ceruplasmina è il principale trasportatore del",
+        options: ['Ferro', 'Emoglobina', 'Colesterolo', 'Rame'],
+        correct: 3
+    },
+    {
+        text: "La ceruplasmina aumenta in seguito a",
+        options: ['Infiammazione', 'Danno epatico', 'Esercizio fisico', 'Tutte le risposte'],
+        correct: 3
+    },
+    {
+        text: "Il ruolo principale dei trigliceridi è",
+        options: ['Strutturale', 'Tutte le risposte', 'Riserva', 'Trasporto'],
+        correct: 2
+    },
+    {
+        text: "Le lipoproteine HDL sono",
+        options: ['Più grandi delle VLDL', 'Simili alle LDL', 'Più piccole delle VLDL', 'Più grandi delle LDL'],
+        correct: 2
+    },
+    {
+        text: "Le lipoproteine con il più alto contenuto di trigliceridi sono",
+        options: ['I chilomicroni', 'Le VLDL', 'Le LDL', 'Le Lp(a)'],
+        correct: 0
+    },
+    {
+        text: "I chilomicroni si formano",
+        options: ['Nel sangue', "Nell'intestino", 'Nel fegato', 'Tutte le risposte precedenti'],
+        correct: 1
+    },
+    {
+        text: "Gli spazzini del sangue sono",
+        options: ['Le VLDL', 'Le LDL', 'Le HDL', 'I chilomicrono'],
+        correct: 2
+    },
+    {
+        text: "Il core centrale delle lipoproteine contiene maggiormente",
+        options: ['Colesterolo', 'Fosfolipidi', 'Trigliceridi', 'Proteine'],
+        correct: 2
+    },
+    {
+        text: "Il colesterolo presente nelle membrane cellulare serve a",
+        options: ['Tutte le risposte', 'Aumentare la flessibilità', 'Ridurre la permeabilità', 'Aumentare la fluidità'],
+        correct: 0
+    },
+    {
+        text: "Il recettore delle LDL riconosce le apolipoproteine",
+        options: ['ApoC', 'ApoB', 'ApoE', 'ApoD'],
+        correct: 1
+    },
+    {
+        text: "La ApoB48 e la principale proteina dei",
+        options: ['HDL', 'VLDV', 'IDL', 'Chilomicroni'],
+        correct: 3
+    },
+    {
+        text: "La ApoA-1 e la principale proteina dei",
+        options: ['HDL', 'Chilomicroni', 'IDL', 'VLDV'],
+        correct: 0
+    },
+    {
+        text: "Alti livelli di Lp(a) sono associati a",
+        options: ['Aumentato rischio epatico', 'Ridotto rischio aterosclerotico', 'Aumentato rischio aterosclerotico', 'Ridotto rischio epatico'],
+        correct: 2
+    },
+    {
+        text: "Con alti livelli di colesterolo le proteine SREBP sono",
+        options: ['Rimane nel reticolo endoplasmatico', 'Trasferite dal reticolo endoplasmatico al Golgi', 'Trasferite da reticolo endoplasmatico al nucleo', 'Attiva la trascrizione di LDL'],
+        correct: 0
+    },
+    {
+        text: "I chilomicroni ricevono le ApoE e ApoC da",
+        options: ['VLDL', 'IDL', 'HDL', 'Tutte le risposte'],
+        correct: 2
+    },
+    {
+        text: "Circa il 75% del colesterolo è nel sangue",
+        options: ['Nella forma esterificata', 'Legato alle HDL', 'Nella forma libera', 'Legato alle LDL'],
+        correct: 0
+    },
+    {
+        text: "La lipoproteina Lipasi",
+        options: ['Tutte le risposte', 'Catalizza la degradazione trigliceridi', 'Catalizza la degradazione dei fosfolipidi', 'Catalizza la degradazione degli esteri del colesterolo'],
+        correct: 0
+    },
+    {
+        text: "Il fattore PCSK9",
+        options: ['Favorisce la degradazione delle LDLR', 'Favorisce la sintesi di LDLR', "Favorisce l'inibizione della trascrizione di LDLR", 'Favorisce il riciclo in membrana di LDLR'],
+        correct: 0
+    },
+    {
+        text: "Il fattore LXR promuove",
+        options: ['La sintesi di LDLR', 'La degradazione di LDLR', 'Non regola le LDLR', "L'inibizione della trascrizione di LDLR"],
+        correct: 0
+    },
+    {
+        text: "La lipoproteina lipasi e un enzima necessario nella determinazione di",
+        options: ['Colesterolo', 'HDL totale', 'Trigliceridi', 'Lp(a)'],
+        correct: 2
+    },
+    {
+        text: "I valori del colesterolo dovrebbero essere al di sotto",
+        options: ['190 mg/L', '190 mg/dL', '190 mg/mL', '190 mg/cL'],
+        correct: 1
+    },
+    {
+        text: "L'ipercolesterolemia famigliare è causata da geni che codificano per le proteine legate al metabolismo dei",
+        options: ['HDL', 'IDL', 'LDL', 'Lp(a)'],
+        correct: 2
+    },
+    {
+        text: "L'ipercolesterolemia famiglaire affligge 1 persona ogni",
+        options: ['500', '50000', '5000', '50'],
+        correct: 0
+    },
+    {
+        text: "Nell'ipercolesterolemia famigliare si possono avere eventi cardiovascolari anche gravi prima dei",
+        options: ['50 anni', '20 anni', '40 anni', '30 anni'],
+        correct: 0
+    },
+    {
+        text: "La diagnosi di dislipedemia si basa sulla misurazione di",
+        options: ['LDL', 'Tutte le risposte', 'Trigliceridi', 'Coesterolo Totale'],
+        correct: 1
+    },
+    {
+        text: "I trigliceridi sono lipidi che",
+        options: ['Nessuna delle risposte', 'Sono componenti principali delle LDL', 'sono presenti nel siero a concentrazioni > 170 mg/ml', 'Non risentono della dieta'],
+        correct: 0
+    },
+    {
+        text: "Un alto valore di colesterolo HDL è",
+        options: ['Un fattore di protezione per ateroma', 'Un fattore di formazione di ateroma', 'Un fattore di rischio per ateroma', 'Indifferente per ateroma'],
+        correct: 0
+    },
+    {
+        text: "Il metodo Trinder è un metodo che si basa sulla produzione di",
+        options: ['H2O2', 'NADPH', 'NADP+', 'Nessuna delle risposte'],
+        correct: 0
+    },
+    {
+        text: "Il metodo CHOD/POD/Trinder permette di misurare",
+        options: ['Il colestero libero', 'Tutto il colesterolo', 'Il colesterolo LDL', 'Il colesterolo esterificato'],
+        correct: 1
+    },
+    {
+        text: "L'anticoagulante utilizzato nelle provette per l'esame emocromocitometrico è",
+        options: ['Eparina', 'EDTA', 'EGTA', 'Nessun anticoagulante perché si esegue sul siero'],
+        correct: 1
+    },
+    {
+        text: "Nella citofluorimetria a flusso il forward scatter, rispetto alla fonte lumino, è posizionato a",
+        options: ['180°', '60°', '90°', '45°'],
+        correct: 2
+    },
+    {
+        text: "Quali di queste affermazioni non è vera",
+        options: ['La citofluorometria a flusso si basa sulla conduttanza elettrica', 'La citofluorometria a flusso si basa sulla diffrazione della luce', 'La citofluorometria a flusso si basa sulla disponibilità di anticorpi monoclonali', 'La citofluorometria a flusso si basa sulla focalizzazione idrodinamica'],
+        correct: 0
+    },
+    {
+        text: "I metodi automatici di conta degli elementi corpuscolati del sangue si basano su",
+        options: ['Diffusione elettrica', 'Impedenza elettrica', 'Tutte le precedenti', 'Impedenza ottica'],
+        correct: 2
+    },
+    {
+        text: "La camera di Burker è usata per contare in modo particolare",
+        options: ['I leucociti', 'Qualsiasi cellula', 'Gli eritrociti', 'Le Piastrine'],
+        correct: 1
+    },
+    {
+        text: "L'emoglobina è formata da",
+        options: ['2 globine e 2 gruppi eme', '2 globine e 4 gruppi eme', '4 globine e 4 gruppi eme', '4 globine e 2 gruppi eme'],
+        correct: 2
+    },
+    {
+        text: "I valori ottimali di emoglobina negli uomini sono superiori a",
+        options: ['150 g/L', '80 g/L', '130 g/L', '110 g/L'],
+        correct: 2
+    },
+    {
+        text: "Le causa principale dell'anemia è",
+        options: ['Carenza di ferro', 'Carenza di micronutrienti', 'Deficit nella produzione di globuli rossi', 'Deficit nella sintesi di emoglobina'],
+        correct: 0
+    },
+    {
+        text: "Quali fra questi meccanismi non è messo in atto dall'organismo per contrastare l'anemia",
+        options: ['Aumento della frequenza cardiaca', 'Secrezione di eritropoietina', 'asodilatazione periferica', 'Aumento del 2,3-glicerofosfato'],
+        correct: 1
+    },
+    {
+        text: "Quale delle seguenti affermazioni non è vera",
+        options: ["L'ematocrito è generalmente più basso nelle femmine", "L'ematocrito è la percentuale del plasma del sangue intero", "L'ematocrito non è misurato direttamente sugli strumenti automatici", "L'ematocrito è la percentuale della parte corpuscolata sul sangue intero"],
+        correct: 1
+    },
+    {
+        text: "Nell'esame emocromocitometrico si trovano le seguenti sigle meno una, quale",
+        options: ['WBC', 'RBC', 'TAS', 'PLT'],
+        correct: 2
+    },
+    {
+        text: "Nell'esame emocromocitometrico tra gli indici eritrocitari non troviamo",
+        options: ['MCH', 'PVC', 'RDW', 'MCV'],
+        correct: 1
+    },
+    {
+        text: "Un femtolitro corrisponde a",
+        options: ['10-6 litri', '10-9 litri', '10-12 litri', '10-15 litri'],
+        correct: 3
+    },
+    {
+        text: "Quale delle seguenti affermazioni è corretta",
+        options: ["Nella talessemia l'MCV è patologicamente alto", "Se l'anemia è definita microcitica l'MCV è patologicamente basso", "Se l'anemia è definita microcitica l'MCP è patologicamente basso", "Se l'anemia è definita normocitica l'MCP è nei limiti di riferimento"],
+        correct: 1
+    },
+    {
+        text: "L'MCV è il rapporto tra",
+        options: ["L'ematocrito e il numero dei globuli rossi", "L'ematocrito e la concentrazione di emoglobina", "La concentrazione di emoglobina e l'ematocrito", 'La concentrazione di emoglobina e il numero dei globuli rossi'],
+        correct: 0
+    },
+    {
+        text: "L'MCHC è il rapporto tra",
+        options: ['La concentrazione di emoglobina e il numero dei globuli rossi', "La concentrazione di emoglobina e l'ematocrito", "L'ematocrito e il numero dei globuli rossi", "L'ematocrito e la concentrazione di emoglobina"],
+        correct: 1
+    },
+    {
+        text: "Red Cell Distribution Width nelle anemie risulta",
+        options: ['Dipende dal tipo di anemia', 'Diminuito', 'Non cambia', 'Aumentato'],
+        correct: 3
+    },
+    {
+        text: "Quale di queste sigle non è un indice piastrinico",
+        options: ['IPF0', 'MPV', 'PDW', 'PRC'],
+        correct: 3
+    },
+    {
+        text: "IL piastrinocrito è la percentuale di volume occupato dalle piastrine",
+        options: ['Sul sangue', "Sull'ematocrito", 'Sul plasma', 'Sul siero'],
+        correct: 0
+    },
+    {
+        text: "Il conteggio dei reticolociti fornisce un'indicazione",
+        options: ['Sul turnover degli eritrociti', 'Sul turnover dei leucociti', 'Sulla produzione di leucociti', 'Sulla produzione di eritrociti'],
+        correct: 3
+    },
+    {
+        text: "Le piastrine immature sono caratterizzate dalle presenza di",
+        options: ['Elevate quantità di RNA messaggero', 'Elevate quantità di RNA ribosiomale', 'Basse quantità di RNA messaggero', 'Basse quantità di RNA ribosiomale'],
+        correct: 1
+    },
+    {
+        text: "L'RDW-SD è un indicatore delle variazione del",
+        options: ['Volume degli eritrociti', 'Volume dei reticolociti', 'Numero dei reticolociti', 'Numero degli eritrociti'],
+        correct: 0
+    },
+    {
+        text: "I linfociti natural killer",
+        options: ['Esprimono il recettore di membrana T ma non esprimono anticorpi di membrana', 'Esprimono il recettore di membrana T e non esprimono anticorpi di membrana', 'Non esprimono il recettore di membrana T e non esprimono anticorpi di membrana', 'Esprimono sia il recettore di membrana T che gli anticorpi di membrana'],
+        correct: 2
+    },
+    {
+        text: "I primi leucociti ad arrivare sul sito dell'infiammazione sono",
+        options: ['I monociti', 'I linfociti', 'Gli eosinofili', 'I neutrofili'],
+        correct: 3
+    },
+    {
+        text: "Le cellule più difficili da contare con i sistemi automatici sono:",
+        options: ['Gli eritrociti', 'I neutrofili', 'I monociti', 'I linfociti'],
+        correct: 2
+    },
+    {
+        text: "La vita media degli esosinofili è",
+        options: ['12-14 giorni', '12-14 ore', '12-14 settimane', '12-14 mesi'],
+        correct: 0
+    },
+    {
+        text: "I granulociti si differenziano",
+        options: ['In base alla tipologia dei granuli', 'In base al diverso pH dei granuli', "In base all'affinità dei granuli per diversi coloranti", 'Tutte e tre le precedenti'],
+        correct: 2
+    },
+    {
+        text: "Quali di questi sono definiti leucociti mononucletati",
+        options: ['Neutrofili', 'Basofili', 'Macrofagi', 'Eosinofili'],
+        correct: 2
+    },
+    {
+        text: "I leucociti più numerosi sono",
+        options: ['Linfociti', 'Monociti', 'Eosinofili', 'Basofili'],
+        correct: 0
+    },
+    {
+        text: "Quale di queste affermazioni non è corretta",
+        options: ['I linfociti T helper inducono la produzione piastrinica', 'I linfociti T helper inducono la fagocitosi macrofagca', "I linfociti T helper inducono l'attivazione dei linfociti T citotossici", 'I linfociti T helper inducono la produzione di anticorpi'],
+        correct: 0
+    },
+    {
+        text: "I linfociti T suppressor",
+        options: ['Sopprimono i patogeni', 'Sopprimono le cellule tumorali', 'Sopprimono le cellule non self', 'Sopprimono la risposta infiammatoria'],
+        correct: 3
+    },
+    {
+        text: "La colorazione May-Grunwld Giemsa serve per colorare",
+        options: ['I globuli rossi', 'Le piastrine', 'Tutte e tre le popolazioni', 'I globuli bianchi'],
+        correct: 2
+    },
+    {
+        text: "Gli anticorpi del sistema ABO",
+        options: ['Compaiono alcuni mesi dopo la nascita', "Compaiono dopo esposizioni con l'antigene", 'Sono presenti fin dalla nascita', 'Compaiono alcuni anni dopo la nascita'],
+        correct: 0
+    },
+    {
+        text: "I gruppi sanguigni sono caratterizzati",
+        options: ['Dalla presenza di particolari antigeni sulle emazie', 'Dalla presenza di particolari antigeni nel siero', 'Dalla presenza di particolari antigeni isui linfociti', 'Dalla presenza di particolari anticorpi sulle emazie'],
+        correct: 0
+    },
+    {
+        text: "Gli antigeni del gruppo ABO sono costituiti da",
+        options: ['Glicoproteine', 'Polisaccaridi', 'Polipeptidi', 'Oligoproteine'],
+        correct: 1
+    },
+    {
+        text: "Il fenotipo Bombay è caratterizzato dall'assenza dell'antigene",
+        options: ['B', 'D', 'H', 'A'],
+        correct: 2
+    },
+    {
+        text: "I gruppi sanguigni sono caratterizzati",
+        options: ['Dalla presenza di particolari anticorpi sulle emazie', 'Dalla presenza di particolari antigeni nel siero', 'Dalla presenza di specifici anticorpi sulle emazie', 'Dalla presenza di particolari anticorpi nel siero'],
+        correct: 1
+    },
+    {
+        text: "Un soggetto del gruppo AB è caratterizzato dalla presenza",
+        options: ['Di anticorpi anti-AB nel siero', 'Di anticorpi anti-B nel siero', 'Di nessun antigene sulla superficie delle emazie', 'Di antigeni A sulla superficie delle emazie'],
+        correct: 3
+    },
+    {
+        text: "Un soggetto del gruppo O è caratterizzato dalla presenza",
+        options: ['Di antigeni AB sulla superficie delle emazie', 'Di anticorpi anti-B nel siero', 'Di nessun anticorpo nel siero', 'Di anticorpi anti-AB nel siero'],
+        correct: 3
+    },
+    {
+        text: "Il galattosio è lo zucchero immunodominante per",
+        options: ["L'antigene A", 'Nessun antigene', "L'antigene H", "L'antigene B"],
+        correct: 3
+    },
+    {
+        text: "L'allele B codifica per",
+        options: ['N-acetil-D-galattosamina', 'Metiltransferasi', 'Galattosiltransferasi', 'Aciltransferasi'],
+        correct: 2
+    },
+    {
+        text: "La quantità di antigene H è maggiore nei soggetti di gruppo",
+        options: ['O', 'AB', 'A', 'B'],
+        correct: 0
+    },
+    {
+        text: "Il gruppo sanguigno più diffuso è",
+        options: ['O', 'B', 'A', 'AB'],
+        correct: 0
+    },
+    {
+        text: "Il gruppo sanguigno meno diffuso è",
+        options: ['B', 'A', 'O', 'AB'],
+        correct: 3
+    },
+    {
+        text: "La Malattia emolitica neonatale si ha quando",
+        options: ['Una mamma Rh+ porta in grembo un bimbo Rh- alla prima gravidanza', 'Una mamma Rh+ porta in grembo un bimbo Rh- alla seconda gravidanza', 'Una mamma Rh- porta in grembo un bimbo Rh+ alla seconda gravidanza', 'Una mamma Rh- porta in grembo un bimbo Rh+ alla prima gravidanza'],
+        correct: 2
+    },
+    {
+        text: "Gli antigeni del gruppo Rh",
+        options: ['Non sono espressi sulla membrana degli eritrociti', 'Sono espressi solo sulla membrana degli eritrociti', 'Sono espressi anche sulla membrana degli eritroblasti', 'Sono anche espressi sulla membrana degli eritrociti'],
+        correct: 1
+    },
+    {
+        text: "Nei soggetti caucasici Rh- il gene RDH e",
+        options: ['Inattivo', 'Deleto', 'Tronco', 'Mutato'],
+        correct: 1
+    },
+    {
+        text: "Un soggetto O Rh+ puo' ricevere una donazione da un soggetto con gruppo sanguigno",
+        options: ['A Rh+', 'O Rh-', 'AB Rh+', 'B Rh-'],
+        correct: 1
+    },
+    {
+        text: "L'antigene D del sistema Rh è presente",
+        options: ['30% popolazione', '50% popolazione', '85% polazione', '5% polazione'],
+        correct: 2
+    },
+    {
+        text: "I geni che codificano per gli antigeni ABO e Rh sono",
+        options: ['Sul cromosoma 9', 'Sui cromosomi 3 e 23', 'Sul cromosoma 1', 'Sui cromosomi 9 e 1'],
+        correct: 3
+    },
+    {
+        text: "L'insieme dei sistemi ABO e Rh danno origine a",
+        options: ['8 genotipi e 18 fenotipi diversi', '18 genotipi e 8 fenotipi diversi', '8 genotipi e 8 fenotipi diversi', '18 genotipi e 18 fenotipi diversi'],
+        correct: 1
+    },
+    {
+        text: "Il Gruppo Rh è costituito da circa",
+        options: ['90 antigeni diversi', '70 antigeni diversi', '50 antigeni diversi', '30 antigeni diversi'],
+        correct: 2
+    },
+    {
+        text: "Qual è l'ordine di immunogenicità degli antigeni Rh",
+        options: ['D>c>E>C>e', 'E>D>c>C>e', 'E>D>c> C>e', 'D> E>C>e>c'],
+        correct: 0
+    },
+    {
+        text: "L'antigeni D è costituito da una molecola di natura",
+        options: ['Ribonucleica', 'Proteica', 'Glucidica', 'Lipidica'],
+        correct: 1
+    },
+    {
+        text: "Nella trombosi",
+        options: ['Nessuna delle risposte', 'I fattori anticoagulanti sovrastano i fattori coagulanti', 'I fattori coagulanti sovrastano i fattori anticoagulanti', 'I fattori anticoagulanti eguagliano i fattori coagulanti'],
+        correct: 2
+    },
+    {
+        text: "L'emostasi riguarda lo studio dei fattori",
+        options: ['Procoagulanti', 'Protrombotici', 'Coagulanti e anticoagulanti', 'Coagulanti'],
+        correct: 2
+    },
+    {
+        text: "I vasi capillari hanno",
+        options: ['Pareti spesse e pressione interna molto alta', 'Pareti spesse e pressione interna molto bassa', 'Pareti sottili e pressione interna molto alta', 'Pareti sottili e pressione interna molto bassa'],
+        correct: 3
+    },
+    {
+        text: "Il sistema linfatico",
+        options: ['Ha una funzione respiratoria', 'Nessuna delle risposte', 'Ha una funzione nutritizia', 'Ha una funzione drenante'],
+        correct: 3
+    },
+    {
+        text: "Si ha un emorraggia quando",
+        options: ['I fattori anticoagulanti sovrastano quelli coagulanti', 'I fattori coagulanti sovrastano quelli anticoagulanti', 'Nessuna delle risposte', 'I fattori anticoagulanti eguagliano quelli coagulanti'],
+        correct: 0
+    },
+    {
+        text: "Si ha trombosi quando",
+        options: ['I fattori coagulanti sovrastano quelli anticoagulanti', 'I fattori anticoagulanti eguagliano quelli coagulanti', 'Nessuna delle risposte', 'I fattori anticoagulanti sovrastano quelli coagulanti'],
+        correct: 0
+    },
+    {
+        text: "Le cellule della parete vascolare",
+        options: ['Nessuna delle risposte', 'Impediscono la contrazione del vaso', 'Favorisscono la contrazione vascolare', 'Sfavoriscono la formazione di un tappo emostaico'],
+        correct: 2
+    },
+    {
+        text: "L'aggregazione delle piastrine è favorita da",
+        options: ['Trombina', 'Collagene', 'ADP', 'Tutte le risposte'],
+        correct: 3
+    },
+    {
+        text: "Il primo tappo piastrinico non è sufficiente a fermare l'emorragia",
+        options: ['Nei vasi venosi', 'Nei vasi linfatici', 'Nei capillari', 'Nelle arterie'],
+        correct: 3
+    },
+    {
+        text: "Quali di queste fasi appartiene all'emostasi",
+        options: ['Vaso-piastrinica', 'Vasocostrizione', 'Fibrinolisi', 'Tutte le risposte'],
+        correct: 3
+    },
+    {
+        text: "La prima fase dell'emostasi è",
+        options: ['Dipende dal tipo di vaso', 'È reversibile solo nei capillari', 'Irreversibile', 'Reversibile'],
+        correct: 3
+    },
+    {
+        text: "La via estrinseca è",
+        options: ['La via più rapida della coagulazione', 'Piu rapida della via intrinseca', 'Più rapida della via comune', 'La via meno rapida della coagulazione'],
+        correct: 0
+    },
+    {
+        text: "Quale di queste sostanze ha una funzione antiaggregante",
+        options: ['Prostaciclina', 'Fibrinogeno', 'Serotonina', 'Fattore tissutale'],
+        correct: 0
+    },
+    {
+        text: "Il ruolo primario del Tissue Factor è di",
+        options: ['Attivare il fattore della coagulazione VII', 'Attivare il fattore della coagulazione VIII', 'Attivare il fattore della coagulazione IX', 'Attivare il fattore della coagulazione VI'],
+        correct: 0
+    },
+    {
+        text: "La coagulazione e l'aggregazione piastrinica sono due fenomeni",
+        options: ['Distinti solo in alcune condizioni patologiche', 'Uguali', 'Uguali solo in alcune condizioni patologiche', 'Distinti'],
+        correct: 3
+    },
+    {
+        text: "La protrombina è attivata dal fattore",
+        options: ['FIXa', 'FVIIa', 'FIIIa', 'FXa'],
+        correct: 3
+    },
+    {
+        text: "La massima produzione di fibrina si deve al complesso",
+        options: ['TF-FVIIa', 'FXa-FVa', 'FIXa-FVIIIa', 'Nessuno di questi'],
+        correct: 2
+    },
+    {
+        text: "La valutazione dell'emostasi è un esame",
+        options: ['Indicato in presenza di soggetti con famigliarità trombotica', 'Nessuno delle risposte', 'Routinario', 'Indicato in soggetti con famigliarità per anomalie emorragiche'],
+        correct: 3
+    },
+    {
+        text: "Il metodo di Clauss è utilizzato per misurare i livelli di",
+        options: ['Fattore di Van Willbrand', 'Fibrinogeno', 'Fattore tissutale', 'Pro-trombrina'],
+        correct: 1
+    },
+    {
+        text: "I valori di riferimento del fibrinogeno sono compresi tra",
+        options: ['200-430 nmol/L', '20-43 mg/dL', '200-430 mg/dL', '20-43 nmol/L'],
+        correct: 2
+    },
+    {
+        text: "Il Clotting Time (CT) è",
+        options: ["Il tempo per raggiungere l'ampiezza massima del coagulo", "Il tempo tra l'aggiunta dell'attivatore e la formazione del coagulo", "Il tempo per raggiungere l'ampiezza del 50% del coagulo", "Il tempo trascorso tra la formazione del coagulo e il raggiungimento di un'ampiezza di 20 mm"],
+        correct: 1
+    },
+    {
+        text: "L'anticoagulante più usato per l'esame dell'emostasi è",
+        options: ["L'ossalato", "L'EDTA", "L'eparina", 'Il citrato di sodio'],
+        correct: 3
+    },
+    {
+        text: "Il maximun clot firmess definisce (MCF)",
+        options: ['Il tempo in cui si è formato il coagulo', 'Nesuna di queste', "Definisce l'ampiezza massima del coagulo", 'Definisce la velocitò massima di formazione del coagulo'],
+        correct: 2
+    },
+    {
+        text: "Normalmente con il ROTEM si misura",
+        options: ['Tutte le risposte', 'Maximun clot firmess', 'Clotting Time', 'Clotting Formation Time'],
+        correct: 0
+    },
+    {
+        text: "La composizione dell'urine dipende",
+        options: ["Dalle necessità dell'organismo", 'Dalla filtrazione del nefrone', 'Tutte le risposte', 'Dagli scambi ionici'],
+        correct: 2
+    },
+    {
+        text: "Il rene produce l'ormone",
+        options: ['Angiotensina', 'Somatostatina', 'Cortisolo', 'Eritropoietina'],
+        correct: 3
+    },
+    {
+        text: "Quale di queste affermazioni è vera",
+        options: ['Tutte le risposte', 'Il rene controlla la pressione del sangue', "Il rene non controlla l'emopoiesi", 'Il rene non controlla gli equilibri idroelettrici'],
+        correct: 0
+    },
+    {
+        text: "Il metodo migliore per misurare il GFR è attraverso la somministrazione di",
+        options: ['Creatinina', 'Insulina', 'Inulina', 'Creatinin-fosfato'],
+        correct: 2
+    },
+    {
+        text: "L'equazione CKD-EPI è poco affidabile per le persone con",
+        options: ['Età superiore ai 60 anni', 'Età Inferiore ai 50 anni', 'Età superiore ai 70 anni', 'Età pediatrica'],
+        correct: 2
+    },
+    {
+        text: "Si definisce un danno renale acuto quando si ha un aumento della creatinina plasmatica nell'arco",
+        options: ['Delle 24 ore', 'Delle 36 ore', 'Delle 48 ore', 'Delle 12 ore'],
+        correct: 0
+    },
+    {
+        text: "La reazione con i dipstick non è generalmente influenzata",
+        options: ['Dalla presenza di cataboliti cromogeni', 'Dalla presenza di disinfettanti', 'Da un pH acido', "Dall'urina poco densa"],
+        correct: 2
+    },
+    {
+        text: "Sono considerate patologie croniche renali quelle che hanno una durata superiore a",
+        options: ['16 settimane', '20 settimane', '12 settimane', '4 settimane'],
+        correct: 2
+    },
+    {
+        text: "I livelli di urea si possono misurare con metodi",
+        options: ['Tutti le risposte', 'Immunochimici', 'Elettroforetici', 'Enzimatici'],
+        correct: 3
+    },
+    {
+        text: "I livelli di creatinina presenti nell'urina è più alta",
+        options: ['Negli uomini', 'Nei neonati', 'Nelle donne', 'Nei bambini'],
+        correct: 0
+    },
+    {
+        text: "La reazione di Jaffe serve per misurare i livelli di",
+        options: ['Urea', 'Creatinina', 'Creatina', 'Albumina'],
+        correct: 1
+    },
+    {
+        text: "L'urogenesi nell'uomo è un indice",
+        options: ['Del catabolismo lipidico', 'Del catabolismo glucidico', 'Del catabolismo proteico', 'Del catabolismo in generale'],
+        correct: 2
+    },
+    {
+        text: "La maggior parte di azoto non proteico deriva",
+        options: ['Creatinina', 'Acido urico', 'Urea', "Dall'ammoniaca"],
+        correct: 2
+    },
+    {
+        text: "Quali di questi fattori possono alterare il pH delle urine",
+        options: ['Dieta', 'Tutte le risposte', 'Esercizio fisico intenso', 'Aumento ventilazione polmonare'],
+        correct: 1
+    },
+    {
+        text: "Il pH delle urine normalmente varia tra",
+        options: ['3,5-5,5', '4,5-7,5', '2,5-5,5', '3,5-6,5'],
+        correct: 1
+    },
+    {
+        text: "La determinazione dell'ematuria si basa",
+        options: ["Sull'attività psedo-idrolasica dell'emoglobina", "Sull'attività psedo-reduttasica dell'emoglobina", "Sull'attività psedo-ossigenasica dell'emoglobina", 'Nessuna delle risposte'],
+        correct: 2
+    },
+    {
+        text: "I valori di riferimento della densità relativa delle urine sono",
+        options: ['100,7-103,5 g/L', '1007-1035 g/L', '10,07-10,35 g/L', '1,007-1,035 g/L'],
+        correct: 1
+    },
+    {
+        text: "Sono considerati esami utili delle urine la misura del",
+        options: ['Proteine', 'Glucidi', 'pH', 'Nitriti'],
+        correct: 3
+    },
+    {
+        text: "La presenza di schiuma biancastra nelle urine è dovuta a:",
+        options: ['Nessuna delle risposte', 'Eccesso di lipidi', 'Eccesso di glucidi', 'Eccesso di proteine'],
+        correct: 3
+    },
+    {
+        text: "Nell'arco delle 24 generalmente si produce un volume di urine pari a",
+        options: ['1,5-3 L', '0,6-1,5 L', '0,3-1L', '1-2 L'],
+        correct: 1
+    },
+    {
+        text: "Prima della raccolta delle urine è consigliabile evitare di",
+        options: ['Lavarsi le mani', 'Eseguire attività fisica', 'Digiunare', 'Tutte le precedenti'],
+        correct: 1
+    },
+    {
+        text: "L'ECMU è l'esame",
+        options: ['Delle urine', 'Del siero', 'Nessuno di queste', 'Del plasma'],
+        correct: 0
+    },
+    {
+        text: "L'ipostenuria può essere causata da",
+        options: ['Disidratazione', 'Diarrea', 'Terapia diuretica', 'Vomito'],
+        correct: 2
+    },
+    {
+        text: "Nei dipstik la misurazione della proteinuria è influenzata maggiormente da",
+        options: ['Transferrina', 'Creatinina', 'Alfa-globine', 'Transaminasi'],
+        correct: 0
+    },
+    {
+        text: "L'ACR misura il rapporto tra",
+        options: ['Alfa-globulina e creatinina', 'Alfa-globulina e creatina', 'Albumina e creatina', 'Albumina e creatinina'],
+        correct: 3
+    },
+    {
+        text: "Nella proteinuria renale glomerulare i livelli di proteine sono",
+        options: ['Maggiori di 300 mg/die', 'Maggiori di 3000 mg/die', 'Maggiori di 30 g/L', 'Maggiori di 3 g/L'],
+        correct: 0
+    },
+    {
+        text: "La proteina di Tamm Horsfall è",
+        options: ['Nessuna delle risposte', "L'alfa-1-microglobulina", "L'uromodulina", 'La beta-2-microglobulina'],
+        correct: 2
+    },
+    {
+        text: "In condizioni fisiologiche i livelli di albumina nelle urine è inferiore a",
+        options: ['30 mg/l', '10 mg/L', '100 mg/l', '70 mg/l'],
+        correct: 1
+    },
+    {
+        text: "La presenza di nitriti nelle urine è un'indicazione di",
+        options: ['Infezione batterica', 'Infezione batterica delle vie urinarie', 'Infezione virale', 'Infezione virale delle vie urinarie'],
+        correct: 1
+    },
+    {
+        text: "La presenza di acido ascorbico nelle urine",
+        options: ["E' un indicazione di danno renale cronico", 'Può alterare le misurazioni di altri analiti', "E' un indicazione di infezione batterica delle vie urinarie", "E' un indicazione di danno renale acuto"],
+        correct: 1
+    },
+    {
+        text: "Il pH delle urine al mattino è normalmente",
+        options: ['Non cambia', 'Più acido', 'Dipende dalla dieta', 'Più basico'],
+        correct: 1
+    },
+    {
+        text: "Gli elementi corpuscolati si conservano meglio nelle urine",
+        options: ['Meno concentrate', 'Nessuna delle risposte', 'Più concentrate', "Dipende dall'elemento corpuscolato"],
+        correct: 2
+    },
+    {
+        text: "L'ematuria è caratterizzata da",
+        options: ['Presenza di emosiderina nelle urine', 'Presenza di emoglobina nelle urine', 'Presenza di mioglobina nelle urina', 'Presenza di eritrociti interi o danneggiati nelle urine'],
+        correct: 3
+    },
+    {
+        text: "La visione dei corpuscoli amorfi, rispetto agli elementi cellulari, richiede un ingrandimento",
+        options: ['Maggiore', 'Minore', 'Dipende dalla tipologia del corpuscolo amorfo', 'Uguale'],
+        correct: 1
+    },
+    {
+        text: "I cristalli di ossalato di calcio si trovano in urine",
+        options: ['Acide', 'Non si trovano nelle urine', 'Neutre', 'Alcaline'],
+        correct: 0
+    },
+    {
+        text: "Il peso specifico delle urine è associato a",
+        options: ['Presenza di proteine', 'Tutte le risposte', 'Presenza di elementi corpuscolati', 'Concentrazione delle urine'],
+        correct: 1
+    },
+    {
+        text: "Si definisce come leucocituria la presenza di",
+        options: ['10-20 leucociti a L', '10-20 leucociti a cL', '10-20 leucociti a dL', '10-20 leucociti a mL'],
+        correct: 3
+    },
+    {
+        text: "La raccolta delle urine delle 24 ore si effettua",
+        options: ['Gettando le prime urine del mattino e raccogliendo fino alle prime urine del giorno successivo', 'Gettando le prime urine del mattino e raccogliendo le urine fino alle 12 del giorno successivo', 'Gettando le prime urine del mattino e raccogliendo le urine fino alla mezzanotte', 'Con tutte le urine delle 24 ore'],
+        correct: 0
+    },
+    {
+        text: "Quali cilindri sono formati esclusivamente dalla proteina di Tamm-Hosfall",
+        options: ['Granulosi', 'Epiteliali', 'Ialini', 'Cerei'],
+        correct: 2
+    },
+    {
+        text: "I cilindri ialini si possono trovare più facilmente",
+        options: ['Dopo esercizio fisico intenso', 'Con pH acido', 'Tutte le risposte', 'In caso di disidratazione'],
+        correct: 2
+    },
+    {
+        text: "Le emazie raggrinzite nelle urine derivano da",
+        options: ['Uretra', 'Glomerulo', 'Vescica', 'Ureteri'],
+        correct: 1
+    },
+    {
+        text: "L'NT-proBNP e utile nella diagnosi di",
+        options: ['Ipertensione polmonare', 'Ipertrofia ventricolare', 'Tutte le risposte', 'Scompenso cardiaco'],
+        correct: 3
+    },
+    {
+        text: "La forma solubile delle proteina ST2 è in grado di legare",
+        options: ['Molecole anti-infiammatorie', 'Linfociti', 'Anticorpi', 'Molecole infiammatorie'],
+        correct: 3
+    },
+    {
+        text: "Nell'infarto del miocardio non aumenta nel siero",
+        options: ['LDH', 'CK-MB', 'Emoglobina', 'Mioglobina'],
+        correct: 2
+    },
+    {
+        text: "La misurazione della galectina-3 (segnare la risposta corretta)",
+        options: ['Ha una bassa variabilità biologica', 'Varia notevolmente', 'Tutte le risposte', 'Difficile da misurare'],
+        correct: 1
+    },
+    {
+        text: "La galectina-3 è una lectina che lega la",
+        options: ['Nessuna delle risposte', "L'albumina", 'Troponina', 'La ?-galattosidasi'],
+        correct: 3
+    },
+    {
+        text: "I principali marcatori di fibrosi cardiaca sono",
+        options: ['Troponina', 'CK', 'LDH', 'cST2'],
+        correct: 3
+    },
+    {
+        text: "I peptidi natriuretici cardiaci (selezionare la risposta sbagliata)",
+        options: ["Aumentano con l'età", 'Sono più alti negli uomini', 'Aumentano durante la gravidanza', "Aumenta con l'attività fisica"],
+        correct: 1
+    },
+    {
+        text: "La troponina C è espressa",
+        options: ['Tutte le risposte', 'Nel tessuto muscolare liscio', 'Nel tessuto vascolare', 'Nel tessuto muscolare scheletrico'],
+        correct: 0
+    },
+    {
+        text: "Il ruolo della troponina I è quello di",
+        options: ['Interagire con la tropomiosina', 'Di legare il calcio', "Impedire il legame tra dell'actina con la miosina", 'Tutte le risposte'],
+        correct: 2
+    },
+    {
+        text: "Il primo marcatore cardiaco ad essere utilizzato è stato",
+        options: ['Troponina', 'Aspartato aminotransferasi', 'Creatinchinasi fosfato', 'Lattato deidrogenasi'],
+        correct: 3
+    },
+    {
+        text: "Quali di questi eventi non è caratteristico dell'ictus ischemico",
+        options: ['Nessuna delle risposte', 'Eccitotossicità', 'Stress ossidativo', 'Insufficienza bioenergetica'],
+        correct: 0
+    },
+    {
+        text: "Nell'ictus emorragico, la tossicità neuronale da emoglobina è un evento",
+        options: ['Nessuna delle risposte', 'Precoce', 'Intermedio', 'Tardivo'],
+        correct: 1
+    },
+    {
+        text: "Nell'ictus ischemico, la disfunzionalità della barriera emato-encefalica è un evento",
+        options: ['Tardivo', 'Intermedio', 'Nessuna delle risposte', 'Precoce'],
+        correct: 0
+    },
+    {
+        text: "Nell'ictus subaracnoideo, l'emorragia è",
+        options: ['Interna al cervello', 'Esterna al cervello', 'Sia interna che esterna', "Non c'è emorragia"],
+        correct: 1
+    },
+    {
+        text: "Quale di queste affermazioni sull'ictus è corretta",
+        options: ["L'ictus emorragico colpisce circa l'50% dei pazienti affetti da ictus", "L'ictus ischemico colpisce circa il 15 % della popolazione", "L'ictus ischemico colpisce circa l'85% dei pazienti affetti da ictus", "L'ictus ischemico è minore dell'ictus emorragico"],
+        correct: 2
+    },
+    {
+        text: "Si definisce un attacco ischemico transitorio se i sintomi permangono meno di",
+        options: ['48 ore', '12 ore', '36 ore', '24 ore'],
+        correct: 3
+    },
+    {
+        text: "L'obesità è maggiormente considerato un fattore di rischio per",
+        options: ["L'ictus emorragico", "Sia per l'ictus emorragico che ischemico", 'Non è un fattore di rischio', "L'ictus ischemico"],
+        correct: 3
+    },
+    {
+        text: "L'eccessivo consumo di alcol è maggiormente considerato un fattore di rischio per",
+        options: ["Sia per l'ictus emorragico che ischemico", "L'ictus ischemico", "L'ictus emorragico", 'Non è un fattore di rischio'],
+        correct: 0
+    },
+    {
+        text: "La proteina GFAP è un marker",
+        options: ['Del rimodellamento osseo', 'Di ictus cerebrale', 'Di infarto del miocardio', 'Di deficit renale'],
+        correct: 1
+    },
+    {
+        text: "La terapia con plasminogeno è consigliata",
+        options: ["Nell'ictus emorragico", 'Nessuna delle risposte', "Sia per l'ictus emorragico che ischemico", "Nell'ictus ischemico"],
+        correct: 3
+    },
+    {
+        text: "Le difficoltà di trovare biomarcatori affidabili per l'ictus è dovuta prevalentemente al fatto che",
+        options: ['Le proteine espresse da neuroni e glia richiedono tempi lunghi ad attraversare la barriera emato-encefalica', 'Le proteine espresse da neuroni e glia sono scarsamente immunogeniche', 'Tutte le risposte', 'Le proteine espresse da neuroni e glia sono espresse anche da altri tessuti'],
+        correct: 0
+    },
+    {
+        text: "I principali marcatori di ictus utilizzati sono (segnare risposta sbagliata)",
+        options: ['Troponina', 'Dimetilarginina asimmetrica', 'PARK-7', 'Fosfolipasi A2 associata alle lipoproteine'],
+        correct: 0
+    },
+    {
+        text: "Le metilarginine si possono ritrovare",
+        options: ['Nel liquido cerebrospinale', 'Nel sangue', 'Nelle urine', 'Tutte le risposte'],
+        correct: 3
+    },
+    {
+        text: "La proteasi MMP-9",
+        options: ["L'espressione si riduce nelle prime fasi per poi aumentare tardivamente", "E' fortemente espressa nel cervello e si riduce durante l'ictus", "E' scarsamente espressa nel cervello e aumenta durante l'ictus", 'Non è un marker di ictus'],
+        correct: 2
+    },
+    {
+        text: "La proteina S100-beta è",
+        options: ['Un marcatore tardivo di ictus', 'Un marcatore intermedio', 'Non è un marcatore di ictus', 'Un marcatore precoce di ictus'],
+        correct: 3
+    },
+    {
+        text: "La famiglia delle proteine S100 è così chiamata per la loro solubilità in",
+        options: ['Acido acetico 100%', 'Ammonio solfato al 100%', 'Metanolo 100%', 'Etanolo 100%'],
+        correct: 1
+    },
+    {
+        text: "La proteina S100-beta è espressa",
+        options: ['Dalle cellule muscolari', 'Dalle cellule gliali', 'Dalle cellule nervose', 'Dalle cellule endoteliali'],
+        correct: 1
+    },
+    {
+        text: "La proteina PARK7 è un marker di",
+        options: ['Ictus ischemico', 'Tutte le risposte', 'Attacco ischemico transitorio', 'Ictus emorragico'],
+        correct: 1
+    },
+    {
+        text: "Con il termine cancro si indica",
+        options: ['I tumori benigni', 'Le neoplasie', 'Tutte le risposte', 'I tumori maligni'],
+        correct: 3
+    },
+    {
+        text: "Gli adenomi sono tumori",
+        options: ['Del tessuto epiteliale', 'Del tessuto connettivo', "Dell'endotelio dei vasi", 'Del tessuto muscolare'],
+        correct: 0
+    },
+    {
+        text: "Gli emangiomi sono tumori",
+        options: ['Del tessuto connettivo', 'Del tessuto epiteliale', 'Del tessuto muscolare', "Dell'endotelio dei vasi"],
+        correct: 3
+    },
+    {
+        text: "Il marcatore tumorale CEA è maggiormente espresso",
+        options: ['Durante la vecchiaia', "urante l'nfanzia", 'Durante la vita adulta', 'Durante la vita fetale'],
+        correct: 3
+    },
+    {
+        text: "CA125 è un marcatore tumorale",
+        options: ['Ovarico', 'Polmonare', 'Neuroblastoma', 'Gastrointestinale'],
+        correct: 0
+    },
+    {
+        text: "NSE è un marcatore tumorale",
+        options: ['Ovarico', 'Neuroblastoma', 'Polmonare', 'Gastrointestinale'],
+        correct: 1
+    },
+    {
+        text: "Quale di questi non è un marcatore tumorale",
+        options: ['ACE', 'AFP', 'CA19.9', 'PSA'],
+        correct: 0
+    },
+    {
+        text: "Individuare la coppia marcatore tumore non corretta",
+        options: ['CA125-ovaio', 'CT-midollare tiroide', 'TG-pancreas', 'PSA-prostata'],
+        correct: 2
+    },
+    {
+        text: "La maggior parte dei soggetti affetti da lupus eritromatoso sono positivi a",
+        options: ['Nessuna delle risposte', 'Anti-dsDNA', 'Anti-RNA', 'ANA'],
+        correct: 3
+    },
+    {
+        text: "La diagnosi delle malattie autoimmuni si ha",
+        options: ["Con l'identificazione di antigeni specifici presenti nel siero", "Con l'identificazione degli antigeni self", "Con l'identificazione di autoanticorpi presenti nel siero", "Con l'identificazione degli anticorpi presenti nel siero"],
+        correct: 2
+    },
+    {
+        text: "La ricerca di marcatori ANA si esegue nella diagnosi di",
+        options: ['Malattie autoimmuni', 'Malattie acardiache', 'Malattie renali', 'Malattie epaticche'],
+        correct: 0
+    },
+    {
+        text: "Gli anticorpi anti-dsDNA possono essere misurati con metodi",
+        options: ['ELISA', 'Turbidimetrici', 'Tutte le risposte', 'Elettroforetici'],
+        correct: 0
+    },
+    {
+        text: "L'aplotipo più comune nei pazienti celiaci è",
+        options: ['DQ8', 'Nessuna delle risposte', 'DQ4', 'DQ2'],
+        correct: 3
+    },
+    {
+        text: "La colangite biliare primitiva è un'epatopatia colestatica cronica che interessa prevalentemente",
+        options: ['Le donne', 'Le donne sopra i 50 anni', 'Gli uomini sopra i 50 anni', 'Gli uomini'],
+        correct: 1
+    },
+    {
+        text: "Nelle malattie autoimmuni",
+        options: ['Non dipendono da alterazioni del sisstema immunitario', 'Il sistema immunitario perde la capacità di riconoscere il self', 'Il sistema immunitario reagisce in modo esagerato agli antigeni', 'Il sitema immunitario non risponde in modo efficiente alle infezioni'],
+        correct: 1
+    },
+    {
+        text: "Nelle cellule del pancreas il traspoto del glucosio è regolato da",
+        options: ['GLUT-8', 'GLUT-6', 'GLUT-4', 'GLUT-2'],
+        correct: 3
+    },
+    {
+        text: "Il glucagone è rilasciato dalle cellule del pancreas",
+        options: ['alfa', 'gamma', 'epsilon', 'beta'],
+        correct: 0
+    },
+    {
+        text: "Il diabete di tipo I è caratterizzato",
+        options: ['Da assenza di insulina', 'Da incremento dei livelli di insulina', "Dalla riduzione dei recettor per l'insulina", "Da resistenza all'insulina"],
+        correct: 0
+    },
+    {
+        text: "Quale di queste definizioni sul diabete non è corretta",
+        options: ['Il diabete di tipo II è anche definito diabete mellito', 'Il diabete di tipo I è una malattia giovanile', 'Il diabete di tipo II non è un diabete insulino-dipendente', 'Il diabete di tipo II è una malattia autoimmune'],
+        correct: 3
+    },
+    {
+        text: "Il diabete mellito di tipo 2 è causato maggiormente da",
+        options: ["Una riduzione dei recettori per l'insulina", 'Da una riduzione dei trasportatori del glucosio', "Una riduzione dell'insulina", "Da un aumento dei recettori dell'insulina"],
+        correct: 2
+    },
+    {
+        text: "L'insulina è rilasciata dalle cellule del pancreas",
+        options: ['beta', 'gamma', 'epsilon', 'alfa'],
+        correct: 0
+    },
+    {
+        text: "Il test di misurazione della glicemia è caratterizzato dall'uso di quale ennzima",
+        options: ['Glucochinasi', 'Proteinchinasi A', 'Esochinasi', 'Glicogenosintetasi'],
+        correct: 2
+    },
+    {
+        text: "L'emoglobina fetale",
+        options: ["Rappresenta meno del 2% dell'emoglobina presente nell'adulto", "Rappresenta più del 10% dell'emoglobina totale presente nell'adulto", "Non è presente nell'adulto", "Raprrsenta meno del 20% dell'emoglobina presente nell'adulto"],
+        correct: 0
+    },
+    {
+        text: "I valori di emoglobina glicati sono più alti",
+        options: ['Nei bambini', 'Negli uomini', 'Nelle donne', 'Negli anziani'],
+        correct: 0
+    },
+    {
+        text: "L'esame maggiormente indicato nella diagnosi del diabete è",
+        options: ["La misurazione dei livelli dell'emoglobina glicata", 'Tutte le risposte', "L'esecuzione della curva di carico di glucosio", 'La misurazione dei livelli di glicemia a digiuno'],
+        correct: 3
+    },
+    {
+        text: "Per ridurre la glicolisi nel campione di sangue si aggiunge",
+        options: ['Cloruro di sodio', 'Bromuro di sodio', 'Ioduro di sodio', 'Fluoruro di sodio'],
+        correct: 1
+    },
+    {
+        text: "La glicemia è più alta",
+        options: ['Al mattino', "Non varia nell'arco della giornata", 'Al pomeriggio', 'Alla sera'],
+        correct: 0
+    },
+    {
+        text: "La glicemia è più alta nel",
+        options: ['Plasma>Siero>Sangue intero', 'Siero>Plasma>Sangue intero', 'Plasma>Sangue intero>Siero', 'Sangue intero>Plasma>Siero'],
+        correct: 1
+    },
+    {
+        text: "Gli autoanticorpi principali da ricercare nella diagnosi del diabete sono",
+        options: ["Recettori dell'insulina", "Decarbossilasi dell'acido glutammico", 'ANA', 'Trasportatori del glucosio'],
+        correct: 1
+    },
+    {
+        text: "La percentuale di pazienti diabetici che presenta almeno un autoanticorpo è",
+        options: ['30-40%', '50-60%', '10-20%', '95-95%'],
+        correct: 3
+    },
+    {
+        text: "Nella diagnosi del diabete chi dovrebbe sottoporsi a screening per la ricerca di autoanticorpi?",
+        options: ['Tutti i parenti di primo grado di pazienti affetti da questa patologia', "Tutti i parenti di primo grado di soggetti che presentano condizioni associate ad un'aumentata resistenza insulinica", 'I soggetti asintomatici che abbiano superato i 45 anni di età', "I soggetti con un'età inferiore ai 45 che presentano condizioni associate ad un'aumentata resistenza insulinica"],
+        correct: 0
+    },
+    {
+        text: "Gli allergeni di classe I",
+        options: ['Sono prevalentemente allergeni conformazionali', 'Inducono sensibilizzazione sistemica', 'Inducono allergie solo nei bambini', 'Sono sensibili al calore'],
+        correct: 0
+    },
+    {
+        text: "La tiramina è maggiormente presente",
+        options: ['Nei pesci', 'Nella frutta', 'Nella verdura', 'Nei formaggi'],
+        correct: 3
+    },
+    {
+        text: "Le intolleranze alimentari",
+        options: ['Sono mediate dagli antigeni', 'Sono mediate dalle IgE', "Sono mediate all'accumulo di acqua nell'intestino", 'Sono mediate dai basofili'],
+        correct: 1
+    },
+    {
+        text: "Possono dare maggior problemi gli antigeni",
+        options: ['Conformazionali', 'Tutte le risposte', 'Lineari', 'Dipende dalla fonte allergenica'],
+        correct: 3
+    },
+    {
+        text: "Quali di queste allergie è più frequente negli adulti",
+        options: ['Mela', 'Latte vaccino', 'Uova', 'Pesca'],
+        correct: 3
+    },
+    {
+        text: "Quale di queste allergie è più frequente nei bambini?",
+        options: ['Pesca', 'Crostacei', 'Pera', 'Uova'],
+        correct: 3
+    },
+    {
+        text: "Quali di queste cellule non è coinvolta nella risposta allergica",
+        options: ['Nessuna delle risposte', 'Mastociti', 'T helper', 'Cellule dendritiche'],
+        correct: 0
+    },
+    {
+        text: "La risposta antinfiamatoria nelle allergie è mediata prevalentemente dai",
+        options: ['Neutrofili', 'Acidofili', 'Basofili', 'Eosinofili'],
+        correct: 2
+    },
+    {
+        text: "La risposta antinfiamatoria nelle allergie è mediata prevalentemente dalle",
+        options: ['IgD', 'IgA', 'IgG', 'IgE'],
+        correct: 3
+    },
+    {
+        text: "Quali delle seguenti affermazioni è corretta",
+        options: ['Le intolleranze alimentari sono dovute a alterzioni enzimatiche', 'Le intolleranze alimentari sono dovute ad un alterata risposta del sistema immunitario', 'Le intolleranze alimentari sono causate da anticorpi che danneggiano i villi intestinali', "Le allergie sono causate da un'eccessiva attività enzimatica"],
+        correct: 1
+    },
+    {
+        text: "La fonte allergenicà è",
+        options: ['Tutte le risposte', "La sostanza che contiene l'allergene", 'Le molecole che inducono una risposta infiammatoria', "I prodotti che si ottengono in seguito ad un'estrazione"],
+        correct: 1
+    },
+    {
+        text: "I vantaggi dei metodi in vitro nelle diagnosi delle allergie sono (segnare la risposta sbagliata)",
+        options: ['La riproducibilità', 'I costi', 'Identificano le IgE', "L'insensibilità agli antistamminici"],
+        correct: 1
+    },
+    {
+        text: "Il vantaggio del FEIA cap è che si possono",
+        options: ['Testare più di 650 allergeni diversi', 'Testare più di 250 allergeni diversi', 'Testare più di 450 allergeni diversi', 'Testare più di 350 allergeni diversi'],
+        correct: 0
+    },
+    {
+        text: "L'acronimo RAST indica",
+        options: ['Radio Allergo Sorbent Test', 'Radio Antigne Sorbent Test', 'Rapid Allergo Sorbent Test', 'Rapid Antigene Sorbent Test'],
+        correct: 0
+    },
+    {
+        text: "Il PRIST è un metodo di tipo",
+        options: ['Immunologico', 'Colorimetrico', 'Enzimatico', 'Turbidimetrico'],
+        correct: 0
+    },
+    {
+        text: "Nei soggetti allergici i livelli sierici delle IgE",
+        options: ['Variano in base al tipo di antigene', 'Possono non variare', 'Sono sempre alti', 'Non variano mai'],
+        correct: 0
+    },
+    {
+        text: "L'emogasanalisi non è richiesta per la patologie",
+        options: ['Renali', 'Epatiche', 'Polmonari', 'Cardiache'],
+        correct: 1
+    },
+    {
+        text: "I livelli di ossigenazione del sangue dipendono da",
+        options: ['Dalla pressione arteriosa', 'Tutte le risposte', 'Dalla frequenza cardiaca', 'Dallo stato degli alveoli polmonari'],
+        correct: 1
+    },
+    {
+        text: "Cosa significa l'acronimo POCT",
+        options: ['Nessuna delle risposte', 'Partial Oxygen Concentration Test', 'Point of Care Testing', 'Pressure Oxygen Control Test'],
+        correct: 2
+    },
+    {
+        text: "La saturazione dell'ossigeno sanguigno è compresa tra",
+        options: ['85-90%', '93-97%', '95-99%', '90-95%'],
+        correct: 2
+    },
+    {
+        text: "L'ossimetro è uno strumento utile per misurare",
+        options: ['I livelli di ossigeno nel sangue arterioso capillare', 'I livelli di ossigeno inspirati dai polmoni', "La saturazione dell'ossigeno", 'I livelli di ossigeno nel sangue'],
+        correct: 2
+    },
+    {
+        text: "Il pH nel sangue deve essere compreso tra",
+        options: ['7,0-7,2', '7,4-7,7', '7,55-7,65', '7,35-7,45'],
+        correct: 3
+    },
+    {
+        text: "Qual è il sistema più veloce nel contrastare i cambiamenti di pH sanguigno",
+        options: ['Tutte le risposte', 'I polmoni', 'Sistema tampone acido-base', 'I reni'],
+        correct: 0
+    },
+    {
+        text: "La concentrazione degli ioni idrogeno",
+        options: ['Nessuna delle risposte', "E' inversamente proporzionale alla pCO2", "E' direttamente proporzionale alla pCO2", "E' direttamente proporzionale alla concentrazione degli ioni idrogenocarbonato"],
+        correct: 2
+    },
+    {
+        text: "I gascromatografi si basano su (indicare la risposta sbagliata)",
+        options: ['Metodi colorimetrici', "L'utilizzo di elettrodi", 'Metodi turbidimetrici', 'Metodi conduttimetrici'],
+        correct: 2
+    },
+    {
+        text: "Il livelli di IGF-1",
+        options: ['Sono più alti al mattino', 'Sono rilasciati in modo pulsatile', 'Sono costanti durante la giornata', 'Sono più alti al pomeriggio'],
+        correct: 2
+    },
+    {
+        text: "L'ipofisi controlla",
+        options: ['La pressione sanguigna', 'Il ritmo cardiaco', 'Il sistema linfatico', 'Tutte le risposte'],
+        correct: 3
+    },
+    {
+        text: "L'adenoipofisi rilascia",
+        options: ["L'ossitocina", "L'ormone della crescita", "L'ormone di rilascio della corticotropina", 'Il cortisolo'],
+        correct: 1
+    },
+    {
+        text: "La neuroipofisi rilascia",
+        options: ["L'ormone luteinizzante", "L'ormone follicostimolante", "L'ormone adrenocorticotropo", "L'ormone antidiuretico"],
+        correct: 3
+    },
+    {
+        text: "L'ossitocina",
+        options: ["Non è sintetizzata nell'uomo", 'Nella donna è rilasciata soltanto durante il parto', 'Nella donna regola soltanto il ciclo mestruale', "Nell'uomo controlla le cellule muscolari della prostata"],
+        correct: 3
+    },
+    {
+        text: "Il rilascio del GH è inibito da",
+        options: ['GHRH', 'IGF-1', 'Dopamina', 'Steroidi sessuali'],
+        correct: 1
+    },
+    {
+        text: "Il dosaggio del GH si basa su medodi",
+        options: ['Turbidimetrici', 'Enzimatici', 'Immunologici', 'Colorimetrici'],
+        correct: 2
+    },
+    {
+        text: "Gli ormoni ipofisari possono agire stimolando il rilascio di altri ormoni sintetizzati da altre ghiandole. Indicare l'accoppiamento sbagliato",
+        options: ['TSH-T3', 'TSH-T4', 'FSH-testosterone', 'ACTH-cortisolo'],
+        correct: 2
+    },
+    {
+        text: "L'acromegalia è causata da",
+        options: ['Ipersecrezione di GH nel bambino', "Ipersecrezione di GH nell'adulto", 'Ipersecrezione di ACTH nel bambino', "Iposecrezione di ACTH nell'adulto"],
+        correct: 1
+    },
+    {
+        text: "Gli esami di primo livello nella diagnosi tiroidea sono",
+        options: ['TSH, T4', 'TSH, fT4', 'TSH, fT3, fT4', 'TSH, fT3'],
+        correct: 1
+    },
+    {
+        text: "I livelli di TSH sono maggiorri",
+        options: ['Al mattino', 'Non cambiano', 'Alla sera', 'Aal pomeriggio'],
+        correct: 0
+    },
+    {
+        text: "La biosintesi delgli ormoni tiroideii dipende dalla disponibilità di",
+        options: ['Tutte le risposte', 'Perossidasi tiroidea', 'Iodio', 'Tiroglubulina'],
+        correct: 0
+    },
+    {
+        text: "L'ipotiroidismo è caratterizzato da",
+        options: ['Tutte le risposte', 'Nervosismo', 'Ritenzione idrica', 'Tremore'],
+        correct: 2
+    },
+    {
+        text: "Le cellule parafollicolari tiroidee sintetizzano l'ormone",
+        options: ['Calcitonina', 'Tiroglubulina', 'Tiroxina', 'Ossitocina'],
+        correct: 0
+    },
+    {
+        text: "La ricerca di anticorpi contro la tireoperossidasi è indicata",
+        options: ['Nella diagnosi delle malattie autoimmuni', "Nella diagnosi dell'ipertiroidismo", "Nella diagnosi dell'ipotiroidismo subclinico", 'Nessuna delle risposte'],
+        correct: 2
+    },
+    {
+        text: "L'ipotiroidismo è diagnosticato da",
+        options: ['TSH alto, T4 basso, T3 basso', 'TSH basso T4 alto, T3 normale', 'TSH basso, T4 basso, T3 basso', 'TSH basso, T4 normale, T3 normale'],
+        correct: 0
+    },
+    {
+        text: "L'ipertiroidismo è caratterizzato da",
+        options: ['Sonnolenza', 'Depressione', 'Eccessiva perdita di peso', 'Perdita di memoria'],
+        correct: 2
+    },
+    {
+        text: "Per la misurazione dei livelli di TSH si usamo metodi",
+        options: ['Immunometrici', 'Enzimatici', 'Colorimetrici', 'Turbidimetrici'],
+        correct: 0
+    },
+    {
+        text: "Gli ormoni tiroidei vaggiano nel sangue",
+        options: ['In microvescicole', 'Liberi', 'Leagti a sieroproteine', 'Tutte le risposte'],
+        correct: 2
+    },
+    {
+        text: "Il paratormone è rilasciato dalle cellule",
+        options: ['Epiteliali', 'Ossifile', 'Principali', 'Tutte le risposte'],
+        correct: 2
+    },
+    {
+        text: "Il paratormone è regolato dai livelli plasmatici di",
+        options: ['Calcitonina', 'Vitamina D', 'Sodio', 'Calcio'],
+        correct: 3
+    },
+    {
+        text: "La calcemia è regolata da",
+        options: ['Paratormone', 'Tutte le risposte', 'Calcitonina', 'Vitamina D'],
+        correct: 1
+    },
+    {
+        text: "I valori di calcemia sono compresi tra",
+        options: ['8,5-10,2 kg/dL', '8,5-10,2 g/dL', '8,5-10,2 mg/dL', '8,5-10,2 mg/ml'],
+        correct: 2
+    },
+    {
+        text: "Il calcitriolo regola la calcemia agendo su",
+        options: ['Intestino', 'Tutte le risposte', 'Rene', 'Osseo'],
+        correct: 0
+    },
+    {
+        text: "La qauntità di fosforo inorganico in un adulto sano ammonta a circa",
+        options: ['2kg', '4kg', '1 kg', '3kg'],
+        correct: 0
+    },
+    {
+        text: "Il paratormone è sintetizzato come",
+        options: ['Paratormone', 'Pre-pro-paratormone', 'Pro-paratormone', 'Pre-paratormone'],
+        correct: 1
+    },
+    {
+        text: "Il cortisolo si può misurare su campioni di",
+        options: ['Tutte le risposte', 'Sangue', 'Urina', 'Saliva'],
+        correct: 0
+    },
+    {
+        text: "Il cortisolo si misura spesso due volte al giorno, perché",
+        options: ['Per migliorare la sensibilità del metodo', 'Occorre fare un confronto fra la posione eretta e seduta', 'I metodi usati per il dosaggio sono imprecisi', 'Ha un ritmo circadiano accentuato'],
+        correct: 3
+    },
+    {
+        text: "La regione midollare della corteccia surrenale sintetizza e rilascia",
+        options: ['Adrenalina', 'Aldosterone', 'Calcitonina', 'Cortisolo'],
+        correct: 0
+    },
+    {
+        text: "La quasi totalità del cortsiolo viaggia nel sangue",
+        options: ["All'interno di vescicole", 'Coniugato a delle proteine plasmatiche', 'Libero', 'Tutte le risposte'],
+        correct: 1
+    },
+    {
+        text: "La sindrome di Cushing è una malattia rara causata da",
+        options: ['Deficit di Aldosterone', 'Deficit di cortisolo', 'Eccesso di aldosterone', 'Eccesso di cortisolo'],
+        correct: 3
+    },
+    {
+        text: "Il cortisolo si misura spesso due volte al giorno, perché",
+        options: ['Ha un ritmo circadiano accentuato', 'Occorre fare un confronto fra la posione eretta e seduta', 'Per migliorare la sensibilità del metodo', 'I metodi usati per il dosaggio sono imprecisi'],
+        correct: 0
+    },
+    {
+        text: "Nella reazione della PCR sono necessari",
+        options: ['Un primer forward', 'Un primer forward e un primer reverse', 'Non è necessario nessun primer', 'Un primer reverse'],
+        correct: 1
+    },
+    {
+        text: "La caratteristica principale della Taq polimerasi usata nella PCR è",
+        options: ['La termostabilità', "L'alta efficienza", "L'attività esonucleasica", 'La velocità di polimerizzazione'],
+        correct: 0
+    },
+    {
+        text: "La denaturazione del DNA avviene alla temperaturà di",
+        options: ['95°C', '55°C', '70°C', '100°C'],
+        correct: 0
+    },
+    {
+        text: "La velocità di polimerizzazione della Taq polimerasi è di circa",
+        options: ['10 basi/sec', '1 base/sec', '100 basi/sec', '1000 basi/sec'],
+        correct: 2
+    },
+    {
+        text: "La PCR è una tecnica che serve per",
+        options: ['Analizzare la sequenza nucleotidica', 'Amplificare sequenze proteiche', 'Amplificare sequenze di DNA', 'Analizzare la sequenza aminoacidica'],
+        correct: 2
+    },
+    {
+        text: "Il DNA amplificato tramite la reazione di PCR può essere visualizzto utilizzando",
+        options: ['Una reazione enzimatica', 'Un intercalante', 'Una reazione colorimetrica', 'Una reazione immunochimica'],
+        correct: 1
+    },
+    {
+        text: "La Nested PCR permette",
+        options: ['Di amplificare due o più frammento contemporaneamente', 'Aumentare la specificità della PCR', "Di retrotrascrivere l'RNA messaggero", 'Di ridurre il tempo di reazione'],
+        correct: 1
+    },
+    {
+        text: "L'analisi della Real Time PCR si effettua durante la fase",
+        options: ['Tutte le risposte', 'Esonenziale', 'Plateau', 'Lineare'],
+        correct: 3
+    },
+    {
+        text: "La Real Time PCR si basa sull'utilizzo di",
+        options: ['Sostanze fluorescenti', 'Sostanze chemiluminescenti', 'Sostanze radioattive', 'Tutte le risposte'],
+        correct: 0
+    },
+    {
+        text: "Il principio su cui si basa la Real Time PCR è che ad ogni ciclo la quantià di fluorescenza è",
+        options: ['Dimezzata', 'Triplicata', 'Raddoppiata', 'Quadruplicata'],
+        correct: 2
+    },
+    {
+        text: "Nella Real Time PCR si utilizza come intercalante",
+        options: ['Midori Green', 'Bromuro di etidio', 'SYBR Green', 'Blu di bromofenolo'],
+        correct: 2
+    },
+    {
+        text: "La curva di melting si utilizza per",
+        options: ['Per analizzare la temperatura di denaturazione delle proteine', 'Nessuna delle risposte', 'Per quantificare il DNA amplificato', 'Verificare la specificità della Real Time PCR'],
+        correct: 3
+    },
+    {
+        text: "Le tecniche di sequenziamento Next-Generation",
+        options: ['Sequenziano frammmenti più corti rispetto alla tecnica di Sanger', 'Commettono più errori', 'Hanno costi più elevati', 'Hanno una minore efficienza'],
+        correct: 0
+    },
+    {
+        text: "Il metodo di sequenziamento di Sanger è un metodo",
+        options: ['Chimico', 'Colorimetrico', 'Enzimatico', 'Immunometrico'],
+        correct: 2
+    },
+    {
+        text: "Il metodo di sequenziamento diMaxam-Gilbert è un metodo",
+        options: ['Immunometrico', 'Enzimatico', 'Chimico', 'Colorimetrico'],
+        correct: 2
+    },
+    {
+        text: "La peculiarità del metodo di Sanger è l'utilizzo di",
+        options: ['Dideossinucleotidi', 'Primer radioattivi', 'Desossinucleotidi', 'Oligonucleotidi'],
+        correct: 0
+    },
+    {
+        text: "Il pirosequenziamento è una tecnica per sequenziare",
+        options: ['Il DNA', 'Le proteine', "L'RNA", 'Nessuna delle risposte'],
+        correct: 0
+    },
+    {
+        text: "La suscettibilità ad una patologia",
+        options: ['Nessuna delle risposte', 'Non è trasmessa ai discendenti', 'Può essere trasmessa ai discendenti', "E' trasmessa solo se si è sviluppata la malattia"],
+        correct: 2
+    },
+    {
+        text: "La diagnostica molecolare è utile nella",
+        options: ['Diagnosi differenziale', 'Tutte le risposte', 'Diagnosi di suscettibilità', 'Scelta terapeutica'],
+        correct: 1
+    },
+    {
+        text: "I polimorfismi a singola base sono indicati con l'acronimo",
+        options: ['NSP', 'PSN', 'PSB', 'SNP'],
+        correct: 3
+    },
+    {
+        text: "Nella trombofilia la diagnosi di suscettibilità si ottiene tramite",
+        options: ["L'analisi dell'espressione del DNA", 'La ricerca di mutazioni sul DNA', 'Tutte le risposte', "L'analisi delle proteine"],
+        correct: 1
+    },
+    {
+        text: "La farmacogenomica",
+        options: ['Permette di dentificare i soggetti suscettibili a sviluppare una determinata patologia', 'Utilizza farmaci genomici per curare detrminate patologie', 'Permette di stabilire il miglior fatmaco per un determinato paziente', 'Studia come i farmaci possono alterare le sequenze genomiche'],
+        correct: 2
+    },
+    {
+        text: "Gli screening obbligatori neonatali in Italia riguardano",
+        options: ['Deficit Multiplo della carbossilasi', 'Omocistinuria', 'La fenilchetonuria', 'Malattie da accumulo lisosomiale'],
+        correct: 2
+    },
+    {
+        text: "Le patologie per le quali è stato individuato il gene che causa la malattia sono circa",
+        options: ['1800', '180', '18', '18000'],
+        correct: 0
+    },
+    {
+        text: "La maggior parte delle tecniche di biologia molecolare tendono a ricercare mutazioni nella seuqnza del",
+        options: ['Tutte le risposte', 'DNA', 'RNA', 'Proteine'],
+        correct: 0
+    },
+    {
+        text: "La fibrosi cistica è causata da una mutazione al gene",
+        options: ['CRFT', 'FTCR', 'RFTC', 'CFTR'],
+        correct: 3
+    },
+    {
+        text: "Nella diagnosi prenatale delle malattie genetiche prima di ricercare le varianti patogenetiche è necessario",
+        options: ["Verificare l'integrità del DNA genomico", 'Tutte le risposte', 'Confermare la paternià del campione di DNA fetale', 'Escludere che ci siano delle contaminazioni virali'],
+        correct: 1
+    },
+    {
+        text: "Nel triplo-test per la diagnosi prenatale della sindrome di Down si misurano i livelli di",
+        options: ['prolattina, gonadotropina corionica, estriolo', 'alfa-fetoproteina, cortocotropina, estriolo', 'alfa-fetoproteina, gonadotropina corionica, estradiolo', 'alfa-fetoproteina, gonadotropina corionica, estriolo'],
+        correct: 3
+    },
+    {
+        text: "L'emofilia A è dovuta lla carenza del fattore",
+        options: ['FVI', 'FVIII', 'FIX', 'FV'],
+        correct: 1
+    },
+    {
+        text: "L'emofilia B è dovuta lla carenza del fattore",
+        options: ['FVII', 'FIX', 'FX', 'FV'],
+        correct: 1
+    }
 
 
             // Puoi aggiungere qui tutte le altre domande dal set completo
