@@ -2352,18 +2352,35 @@
             // Puoi aggiungere qui tutte le altre domande dal set completo
         ];
 
-        // Funzione per selezionare 24 domande casuali
-        function getRandomQuestions(num) {
-            const selectedQuestions = [];
-            const usedIndexes = new Set();
-            while (selectedQuestions.length < num) {
-                const randomIndex = Math.floor(Math.random() * questions.length);
-                if (!usedIndexes.has(randomIndex)) {
-                    selectedQuestions.push(questions[randomIndex]);
-                    usedIndexes.add(randomIndex);
-                }
-            }
-            return selectedQuestions;
+
+// Funzione per mescolare un array usando l'algoritmo di Fisher-Yates
+function shuffle(array) {
+    let currentIndex = array.length, randomIndex;
+
+    // Finché restano elementi da mescolare...
+    while (currentIndex != 0) {
+
+        // Seleziona un elemento rimanente...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // E scambialo con l'elemento corrente.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
+       // Funzione per ottenere un numero specifico di domande casuali
+function getRandomQuestions(num) {
+    // Crea una copia dell'array delle domande per evitare di modificarlo direttamente
+    const shuffledQuestions = questions.slice();
+    // Mescola l'array delle domande
+    shuffle(shuffledQuestions);
+    // Restituisce le prime 'num' domande dall'array mescolato
+    return shuffledQuestions.slice(0, num);
+
         }
 
         // Funzione per salvare l'elenco delle domande visualizzate per riproporle se necessario
@@ -2418,29 +2435,56 @@
             }
         }
 
-        // Funzione per calcolare il punteggio, fermare il timer e salvare i dati
-        function calculateScore(questions) {
-            clearInterval(timer); // Ferma il timer
-            let score = 0;
-            let form = document.getElementById('quizForm');
-            let resultDiv = document.getElementById('result');
-            resultDiv.innerHTML = ''; // Reset del risultato
-            let errors = 0;
-            let wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
+      function calculateScore(questions) {
+    clearInterval(timer); // Ferma il timer
+    let score = 0;
+    let form = document.getElementById('quizForm');
+    let resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = ''; // Reset del risultato
+    let errors = 0;
+    let wrongAnswers = JSON.parse(localStorage.getItem('wrongAnswers')) || {};
 
-            // Calcola il punteggio e colora le risposte corrette
-            questions.forEach((question, index) => {
-                const radios = form[`q${index}`];
-                let userAnswer = null;
+    // Calcola il punteggio e colora le risposte corrette
+    questions.forEach((question, index) => {
+        const radios = form[`q${index}`];
+        let userAnswer = null;
 
-                if (radios) {
-                    for (let i = 0; i < radios.length; i++) {
-                        if (radios[i].checked) {
-                            userAnswer = radios[i].value;
-                            break;
-                        }
-                    }
+        if (radios) {
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    userAnswer = radios[i].value;
+                    break;
                 }
+            }
+        }
+
+        // Confronta la risposta e aggiorna il punteggio
+        if (userAnswer !== null && userAnswer == question.correct) {
+            score++;
+        } else {
+            errors++;
+            wrongAnswers[`q${index}`] = (wrongAnswers[`q${index}`] || 0) + 1;
+        }
+
+        // Colora la risposta corretta in verde
+        for (let i = 0; i < radios.length; i++) {
+            if (i == question.correct) {
+                radios[i].parentElement.style.backgroundColor = 'lightgreen'; // Risposta corretta evidenziata
+            }
+        }
+    });
+
+    // Mostra il risultato del test
+    if (score >= 18) {
+        resultDiv.innerHTML = `<p>TEST SUPERATO! Punteggio: ${score}/24</p>`;
+    } else {
+        resultDiv.innerHTML = `<p>TEST NON SUPERATO. Punteggio: ${score}/24</p>`;
+    }
+
+    // Calcola e salva il tempo totale impiegato
+    let totalTime = 40 * 60 - timeRemaining; // Tempo totale impiegato
+    saveResults(score, errors, wrongAnswers, totalTime); // Salva anche il tempo impiegato
+}
 
                 // Confronta la risposta e aggiorna il punteggio
                 if (userAnswer !== null && userAnswer == question.correct) {
@@ -2557,18 +2601,17 @@
         }
 
         // Funzione per selezionare tutte le risposte corrette basate sull'indice della domanda
-        function fillCorrectAnswers(questions) {
-            const quizForm = document.getElementById('quizForm');
+function fillCorrectAnswers(questions) {
+    const quizForm = document.getElementById('quizForm');
 
-            // Per ogni domanda randomizzata, seleziona la risposta corretta in base all'indice originale
-            questions.forEach((question, index) => {
-                const radios = quizForm[`q${index}`];
+    // Per ogni domanda, seleziona la risposta corretta
+    questions.forEach((question, index) => {
+        const radios = quizForm[`q${index}`];
 
-                // Seleziona la risposta corretta in base all'indice della domanda originale
-                radios[question.correct].checked = true;
-            });
-        }
-
+        // Seleziona la risposta corretta
+        radios[question.correct].checked = true;
+    });
+}
         // Aggiungi l'evento click sul timer
         document.getElementById('timer').addEventListener('click', () => {
             timerClickCount++;
